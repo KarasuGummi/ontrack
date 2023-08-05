@@ -1,0 +1,45 @@
+.green-btn {
+  color: white;
+  padding: 5px 6px;
+  border-radius: 15px;
+  background: $emerald;
+  transition: background 0.3s ease;
+  font-family: $body-font;
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+
+  &:hover {
+    background: #087a71;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
+
+.green-btn a {
+ color: white;
+}
+
+.yellow-btn {
+  color: white;
+  padding: 5px 22px;
+  border-radius: 15px;
+  background: $yellow;
+  transition: background 0.3s ease;
+  font-family: $body-font;
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+
+  &:hover {
+    background: #daa216;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
+
+.yellow-btn a {
+  color: white;
+ }
+
+ .banner .yellow-btn{
+  margin-top: 10px;
+ }

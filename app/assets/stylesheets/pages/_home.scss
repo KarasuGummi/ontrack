@@ -1,1 +1,52 @@
 // Specific CSS for your home-page
+.homepage {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+// paw
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+.paw {
+  text-align:  center;
+  margin: 20px 0;
+}
+
+.paw li {
+  list-style: none;
+  font-size: 30px;
+  line-height:33px;
+}
+.yellow-paw {
+  color: $yellow;
+  position:relative;
+  right:20px;
+}
+.green-paw {
+  color: $emerald;
+  position:relative;
+  left:20px;
+}
+.blue-paw {
+  color: $dark-blue;
+  position:relative;
+  right:20px;
+}
+
+
+
+
+// background img
+
+.bg-img {
+  padding: 0;
+  background-image: url("https://res.cloudinary.com/dbmqippyl/image/upload/v1691216828/ontrack_background_y6vxr6.jpg");
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
