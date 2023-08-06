@@ -1,25 +1,54 @@
+  <%= render "shared/navbar"%>
 <div class="container py-5 bg-body-tertiary">
   <h3 class="text-center">My Dashboard</h3>
   <div class="dashboard-container">
     <div class="my-info">
-      <p>Latest Project:</p>
-      <p>Upcoming Deadlines:</p>
-      <p>Current Points:</p>
+      <%# display latest project %>
+      <% if @latest_project %>
+        <p>Latest Project: <%= @latest_project.name %></p>
+      <% else %>
+        <p>No project added yet.</p>
+      <% end %>
+      <%# display upcoming deadlines %>
+      <% if @upcoming_projects.any? %>
+        <p>Upcoming Deadlines:</p>
+        <ul>
+          <% @upcoming_projects.each do |project| %>
+            <li><%= project.name %> - <%= project.deadline.strftime('%Y-%m-%d %H:%M') %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No upcoming deadlines.</p>
+      <% end %>
+      <%# display user points %>
+      <p>My Points: <%= @user_points %></p>
     </div>
+
+    <%# display buddy %>
     <div class="buddy-container">
       <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
       <p class="buddy-text">Hello!</p>
     </div>
     <div class="buddy-links text-center">
+      <%# This should link to the buddy show page in the future %>
       <%= link_to dashboard_path do %>
-        <i class="fa-solid fa-bone"></i>
-      <% end %>
-      <%= link_to dashboard_path do %>
-        <i class="fa-solid fa-comments"></i>
+        <i class="fa-solid fa-paw dashboard-paw"></i>
       <% end %>
     </div>
+
+    <%# display recommended projects %>
     <div class="project-recommendations">
-      <p>Place project recommendations here.</p>
+      <% if @recommended_projects.any? %>
+        <p>Try one of these projects!</p>
+        <ul>
+          <% @recommended_projects.each do |project| %>
+            <li><%= project.name %> - Status: <%= project.status.capitalize %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>We don't have any matches for you... yet!</p>
+        <p>Try updating your interests or searching for something new.</p>
+      <% end %>
     </div>
   </div>
 </div>

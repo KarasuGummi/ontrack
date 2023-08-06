@@ -29,13 +29,12 @@ class ProjectsController < ApplicationController
   end
 
   def dashboard
-    # @recommended_projects = Project.where(category: current_user.interest)
-    # @project = Project.find(current_user.project_id)
-    # I think we can use this line below to access the buddy's name, love, etc.
-    # @buddy = current_user.buddy
-    # Not so sure how we will do this right now.
-    # @progress =
+    @latest_project = current_user.projects.accepted.order(created_at: :desc).first
+    @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
+    @user_points = current_user.projects.sum(:points)
+    @recommended_projects = current_user.projects.pending.where(category: current_user.interest)
   end
+
   private
 
   def project_params
