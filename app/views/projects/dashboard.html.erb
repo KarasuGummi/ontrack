@@ -1,0 +1,25 @@
+<div class="container py-5 bg-body-tertiary">
+  <h3 class="text-center">My Dashboard</h3>
+  <div class="dashboard-container">
+    <div class="my-info">
+      <p>Latest Project:</p>
+      <p>Upcoming Deadlines:</p>
+      <p>Current Points:</p>
+    </div>
+    <div class="buddy-container">
+      <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
+      <p class="buddy-text">Hello!</p>
+    </div>
+    <div class="buddy-links text-center">
+      <%= link_to dashboard_path do %>
+        <i class="fa-solid fa-bone"></i>
+      <% end %>
+      <%= link_to dashboard_path do %>
+        <i class="fa-solid fa-comments"></i>
+      <% end %>
+    </div>
+    <div class="project-recommendations">
+      <p>Place project recommendations here.</p>
+    </div>
+  </div>
+</div>
