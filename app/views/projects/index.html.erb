@@ -1,2 +1,30 @@
-<h1>Test!</h1>
-<p>Projects: <%= @projects %></p>
+<%= render "shared/navbar"%>
+  <div class="row project-list col-12">
+    <div class="container">
+    <%# title %>
+      <div class="projects-page-title">
+        <div class="title">
+            <h1>My Learning Tracks</h1>
+        </div>
+    <%# paw %>
+        <div class="paw">
+          <ul>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          </ul>
+        </div>
+      </div>
+
+
+    <%# card list %>
+      <div class="projects-listing-card">
+      </div>
+  </div>
+
+    <%# display buddy %>
+      <div class="buddy-container">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 120, crop: :fill) %>
+        <p class="buddy-text">Ain’t no mountain high enough baby!</p>
+      </div>
+  </div>
