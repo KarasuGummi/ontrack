@@ -2,20 +2,24 @@
   <div class="container">
     <%# <% if current_user? %>
       <ul class="navbar-icons">
-        <li><%= link_to root_path do %>
+        <li><%= link_to dashboard_path do %>
           <i class="fa-solid fa-house-chimney"></i>
+          <h6>Home</h6>
         <% end %> </li>
 
         <li><%= link_to projects_path do %>
-        <i class="fa-solid fa-list-check"></i>
+          <i class="fa-solid fa-list-check"></i>
+          <h6>Projects</h6>
         <% end %></li>
 
         <li><%= link_to buddies_path do %>
-        <i class="fa-solid fa-paw"></i>
+          <i class="fa-solid fa-paw"></i>
+          <h6>Buddy</h6>
         <% end %></li>
     <%# ⬇︎will change the path later %>
         <li><%= link_to root_path do %>
-        <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-user"></i>
+          <h6>Me</h6>
         <% end %></li>
       </ul>
       <%# <% end %>
