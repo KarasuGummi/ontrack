@@ -99,6 +99,27 @@ Answer.create!(
   points: 5
 )
 
+spanish_art_2 = Project.create!(
+  name: 'Learn Spanish by Creating a Comic Book',
+  category: 'Language',
+  description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
+  deadline: DateTime.now,
+  status: false,
+  points: 40,
+  user: kevin
+)
+
+spanish_art_2_question = Question.create!(
+  question_content: 'How do you say dance in spanish?',
+  project: spanish_art_2
+)
+
+Answer.create!(
+  answer_content: 'bailar',
+  question: spanish_art_2_question,
+  points: 5
+)
+
 coding = Project.create!(
   name: 'Learn Web Development With Ruby On Rails!',
   category: 'computer science',
