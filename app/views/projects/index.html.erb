@@ -28,7 +28,7 @@
           <h6><strong><%= project.name %></strong></h6>
           <%# <p><%= project.description</p> %>
           <div class="content-bottom">
-            <p>Deadline:<br><%= project.deadline %></p>
+            <p>Deadline:<br><small><%= project.deadline %></small></p>
             <button class="green-btn">
             <%# need to fix the link later %>
               <%= link_to "Review", new_project_path%>

@@ -21,6 +21,10 @@
     margin: 0;
     height: 100%;
   }
+
+  h6 {
+    text-decoration: underline;
+  }
 }
 
 .category-tag {
@@ -47,4 +51,6 @@
 .content-bottom {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
 }
