@@ -1,3 +1,4 @@
+// green btn
 .green-btn {
   color: white;
   padding: 5px 6px;
@@ -15,10 +16,20 @@
   }
 }
 
+// green review btn(project-list page)
+.projects-listing-card .green-btn {
+  padding: 2px 8px;
+  height: 28px;
+  margin-top: auto;
+  // position:relative;
+  // bottom: 5%;
+}
+
 .green-btn a {
   color: white;
 }
 
+// yellow btn
 .yellow-btn {
   color: white;
   padding: 5px 22px;
@@ -40,6 +51,37 @@
   color: white;
 }
 
+// yellow btn(banner)
 .banner .yellow-btn{
   margin-top: 10px;
+}
+
+// blue btn
+.blue-btn {
+  color: white;
+  padding: 5px 22px;
+  border-radius: 15px;
+  background: $dark-blue;
+  transition: background 0.3s ease;
+  font-family: $body-font;
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+
+  &:hover {
+    background: #0f5b71;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
+
+.blue-btn a {
+  color: white;
+}
+
+// blue add-new-project btn(project-list page)
+.add-btn .blue-btn {
+  margin: 16px auto;
+  padding: 6px 24px;
+  text-align: center;
+  display: flex;
 }

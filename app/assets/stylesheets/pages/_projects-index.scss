@@ -19,7 +19,7 @@
 }
 // ProjectList-page paw
 .projects-page-title .paw {
-  margin-right: 30px;
+  margin-right: 20px;
   padding: 0;
 }
 
@@ -37,10 +37,12 @@
   height: 180px;
   justify-content: center;
   align-items: center;
-  background-color: $faded-yellow;
+  background-color: #f5e2b5;
   padding: 0;
   margin: 0;
   width: 100%;
+  position: sticky;
+  bottom: 0;
 }
 
 .project-list .buddy-text {
