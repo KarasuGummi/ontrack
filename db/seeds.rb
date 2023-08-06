@@ -83,7 +83,7 @@ spanish_art = Project.create!(
   category: 'Language',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.now,
-  status: false,
+  status: :accepted,
   points: 50,
   user: kevin
 )
@@ -104,7 +104,7 @@ spanish_art_2 = Project.create!(
   category: 'Language',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
   deadline: DateTime.now,
-  status: false,
+  status: :pending,
   points: 40,
   user: kevin
 )
@@ -125,7 +125,7 @@ coding = Project.create!(
   category: 'computer science',
   description: 'In this engaging and hands-on lesson, students will be introduced to the world of web development using Ruby on Rails, a powerful and user-friendly web application framework. Through a step-by-step approach, students will gain a fundamental understanding of how to create dynamic and interactive web applications.',
   deadline: DateTime.now,
-  status: true,
+  status: :pending,
   points: 100,
   user: curtis
 )
