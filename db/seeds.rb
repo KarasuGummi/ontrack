@@ -14,7 +14,7 @@ Buddy.destroy_all
 Project.destroy_all
 Question.destroy_all
 Answer.destroy_all
-User_answer.destroy_all
+UserAnswer.destroy_all
 
 puts 'Database cleaned!'
 
@@ -84,7 +84,8 @@ spanish_art = Project.create!(
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.now,
   status: false,
-  points: 50
+  points: 50,
+  user: kevin
 )
 
 spanish_art_question = Question.create!(
@@ -98,13 +99,35 @@ Answer.create!(
   points: 5
 )
 
+spanish_art_2 = Project.create!(
+  name: 'Learn Spanish by Creating a Comic Book',
+  category: 'Language',
+  description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
+  deadline: DateTime.now,
+  status: false,
+  points: 40,
+  user: kevin
+)
+
+spanish_art_2_question = Question.create!(
+  question_content: 'How do you say dance in spanish?',
+  project: spanish_art_2
+)
+
+Answer.create!(
+  answer_content: 'bailar',
+  question: spanish_art_2_question,
+  points: 5
+)
+
 coding = Project.create!(
   name: 'Learn Web Development With Ruby On Rails!',
   category: 'computer science',
   description: 'In this engaging and hands-on lesson, students will be introduced to the world of web development using Ruby on Rails, a powerful and user-friendly web application framework. Through a step-by-step approach, students will gain a fundamental understanding of how to create dynamic and interactive web applications.',
   deadline: DateTime.now,
   status: true,
-  points: 100
+  points: 100,
+  user: curtis
 )
 
 coding_question = Question.create!(
@@ -117,3 +140,5 @@ Answer.create!(
   question: coding_question,
   points: 5
 )
+
+puts 'All finished!'
