@@ -9,7 +9,7 @@
         <p>No project added yet.</p>
       <% end %>
       <%# display upcoming deadlines %>
-      <% if @upcoming.projects.any? %>
+      <% if @upcoming_projects.any? %>
         <p>Upcoming Deadlines:</p>
         <ul>
           <% @upcoming_projects.each do |project| %>
@@ -31,7 +31,7 @@
     <div class="buddy-links text-center">
       <%# This should link to the buddy show page in the future %>
       <%= link_to dashboard_path do %>
-        <i class="fa-solid fa-paw yellow-paw"></i>
+        <i class="fa-solid fa-paw dashboard-paw"></i>
       <% end %>
     </div>
 
