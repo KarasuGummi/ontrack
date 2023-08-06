@@ -43,8 +43,8 @@
         <div class="project-cards">
           <% @recommended_projects.each do |project| %>
           <div class="project-card">
-            <h5 class="project-name"><%= project.name %></h5>
-            <p class="project-status">Status: <%= project.status.capitalize %></p>
+            <p class="project-name">Name: <%= project.name %></p>
+            <p class="project-category">Category: <%= project.category %></p>
           </div>
           <% end %>
         </div>

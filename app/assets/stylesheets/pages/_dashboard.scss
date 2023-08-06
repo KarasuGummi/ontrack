@@ -20,9 +20,35 @@
   padding: 10px;
 }
 
-
-
 .buddy-text {
   font-style: italic;
   margin-top: 10px;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+}
+
+.project-name {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.project-status {
+  font-style: italic;
+  margin: 0;
+  padding: 5px 0;
 }
