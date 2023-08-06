@@ -1,2 +1,56 @@
-<h1>Test!</h1>
-<p>Projects: <%= @projects %></p>
+<%= render "shared/navbar"%>
+  <div class="row project-list justify-content-center">
+    <div class="container">
+    <%# title %>
+      <div class="projects-page-title col-12 col-lg-6">
+        <div class="title">
+            <h1>My Learning Tracks</h1>
+        </div>
+    <%# paw %>
+        <div class="paw">
+          <ul>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          </ul>
+        </div>
+      </div>
+
+
+    <%# card list %>
+      <div class="projects-listing-card">
+        <% if @projects.any? %>
+          <% @projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p><%= project.category %></p>
+          </div>
+          <h6><strong><%= project.name %></strong></h6>
+          <%# <p><%= project.description</p> %>
+          <div class="content-bottom">
+            <p>Deadline:<br><small><%= project.deadline %></small></p>
+            <button class="green-btn">
+            <%# need to fix the link later %>
+              <%= link_to "Review", new_project_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
+      </div>
+        <% else %>
+          <p>No project</p>
+        <% end %>
+
+      <div class="add-btn">
+        <button class="blue-btn">
+          <%= link_to "Add New Project", new_project_path%>
+        </button>
+      </div>
+    </div>
+
+    <%# display buddy %>
+      <div class="buddy-container">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 120, crop: :fill) %>
+        <p class="buddy-text">Ain’t no mountain high enough baby!</p>
+      </div>
+  </div>

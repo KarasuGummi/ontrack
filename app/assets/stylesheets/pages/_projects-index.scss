@@ -1,0 +1,50 @@
+// ProjectList-page
+.project-list {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+// ProjectList-page title
+.projects-page-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 90px;
+}
+.projects-page-title h1 {
+  color: $emerald;
+  margin: 0;
+}
+// ProjectList-page paw
+.projects-page-title .paw {
+  margin-right: 20px;
+  padding: 0;
+}
+
+.projects-page-title .paw li {
+  list-style: none;
+  font-size: 20px;
+  line-height:22px;
+}
+.yellow-paw-center {
+  color: $yellow;
+}
+
+// ProjectList-page buddy
+.project-list .buddy-container {
+  height: 180px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5e2b5;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+}
+
+.project-list .buddy-text {
+  margin: 10px 0;
+}
