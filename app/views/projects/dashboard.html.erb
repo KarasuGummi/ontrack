@@ -42,7 +42,7 @@
         <p>Try one of these projects!</p>
         <ul>
           <% @recommended_projects.each do |project| %>
-            <li><%= project.name %></li>
+            <li><%= project.name %> - Status: <%= project.status.capitalize %></li>
           <% end %>
         </ul>
       <% else %>
