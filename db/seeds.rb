@@ -23,7 +23,8 @@ puts 'Creating users...'
 kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
-  password: 'buddy000'
+  password: 'buddy000',
+  interest: 'Language'
 )
 
 curtis = User.create!(

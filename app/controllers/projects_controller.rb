@@ -29,10 +29,10 @@ class ProjectsController < ApplicationController
   end
 
   def dashboard
-    @latest_project = current_user.projects.order(created_at: :desc).first
-    @upcoming_projects = current_user.projects.where('deadline > ?', DateTime.now)
+    @latest_project = current_user.projects.accepted.order(created_at: :desc).first
+    @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
-    @recommended_projects = Project.where(category: current_user.interest, status: :pending)
+    @recommended_projects = current_user.projects.pending.where(category: current_user.interest)
   end
 
   private
