@@ -30,6 +30,15 @@ class ProjectsController < ApplicationController
     redirect_to projects_path, status: :see_other
   end
 
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to dashboard_path, notice: 'This project was updated successfully!'
+    else
+      render 'show'
+    end
+  end
+
   def dashboard
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
@@ -40,6 +49,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :deadline, :category)
+    params.require(:project).permit(:name, :deadline, :category, :status)
   end
 end
