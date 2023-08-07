@@ -1,0 +1,17 @@
+<%= render "shared/navbar"%>
+<div class="container py-5 bg-body-tertiary">
+  <h3 class="text-center">My Buddy</h3>
+  <div class="dashboard-container">
+    <%# display buddy %>
+    <div class="buddy-container">
+      <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", height: 150, crop: :fill) %>
+      <p class="buddy-text">Give me snacks or I'm going to keep sleeping.</p>
+    </div>
+    <div class="buddy-links text-center">
+      <%# This should link to the buddy show page in the future %>
+      <%= link_to buddies_path(@buddy) do %>
+        <i class="fa-solid fa-paw dashboard-paw"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @buddy = current_user.id
     @projects = Project.all
     # I added this line so that we can display only projects that have been accepted
     @accepted_projects = current_user.projects.accepted
@@ -40,6 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def dashboard
+    @buddy = current_user.id
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
