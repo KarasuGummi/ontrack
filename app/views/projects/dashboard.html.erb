@@ -40,11 +40,14 @@
     <div class="project-recommendations">
       <% if @recommended_projects.any? %>
         <p>Try one of these projects!</p>
-        <ul>
+        <div class="project-cards">
           <% @recommended_projects.each do |project| %>
-            <li><%= project.name %> - Status: <%= project.status.capitalize %></li>
+          <div class="project-card">
+            <p class="project-name">Name: <%= project.name %></p>
+            <p class="project-category">Category: <%= project.category %></p>
+          </div>
           <% end %>
-        </ul>
+        </div>
       <% else %>
         <p>We don't have any matches for you... yet!</p>
         <p>Try updating your interests or searching for something new.</p>
