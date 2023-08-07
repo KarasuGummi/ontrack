@@ -1,12 +1,20 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+<div class="row signup-page col-12">
+  <div class="container">
+  <%# paw %>
+    <div class="paw">
+        <ul>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+        </ul>
+    </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="bg-white rounded-4 p-3 shadow">
         <h2 class="text-center">Create a new account</h2>
-
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-
           <div class="form-inputs">
             <%= f.input :email,
                         required: true,
@@ -25,14 +33,19 @@
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
-          <div class="form-actions">
-            <%= f.button :submit, "Create", class: "btn btn-outline-info w-100 py-2" %>
+       <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "green-btn w-100" %>
           </div>
         <% end %>
         <br>
-
-        <%= render "devise/shared/links" %>
+         <%# <%= render "devise/shared/links" %>
+        <hr>
+     <div class="signup-page-buttom">
+            <p>Already have an account?</p>
+            <%= link_to "Sign in", new_user_session_path %>
+        </div>
       </div>
     </div>
   </div>
+</div>
 </div>
