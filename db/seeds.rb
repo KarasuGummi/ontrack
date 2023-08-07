@@ -88,19 +88,17 @@ spanish_art = Project.create!(
   points: 50,
   user: kevin
 )
-
 spanish_art_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
   project: spanish_art
 )
-
 Answer.create!(
   answer_content: 'Perro, Gato, Elephante',
-  question: spanish_art_question,
-  points: 5
+  points: 5,
+  question: spanish_art_question
 )
 
-spanish_art_2 = Project.create!(
+spanish_art2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
   category: 'Language',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
@@ -109,37 +107,111 @@ spanish_art_2 = Project.create!(
   points: 40,
   user: kevin
 )
-
 spanish_art_2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
-  project: spanish_art_2
+  project: spanish_art2
 )
-
 Answer.create!(
   answer_content: 'bailar',
-  question: spanish_art_2_question,
-  points: 5
+  points: 5,
+  question: spanish_art_2_question
 )
 
 coding = Project.create!(
   name: 'Learn Web Development With Ruby On Rails!',
-  category: 'computer science',
+  category: 'Computer Science',
   description: 'In this engaging and hands-on lesson, students will be introduced to the world of web development using Ruby on Rails, a powerful and user-friendly web application framework. Through a step-by-step approach, students will gain a fundamental understanding of how to create dynamic and interactive web applications.',
   deadline: DateTime.now,
   status: :pending,
   points: 100,
   user: curtis
 )
-
 coding_question = Question.create!(
-  question_content: 'placeholder question',
+  question_content: 'Does Yann look better with long or short hair?',
   project: coding
 )
-
 Answer.create!(
-  answer_content: 'placeholder answer',
-  question: coding_question,
-  points: 5
+  answer_content: 'Yes',
+  points: 5,
+  question: coding_question
+)
+
+history_japanese = Project.create!(
+  name: 'Exploring Japanese History through Interactive Timeline',
+  category: 'History',
+  description: 'The objective of this lesson activity is to engage students in exploring key events and periods in Japanese history through an interactive timeline. By the end of the activity, students will have a better understanding of the significant milestones in Japan\'s rich historical past.',
+  deadline: DateTime.now,
+  status: :completed,
+  points: 50,
+  user: juri
+)
+history_japanese_question = Question.create!(
+  question_content: 'Which historical event on the Japanese history timeline led to the end of the samurai era and the beginning of the Meiji Restoration?',
+  project: history_japanese
+)
+Answer.create!(
+  answer_content: 'The overthrow of the Tokugawa Shogunate in 1868',
+  points: 15,
+  question: history_japanese_question
+)
+
+culture_japanese = Project.create!(
+  name: 'Anime Cuisine: A Culinary Journey through Japanese Animation',
+  category: 'Culture',
+  description: 'The objective of this lesson is to introduce students to the delicious world of Japanese cuisine depicted in anime. Through cooking activities inspired by iconic anime dishes, students will learn about Japanese culture, traditional recipes, and the significance of food in storytelling.',
+  deadline: DateTime.now,
+  status: :pending,
+  points: 80,
+  user: curtis
+)
+culture_japanese_question = Question.create!(
+  question_content: 'In the anime "Spirited Away," what is the significance of the bento box that Chihiro\'s parents eat?',
+  project: culture_japanese
+)
+Answer.create!(
+  answer_content: 'It represents their lack of awareness and respect for the spirit world.',
+  points: 10,
+  question: culture_japanese_question
+)
+
+math_music = Project.create!(
+  name: 'Math in Music: Understanding Rhythms and Beats',
+  category: 'Mathematics',
+  description: 'This lesson aims to introduce students to the mathematical concepts underlying musical rhythms and beats. By exploring the relationship between math and music, students can develop a deeper appreciation for both subjects.',
+  deadline: DateTime.now,
+  status: :accepted,
+  points: 75,
+  user: favi
+)
+math_music_question = Question.create!(
+  question_content: 'How do musicians use fractions in musical notation to represent different note durations?',
+  project: math_music
+)
+Answer.create!(
+  answer_content: 'Each musical note is assigned a specific fraction of a whole note.',
+  points: 20,
+  question: math_music_question
 )
 
 puts 'All finished!'
+
+# Format for creating new projects to copy+paste
+
+# Project.create!(
+#   name:
+#   category:
+#   description:
+#   deadline:
+#   status:
+#   points:
+#   user:
+# )
+# Question.create!(
+#   question_content:
+#   project:
+# )
+# Answer.create!(
+#   answer_content:
+#   points:
+#   question:
+# )
