@@ -3,6 +3,8 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    # I added this line so that we can display only projects that have been accepted
+    @accepted_projects = current_user.projects.accepted
   end
 
   def new
