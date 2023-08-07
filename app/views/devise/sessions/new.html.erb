@@ -1,20 +1,38 @@
-<h2>Log in</h2>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h2>Sign in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.input :email,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "email", class: "form-control w-100 py-2" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :password,
+                        required: false,
+                        input_html: { autocomplete: "current-password", class: "form-control w-100 py-2" } %>
+          </div>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign in", class: "btn btn-outline-info w-100 py-2" %>
+
+          </div>
+        <% end %>
+        <br>
+        <%= render "devise/shared/links" %>
+        <hr>
+        <div>
+          <a class="py-2 d-flex align-items-center" href="/" role="button" aria-label="Back to Home">
+            Back Home
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
