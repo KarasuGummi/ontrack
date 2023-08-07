@@ -19,8 +19,9 @@
 
     <%# card list %>
       <div class="projects-listing-card">
-        <% if @projects.any? %>
-          <% @projects.each do |project| %>
+      <%# Accepted projects will show only projects that the user added %>
+        <% if @accepted_projects.any? %>
+          <% @accepted_projects.each do |project| %>
         <div class="content">
           <div class="category-tag">
             <p><%= project.category %></p>
