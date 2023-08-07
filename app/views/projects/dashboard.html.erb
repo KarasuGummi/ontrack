@@ -45,7 +45,7 @@
           <div class="project-card">
             <p class="project-name">Name: <%= project.name %></p>
             <p class="project-category">Category: <%= project.category %></p>
-            <p class='project-status'>Status: <%= project.status %></p>
+              <%# MOVE THE LINK BELOW TO THE PROJECTS SHOW PAGE LATER :) %>
               <% if project.pending? %>
                 <%= simple_form_for project, url: project_path(project) do |f| %>
                 <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
@@ -54,6 +54,7 @@
                 </div>
                 <% end %>
               <% end %>
+            <%= link_to '', project_path(project), class: "card-link" %>
           </div>
           <% end %>
         </div>
