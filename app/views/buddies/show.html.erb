@@ -1,5 +1,17 @@
 <%= render "shared/navbar"%>
 <div class="container py-5 bg-body-tertiary">
+  <ul class="info">
+    <li><h6>Buddy Info:</h6></li>
+    <li>
+      <h6>Name: <%= @buddy.name %>  </h6>
+    </li>
+    <li>
+      <h6>Personality: <%= @buddy.personality %>  </h6>
+    </li>
+    <li>
+      <h6>Love: 💚 X <%= @buddy.love %>  </h6>
+    </li>
+  </ul>
   <h3 class="text-center">My Buddy</h3>
   <div class="dashboard-container">
     <%# display buddy %>
