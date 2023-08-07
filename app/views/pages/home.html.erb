@@ -12,11 +12,17 @@
     <div class="banner align-self-center">
       <h1>OnTrack</h1>
       <p>Discover your learning path</p>
-      <button class="yellow-btn">
-        <%= link_to "GET STARTED", user_session_path%>
-      </button>
+      <div class="sign_in_up">
+        <button class="yellow-btn">
+          <%= link_to "Sign in", user_session_path%>
+        </button>
+        <button class="yellow-btn">
+          <%= link_to "Sign up", new_user_registration_path%>
+        </button>
       </div>
     </div>
+  </div>
+
 
     <%# paw %>
   <div class="paw">
