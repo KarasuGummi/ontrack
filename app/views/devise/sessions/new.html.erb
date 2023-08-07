@@ -11,7 +11,7 @@
     </div>
     <h1 class="signin-title">Welcome<br>Back</h1>
   <%# sign-in form %>
-    <div class="bg-white rounded p-3 shadow">
+    <div class="bg-white rounded-4 p-3 shadow">
       <h2>Sign in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
@@ -32,7 +32,7 @@
         <% end %>
         <br>
         <hr>
-        <%# <%= render "devise/shared/links"%> 
+        <%# <%= render "devise/shared/links"%>
         <div class="signin-page-buttom">
             <p>Don't have an account?</p>
             <%= link_to "Sign up", new_user_registration_path %>

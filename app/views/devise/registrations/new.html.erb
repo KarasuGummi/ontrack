@@ -11,8 +11,8 @@
     </div>
   <div class="row justify-content-center">
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="bg-white rounded-4 p-3 shadow">
-        <h2 class="text-center">Create a new account</h2>
+      <div class="bg-white rounded-4 p-2 shadow">
+        <h2 class="text-center">Create an account</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
@@ -33,19 +33,19 @@
                         input_html: { autocomplete: "new-password" } %>
           </div>
 
-       <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "green-btn w-100" %>
-          </div>
-        <% end %>
-        <br>
-         <%# <%= render "devise/shared/links" %>
-        <hr>
-     <div class="signup-page-buttom">
+          <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: "green-btn w-100" %>
+              </div>
+            <% end %>
+            <br>
+            <%# <%= render "devise/shared/links" %>
+            <hr>
+          <div class="signup-page-buttom">
             <p>Already have an account?</p>
             <%= link_to "Sign in", new_user_session_path %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
