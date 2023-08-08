@@ -1,0 +1,30 @@
+.buddy-part {
+  display: flex;
+}
+
+.project-list {
+  margin: 0;
+  padding: 0;
+}
+
+// status progress bar
+.progBar{
+  width: 328px;
+  height: 18px;
+  background-color:#ececec;
+  position:relative;
+  border-radius:10px;
+  overflow: hidden;
+}
+.progBar .bar{
+  position:absolute;
+  height:100%;
+  background-color: $yellow;
+  animation: progress 3s normal;
+  animation-fill-mode: forwards;
+}
+@keyframes progress {
+  0% {width: 0}
+  // 50% {width: 50%}
+  100% {width: 100%}
+}

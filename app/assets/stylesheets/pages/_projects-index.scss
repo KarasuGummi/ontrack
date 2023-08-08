@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   background-color: white;
+  overflow-y: scroll;
 }
 
 // ProjectList-page title
@@ -33,7 +34,14 @@
 }
 
 // ProjectList-page buddy
-.project-list .buddy-container {
+
+.buddy-text {
+  margin: 10px 0;
+}
+
+.show-buddy-container {
+  position: fixed;
+  bottom: 0;
   height: 180px;
   justify-content: center;
   align-items: center;
@@ -41,10 +49,7 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  position: sticky;
-  bottom: 0;
-}
-
-.project-list .buddy-text {
-  margin: 10px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

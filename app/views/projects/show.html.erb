@@ -1,2 +1,59 @@
-<h1>Test!</h1>
-<p>Just one project: <%= @project %></p>
+<%# <%= render "shared/navbar"%>
+<div class="row project-list justify-content-center">
+  <div class="container">
+  <%# title %>
+    <div class="projects-page-title col-12 col-lg-6">
+      <div class="title">
+          <h1>My Learning Tracks</h1>
+      </div>
+  <%# paw %>
+    <div class="paw">
+        <ul>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+        </ul>
+      </div>
+    </div>
+  <%# project card %>
+    <div class="showpage-projects-card">
+      <div class="show-content">
+        <div class="content-top">
+          <div class="category-tag">
+            <p><%= @project.category %></p>
+          </div>
+            <button class="green-btn">
+              <%= link_to "Add", projects_path%>
+            </button>
+          </div>
+            <h6><strong><%= @project.name %></strong></h6>
+            <p><%= @project.description%></p>
+          <div class="content-bottom">
+            <p>Deadline:<br><small><%= @project.deadline %></small></p>
+          </div>
+      </div>
+    </div>
+
+    <div class="showpage-projects-card show-status">
+      <div class="show-status-content">
+          <h6><strong>Status:</strong></h6>
+          <p>My Progress:</p>
+          <div class="progBar">
+              <p class="bar"></p>
+          </div>
+          <p>Key Concepts Learned:</p>
+          <p>Points earned: +<%= @project.points %></p>
+        </div>
+      </div>
+      <div class="buddy-part">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+          <button class="show-buddy-blue-btn">
+            <p>Tell me more about this projext!</p>
+          </button>
+      </div>
+        <button class="green-btn buddy-part-button">
+        <%# need to fix the link %>
+            <%= link_to "Review Quiz", new_project_path%>
+        </button>
+    </div>
+  </div>
