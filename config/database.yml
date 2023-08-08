@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: ontrack_production
+  database: d9prqrrq6tiac8
   username: ontrack
   password: <%= ENV["ONTRACK_DATABASE_PASSWORD"] %>
