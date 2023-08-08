@@ -9,6 +9,8 @@ require 'date'
 
 puts 'Cleaning up database...'
 
+UserInterest.destroy_all
+Interest.destroy_all
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
@@ -18,13 +20,19 @@ User.destroy_all
 
 puts 'Database cleaned!'
 
-puts 'Creating users...'
+puts 'Creating users and interests...'
 
 kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
-  password: 'buddy000',
-  interest: 'Language'
+  password: 'buddy000'
+)
+kevin_interest = Interest.create!(
+  name: 'Language'
+)
+UserInterest.create!(
+  user: kevin,
+  interest: kevin_interest
 )
 
 curtis = User.create!(
