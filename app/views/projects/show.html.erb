@@ -1,4 +1,4 @@
-
+<%# <%= render "shared/navbar"%>
 <div class="row project-list justify-content-center">
   <div class="container">
   <%# title %>
@@ -17,7 +17,7 @@
     </div>
   <%# project card %>
     <div class="showpage-projects-card">
-      <div class="content">
+      <div class="show-content">
         <div class="content-top">
           <div class="category-tag">
             <p><%= @project.category %></p>
@@ -34,9 +34,8 @@
       </div>
     </div>
 
-    <div class="showpage-projects-card">
-      <div class="content">
-        <div class="status">
+    <div class="showpage-projects-card show-status">
+      <div class="show-status-content">
           <h6><strong>Status:</strong></h6>
           <p>My Progress:</p>
           <p>Key Concepts Learned:</p>
@@ -45,4 +44,3 @@
       </div>
     </div>
   </div>
-</div>
