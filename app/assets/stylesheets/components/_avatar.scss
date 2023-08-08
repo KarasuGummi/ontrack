@@ -18,3 +18,12 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+
+.buddy-avatar{
+  border-radius: 50px;
+  // box-shadow: 5 5 15px rgba(0,0,0,0.2);
+  // border: $gray 1px solid;
+  // transition: box-shadow 2s ease-out, transform 1s ease-out;
+  box-shadow: 0 5px 5px 2.5px rgb(0, 0, 0);
+  // transform: translateY(-10px);
+  }

@@ -42,5 +42,15 @@
           <p>Points earned:</p>
         </div>
       </div>
+      <div class="buddy-part">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+          <button class="show-buddy-blue-btn">
+            <p>Tell me more about this projext!</p>
+          </button>
+      </div>
+        <button class="green-btn buddy-part-button">
+        <%# need to fix the link %>
+            <%= link_to "Review Quiz", new_project_path%>
+        </button>
     </div>
   </div>
