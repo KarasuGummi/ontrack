@@ -1,2 +1,52 @@
-<h1>Test!</h1>
-<p>Just one project: <%= @project %></p>
+
+<div class="row project-list justify-content-center">
+  <div class="container">
+  <%# title %>
+    <div class="projects-page-title col-12 col-lg-6">
+      <div class="title">
+          <h1>My Learning Tracks</h1>
+      </div>
+  <%# paw %>
+    <div class="paw">
+        <ul>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+        </ul>
+      </div>
+    </div>
+  <%# card list %>
+    <div class="showpage-projects-card">
+      <div class="content">
+        <div class="category-tag">
+          <p><%= @project.category %></p>
+        </div>
+        <h6><strong><%= @project.name %></strong></h6>
+        <%# <p><%= project.description</p> %>
+        <div class="content-bottom">
+          <p>Deadline:<br><small><%= @project.deadline %></small></p>
+          <button class="green-btn">
+          <%# need to fix the link later %>
+            <%= link_to "Review", new_project_path%>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="showpage-projects-card">
+      <div class="content">
+        <div class="category-tag">
+          <p><%= @project.category %></p>
+        </div>
+        <h6><strong><%= @project.name %></strong></h6>
+        <%# <p><%= project.description</p> %>
+        <div class="content-bottom">
+          <p>Deadline:<br><small><%= @project.deadline %></small></p>
+          <button class="green-btn">
+          <%# need to fix the link later %>
+            <%= link_to "Review", new_project_path%>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
