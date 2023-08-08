@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :user_answers, dependent: :destroy
   has_many :answers, through: :user_answers
+  has_many :user_interests
+  has_many :interests, through: :user_interests
 end
