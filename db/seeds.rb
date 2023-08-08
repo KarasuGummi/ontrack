@@ -9,12 +9,12 @@ require 'date'
 
 puts 'Cleaning up database...'
 
-User.destroy_all
+UserAnswer.destroy_all
+Answer.destroy_all
+Question.destroy_all
 Buddy.destroy_all
 Project.destroy_all
-Question.destroy_all
-Answer.destroy_all
-UserAnswer.destroy_all
+User.destroy_all
 
 puts 'Database cleaned!'
 
