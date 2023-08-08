@@ -1,0 +1,15 @@
+<%# <h1>Ask a Question:</h1>
+<%= form_tag generate_response_path, method: :post do %>
+  <%# <%= text_area_tag :user_input, '', rows: 4, cols: 50 %>
+  <%# <%= submit_tag 'Generate Response' %>
+<%# <% end %>
+
+<%# <div id="response-frame" class="turbo-frame">
+  <% if @response %>
+    <%# <h1>OpenAI Response:</h1>
+    <p><%= @response</p>
+  <%# <% end %>
+<%# </div> %>
+
+<h1>OpenAI Response:</h1>
+<p><%= @response %></p>

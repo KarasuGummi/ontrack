@@ -60,6 +60,7 @@ gem "cloudinary"
 gem "pundit"
 gem "pg_search"
 gem "table_print"
+gem "ruby-openai"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
