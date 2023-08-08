@@ -1,0 +1,28 @@
+.signin-page {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.signin-title {
+  text-align:  center;
+  margin: 22px 0;
+  font-family: $title-font;
+}
+.signin-page-buttom {
+  display: flex;
+  p {
+    margin-right: 10px;
+  }
+}
+// signin-page paw
+.signin-page .paw {
+  padding: 0;
+}
+.signin-page .paw li {
+  list-style: none;
+  font-size: 24px;
+  line-height:24px;
+}
+.yellow-paw-center {
+  color: $yellow;
+}

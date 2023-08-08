@@ -1,9 +1,18 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h2>Sign in</h2>
-
+<div class="row signin-page col-12">
+  <div class="container">
+  <%# paw %>
+    <div class="paw">
+      <ul>
+        <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+        <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+        <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+        <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+      </ul>
+    </div>
+    <h1 class="signin-title">Welcome<br>Back</h1>
+  <%# sign-in form %>
+    <div class="bg-white rounded-4 p-3 shadow">
+      <h2>Sign in</h2>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
             <%= f.input :email,
@@ -17,22 +26,17 @@
                         input_html: { autocomplete: "current-password", class: "form-control w-100 py-2" } %>
           </div>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-
-
           <div class="form-actions">
-            <%= f.button :submit, "Sign in", class: "btn btn-outline-info w-100 py-2" %>
-
+            <%= f.button :submit, "Sign in", class: "green-btn w-100" %>
           </div>
         <% end %>
         <br>
-        <%= render "devise/shared/links" %>
         <hr>
-        <div>
-          <a class="py-2 d-flex align-items-center" href="/" role="button" aria-label="Back to Home">
-            Back Home
-          </a>
+        <%# <%= render "devise/shared/links"%>
+        <div class="signin-page-buttom">
+            <p>Don't have an account?</p>
+            <%= link_to "Sign up", new_user_registration_path %>
         </div>
       </div>
     </div>
   </div>
-</div>

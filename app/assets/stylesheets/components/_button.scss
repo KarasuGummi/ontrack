@@ -16,6 +16,9 @@
   }
 }
 
+.green-btn a {
+  color: white;
+}
 // green review btn(project-list page)
 .projects-listing-card .green-btn {
   padding: 2px 8px;
@@ -23,10 +26,7 @@
   margin-top: auto;
 }
 
-.green-btn a {
-  color: white;
-}
-
+// ----------------------------------------------
 // yellow btn
 .yellow-btn {
   color: white;
@@ -54,6 +54,14 @@
   margin-top: 10px;
 }
 
+.sign_in_up .yellow-btn:last-child{
+  background-color: white;
+  a {
+    color: $yellow;
+  }
+}
+
+// ------------------------------------------------
 // blue btn
 .blue-btn {
   color: white;
