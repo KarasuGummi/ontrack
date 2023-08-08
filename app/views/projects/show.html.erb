@@ -15,36 +15,32 @@
         </ul>
       </div>
     </div>
-  <%# card list %>
+  <%# project card %>
     <div class="showpage-projects-card">
       <div class="content">
-        <div class="category-tag">
-          <p><%= @project.category %></p>
-        </div>
-        <h6><strong><%= @project.name %></strong></h6>
-        <%# <p><%= project.description</p> %>
-        <div class="content-bottom">
-          <p>Deadline:<br><small><%= @project.deadline %></small></p>
-          <button class="green-btn">
-          <%# need to fix the link later %>
-            <%= link_to "Review", new_project_path%>
-          </button>
-        </div>
+        <div class="content-top">
+          <div class="category-tag">
+            <p><%= @project.category %></p>
+          </div>
+            <button class="green-btn">
+              <%= link_to "Add", projects_path%>
+            </button>
+          </div>
+            <h6><strong><%= @project.name %></strong></h6>
+            <p><%= @project.description%></p>
+          <div class="content-bottom">
+            <p>Deadline:<br><small><%= @project.deadline %></small></p>
+          </div>
       </div>
     </div>
+
     <div class="showpage-projects-card">
       <div class="content">
-        <div class="category-tag">
-          <p><%= @project.category %></p>
-        </div>
-        <h6><strong><%= @project.name %></strong></h6>
-        <%# <p><%= project.description</p> %>
-        <div class="content-bottom">
-          <p>Deadline:<br><small><%= @project.deadline %></small></p>
-          <button class="green-btn">
-          <%# need to fix the link later %>
-            <%= link_to "Review", new_project_path%>
-          </button>
+        <div class="status">
+          <h6><strong>Status:</strong></h6>
+          <p>My Progress:</p>
+          <p>Key Concepts Learned:</p>
+          <p>Points earned:</p>
         </div>
       </div>
     </div>
