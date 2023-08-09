@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :buddies, only: %i[new create show update]
   resources :projects, only: %i[index new create show update]
   resources :questions, only: %i[index show]
-  resources :user_interests, only: %i[index edit update]
+
   post 'generate_response', to: 'questions#show', as: :generate_response
 end
