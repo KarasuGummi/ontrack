@@ -19,6 +19,6 @@ class ProfileController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:age, :grade, :subject)
+    params.require(:user).permit(:age, :grade, :subject, :learning_goal)
   end
 end
