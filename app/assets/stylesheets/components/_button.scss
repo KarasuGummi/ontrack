@@ -65,12 +65,12 @@
   margin-top: 10px;
 }
 
-.sign_in_up .yellow-btn:last-child{
-  background-color: white;
-  a {
-    color: $yellow;
-  }
-}
+// .sign_in_up .yellow-btn:last-child{
+//   background-color: white;
+//   a {
+//     color: $yellow;
+//   }
+// }
 
 // ------------------------------------------------
 // blue btn
@@ -82,7 +82,7 @@
   transition: background 0.3s ease;
   font-family: $body-font;
   border: none;
-  // box-shadow: 6px 6px 6px gray;
+  box-shadow: 6px 6px 6px gray;
 
   &:hover {
     background: #0f5b71;
