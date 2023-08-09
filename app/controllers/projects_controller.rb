@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to dashboard_path, notice: 'This project was updated successfully!'
+      redirect_to projects_path, notice: 'This project was updated successfully!'
     else
       render 'show'
     end
