@@ -1,26 +1,37 @@
 <div class="row navbar col-12">
   <div class="container">
     <%# <% if current_user? %>
-      <ul class="navbar-icons">
-        <li><%= link_to dashboard_path do %>
+    <ul class="navbar-icons">
+      <li class="text-center">
+        <%= link_to dashboard_path do %>
           <i class="fa-solid fa-house-chimney"></i>
           <p>Home</p>
-        <% end %> </li>
-
-        <li><%= link_to projects_path do %>
+        <% end %>
+      </li>
+      <li class="text-center">
+        <%= link_to projects_path do %>
           <i class="fa-solid fa-list-check"></i>
           <p>Projects</p>
-        <% end %></li>
-
-        <li><%= link_to buddy_path(@buddy) do %>
+        <% end %>
+      </li>
+      <li class="text-center">
+        <%= link_to buddy_path(@buddy) do %>
           <i class="fa-solid fa-paw"></i>
           <p>Buddy</p>
-        <% end %></li>
-    <%# ⬇︎will change the path later %>
-      <li><%= link_to destroy_user_session_path , data: { "turbo-method": :delete } do %>
-          <i class="fa-solid fa-user"></i>
-          <p>Me</p>
-        <% end %></li>
-      </ul>
+        <% end %>
+      </li>
+      <%# ⬇︎will change the path later %>
+      <li class="text-center">
+        <a href="#"></a>
+        <i class="fa-solid fa-user"></i>
+        <p>Me</p>
+      </li>
+      <li class="text-center">
+        <%= link_to destroy_user_session_path , data: { "turbo-method": :delete } do %>
+          <i class="fas fa-sign-out-alt"></i>
+          <p>Sign out</p>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
