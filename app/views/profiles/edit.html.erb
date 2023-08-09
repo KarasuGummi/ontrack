@@ -1,0 +1,22 @@
+<div>
+  <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
+    <h2>Edit Profile</h2>
+
+    <h3>Personal Information</h3>
+    <%= f.input :age %>
+    <%= f.input :grade %>
+    <%= f.input :subject %>
+    <%= f.input :learning_goal %>
+
+    <h3>Interests</h3>
+    <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b| %>
+      <%= b.check_box %>
+      <%= b.label %>
+    <% end %>
+
+
+    <div class="actions">
+      <%= f.submit 'Update Profile' %>
+    </div>
+  <% end %>
+</div>
