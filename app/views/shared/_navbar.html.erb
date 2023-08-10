@@ -22,9 +22,10 @@
       </li>
       <%# ⬇︎will change the path later %>
       <li class="text-center">
-        <a href="#"></a>
-        <i class="fa-solid fa-user"></i>
-        <p>Me</p>
+        <%= link_to profiles_path do %>
+          <i class="fa-solid fa-user"></i>
+          <p>Me</p>
+        <% end %>
       </li>
       <li class="text-center">
         <%= link_to destroy_user_session_path , data: { "turbo-method": :delete } do %>
