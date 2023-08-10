@@ -12,4 +12,7 @@
     <li><%= interest.name %></li>
   <% end %>
 </ul>
+  <button class="green-btn buddy-part-button">
+    <%= link_to "Edit My Profile", edit_profile_path(current_user)%>
+  </button>
 </div>
