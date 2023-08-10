@@ -49,7 +49,7 @@
           <% @recommended_projects.each do |project| %>
           <div class="project-card">
             <p class="project-name">Name: <%= project.name %></p>
-            <p class="project-category">Category: <%= project.category %></p>
+            <p class="project-subject">Subject: <%= project.subject %></p>
             <%= link_to '', project_path(project), class: "card-link" %>
           </div>
           <% end %>

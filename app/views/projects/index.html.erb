@@ -24,7 +24,7 @@
           <% @accepted_projects.each do |project| %>
         <div class="content">
           <div class="category-tag">
-            <p><%= project.category %></p>
+            <p><%= project.subject %></p>
           </div>
           <h6><strong><%= link_to project.name, project_path(project), class: 'no-link-style' %></strong></h6>
           <%# <p><%= project.description</p>  %>
