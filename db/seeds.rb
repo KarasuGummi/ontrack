@@ -29,7 +29,7 @@ kevin = User.create!(
   subject: 'Language'
 )
 kevin_interest = Interest.create!(
-  name: 'Language'
+  name: 'drawing'
 )
 UserInterest.create!(
   user: kevin,
@@ -96,7 +96,8 @@ spanish_art = Project.create!(
   deadline: DateTime.now,
   status: :accepted,
   points: 50,
-  user: kevin
+  user: kevin,
+  interest: 'drawing'
 )
 spanish_art_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
@@ -115,7 +116,8 @@ spanish_art2 = Project.create!(
   deadline: DateTime.now,
   status: :pending,
   points: 40,
-  user: kevin
+  user: kevin,
+  interest: 'drawing'
 )
 spanish_art_2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
