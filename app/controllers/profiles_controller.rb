@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       @user.interests = Interest.where(id: params[:user][:interest_ids])
-      redirect_to edit_profile_path, notice: 'Profile successfully updated!'
+      redirect_to profiles_path, notice: 'Profile successfully updated!'
     else
       render :edit
     end
