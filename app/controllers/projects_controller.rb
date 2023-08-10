@@ -46,9 +46,10 @@ class ProjectsController < ApplicationController
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
-    # user_interest_names = current_user.interests.map(&:name)
+    user_interest_names = current_user.interests.map(&:name)
     @recommended_projects = current_user.projects.pending.where(
-      subject: @user.subject
+      subject: @user.subject,
+      interest: user_interest_names
     )
   end
 

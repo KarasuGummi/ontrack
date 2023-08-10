@@ -22,6 +22,12 @@ puts 'Database cleaned!'
 
 puts 'Creating users and interests...'
 
+interests = %w[animation dancing singing writing drawing cooking traveling crafts animals anime star\ wars harry\ potter shark\ week samurai martial\ arts]
+
+interests.each do |interest_name|
+  Interest.create!(name: interest_name)
+end
+
 kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
@@ -29,12 +35,12 @@ kevin = User.create!(
   subject: 'Language'
 )
 kevin_interest = Interest.create!(
-  name: 'Language'
+  name: 'drawing'
 )
-UserInterest.create!(
-  user: kevin,
-  interest: kevin_interest
-)
+# UserInterest.create!(
+#   user: kevin,
+#   interest: kevin_interest
+# )
 
 curtis = User.create!(
   username: 'american_gummi',
@@ -96,7 +102,8 @@ spanish_art = Project.create!(
   deadline: DateTime.now,
   status: :accepted,
   points: 50,
-  user: kevin
+  user: kevin,
+  interest: 'drawing'
 )
 spanish_art_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
@@ -115,7 +122,8 @@ spanish_art2 = Project.create!(
   deadline: DateTime.now,
   status: :pending,
   points: 40,
-  user: kevin
+  user: kevin,
+  interest: 'samurai'
 )
 spanish_art_2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
@@ -172,7 +180,8 @@ culture_japanese = Project.create!(
   deadline: DateTime.now,
   status: :pending,
   points: 80,
-  user: curtis
+  user: curtis,
+  interest: 'animation'
 )
 culture_japanese_question = Question.create!(
   question_content: 'In the anime "Spirited Away," what is the significance of the bento box that Chihiro\'s parents eat?',
