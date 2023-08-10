@@ -1,0 +1,13 @@
+<h2>Profile Information</h2>
+
+<p><strong>Age:</strong> <%= @user.age %></p>
+<p><strong>Grade:</strong> <%= @user.grade %></p>
+<p><strong>Subject:</strong> <%= @user.subject %></p>
+<p><strong>Learning Goals:</strong> <%= @user.learning_goal %></p>
+
+<h3>Interests:</h3>
+<ul>
+  <% @user.interests.each do |interest| %>
+    <li><%= interest.name %></li>
+  <% end %>
+</ul>

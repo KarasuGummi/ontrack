@@ -1,6 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = current_user
+  end
+
   def edit
     @user = current_user
     @interests = Interest.all
