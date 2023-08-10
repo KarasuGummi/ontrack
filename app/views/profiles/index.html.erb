@@ -1,5 +1,6 @@
-<h2>Profile Information</h2>
-
+<%= render "shared/navbar"%>
+<div class="container py-5 bg-body-tertiary">
+  <h3 class="text-center">Profile Information</h3>
 <p><strong>Age:</strong> <%= @user.age %></p>
 <p><strong>Grade:</strong> <%= @user.grade %></p>
 <p><strong>Subject:</strong> <%= @user.subject %></p>
@@ -11,3 +12,4 @@
     <li><%= interest.name %></li>
   <% end %>
 </ul>
+</div>
