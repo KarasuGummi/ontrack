@@ -1,0 +1,18 @@
+<%= render "shared/navbar"%>
+<div class="container py-5 bg-body-tertiary">
+  <h3 class="text-center">Profile Information</h3>
+<p><strong>Age:</strong> <%= @user.age %></p>
+<p><strong>Grade:</strong> <%= @user.grade %></p>
+<p><strong>Subject:</strong> <%= @user.subject %></p>
+<p><strong>Learning Goals:</strong> <%= @user.learning_goal %></p>
+
+<h3>Interests:</h3>
+<ul>
+  <% @user.interests.each do |interest| %>
+    <li><%= interest.name %></li>
+  <% end %>
+</ul>
+  <button class="green-btn buddy-part-button">
+    <%= link_to "Edit My Profile", edit_profile_path(current_user)%>
+  </button>
+</div>
