@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @user = current_user
-    @buddy = @user.buddy
+    @buddy = current_user.id
     @interests = Interest.all
   end
 
