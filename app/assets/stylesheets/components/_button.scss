@@ -35,8 +35,27 @@
 .buddy-part-button {
   padding: 4px 15px;
   margin-left: 68px;
+  margin-bottom: 30px;
 }
 
+// green update button(profile edit page)
+.green-update-btn {
+  color: white;
+  padding: 5px 6px;
+  border-radius: 15px;
+  background: $emerald;
+  transition: background 0.3s ease;
+  font-family: $body-font;
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+  margin: 10px 0;
+
+  &:hover {
+    background: #087a71;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
 // ----------------------------------------------
 // yellow btn
 .yellow-btn {

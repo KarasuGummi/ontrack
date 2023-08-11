@@ -1,24 +1,33 @@
 <%= render "shared/navbar"%>
-<div class="container py-5 bg-body-tertiary">
-  <h3 class="text-center">Profile Information</h3>
-  <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
-    <h2>Edit Profile</h2>
+<div class="row profile-edit col-12">
+  <div class="container">
+    <h3 class="text-center py-2">Edit Profile</h3>
 
-    <h3>Personal Information</h3>
+<div class="bg-white rounded-4 p-3 shadow edit-form">
+  <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
+  <div class="form-group">
     <%= f.input :age %>
     <%= f.input :grade %>
     <%= f.input :subject %>
     <%= f.input :learning_goal %>
+</div>
 
-    <h3>Interests</h3>
-    <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b| %>
+    <p>Interests</p>
+    <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
       <%= b.check_box %>
       <%= b.label %>
     <% end %>
-
-
-    <div class="actions">
-      <%= f.submit 'Update Profile' %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
     </div>
-  <% end %>
+
+
+    <%# <div class="actions">
+      <%= f.submit 'Update Profile' %>
+    <%# </div> %>
+  <%# <% end %>
+
+    <% end %>
+    </div>
+</div>
 </div>
