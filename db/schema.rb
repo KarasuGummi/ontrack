@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_054538) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_11_055132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -119,6 +119,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_054538) do
     t.string "grade"
     t.string "subject"
     t.string "learning_goal"
+    t.bigint "buddy_id"
+    t.index ["buddy_id"], name: "index_users_on_buddy_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -132,4 +134,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_054538) do
   add_foreign_key "user_answers", "users"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
+  add_foreign_key "users", "buddies"
 end
