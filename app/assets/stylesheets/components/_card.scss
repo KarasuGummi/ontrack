@@ -121,7 +121,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   opacity: 90%;
-  padding: 11px 4px;
+  padding: 8px 4px;
   overflow-y: scroll;
 
   p {
@@ -157,7 +157,7 @@
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   opacity: 90%;
-  padding: 4px;
+  padding: 8px 4px;
   overflow-y: scroll;
   margin-bottom: 10px;
 
@@ -168,6 +168,22 @@
 }
 
 .user-subject {
+  margin: 3px;
+  padding: 4px 5px;
+  background-color: #fdcf5a8f;
+  border-radius: 32px;
+  font-size: 12px;
+  text-align: center;
+}
+
+// profile edit card
+.profile_edit_card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // margin: 6px 0;
+}
+
+.user_edit_interest {
   margin: 3px;
   padding: 4px 5px;
   background-color: #fdcf5a8f;
