@@ -3,12 +3,12 @@ class ProfilesController < ApplicationController
 
   def index
     @user = current_user
-    @buddy = current_user.id
+    @buddy = current_user.buddy
   end
 
   def edit
     @user = current_user
-    @buddy = current_user.id
+    @buddy = current_user.buddy
     @interests = Interest.all
   end
 
