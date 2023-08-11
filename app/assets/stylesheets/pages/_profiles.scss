@@ -59,13 +59,14 @@
   padding: 1em 1em 0 1em;
   border: 8px solid #a60;
   box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
+  opacity: 90%;
 }
 
 .blackboard-box p:first-child{
   margin-bottom: 8px;
   padding: 0;
   color: #fff;
-  text-shadow: 0px 0px 3px #fff;
+  text-shadow: 1px 0px 1px #fff;
   text-decoration: underline;
 }
 .blackboard-box p{
