@@ -1,4 +1,4 @@
 class Buddy < ApplicationRecord
-  belongs_to :user
+  has_one :user, dependent: :destroy
   has_many_attached :photos
 end
