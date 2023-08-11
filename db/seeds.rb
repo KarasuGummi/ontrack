@@ -20,7 +20,7 @@ User.destroy_all
 
 puts 'Database cleaned!'
 
-puts 'Creating users and interests...'
+puts 'Creating interests...'
 
 interests = %w[animation dancing singing writing drawing cooking traveling crafts animals anime star\ wars harry\ potter shark\ week samurai martial\ arts]
 
@@ -28,11 +28,45 @@ interests.each do |interest_name|
   Interest.create!(name: interest_name)
 end
 
+puts 'Creating buddies...'
+
+kevin_buddy = Buddy.create!(
+  name: 'dog',
+  personality: 'friendly',
+  love: 10,
+)
+
+curtis_buddy = Buddy.create!(
+  name: 'dog',
+  personality: 'shy',
+  love: 10,
+  # user: curtis
+)
+
+juri_buddy = Buddy.create!(
+  name: 'dog',
+  personality: 'laid-back',
+  love: 10,
+  # user: juri
+)
+
+favi_buddy = Buddy.create!(
+  name: 'dog',
+  personality: 'energetic',
+  love: 10,
+  # user: favi
+)
+
+puts 'Buddies created!'
+
+puts 'Creating users...'
+
 kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
   password: 'buddy000',
-  subject: 'Language'
+  subject: 'Language',
+  buddy: kevin_buddy
 )
 kevin_interest = Interest.create!(
   name: 'drawing'
@@ -46,53 +80,26 @@ curtis = User.create!(
   username: 'american_gummi',
   email: 'curtis@ontrack.com',
   password: 'buddy000',
-  subject: 'Computer Science'
+  subject: 'Computer Science',
+  buddy: curtis_buddy
 )
 
 juri = User.create!(
   username: 'japanese_onigiri',
   email: 'juri@ontrack.com',
-  password: 'buddy000'
+  password: 'buddy000',
+  buddy: juri_buddy
 )
 
 favi = User.create!(
   username: 'spanish_tofu',
   email: 'favi@ontrack.com',
-  password: 'buddy000'
+  password: 'buddy000',
+  buddy: favi_buddy
 )
 
 puts 'Users created!'
-puts 'Creating buddies...'
 
-Buddy.create!(
-  name: 'dog',
-  personality: 'friendly',
-  love: 10,
-  user: kevin
-)
-
-Buddy.create!(
-  name: 'dog',
-  personality: 'shy',
-  love: 10,
-  user: curtis
-)
-
-Buddy.create!(
-  name: 'dog',
-  personality: 'laid-back',
-  love: 10,
-  user: juri
-)
-
-Buddy.create!(
-  name: 'dog',
-  personality: 'energetic',
-  love: 10,
-  user: favi
-)
-
-puts 'Buddies created!'
 puts 'Creating projects...'
 
 spanish_art = Project.create!(
