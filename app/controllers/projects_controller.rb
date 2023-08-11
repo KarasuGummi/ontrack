@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @buddy = current_user.id
+    @buddy = current_user.buddy
     @projects = Project.all
     # I added this line so that we can display only projects that have been accepted
     @accepted_projects = current_user.projects.accepted
@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @buddy = current_user.buddy
   end
 
   def create
