@@ -43,23 +43,27 @@
   <% end %>
 </div>
 
-<div class="container py-2">
-  <%# display recommended projects %>
-  <div class="project-recommendations">
-    <% if @recommended_projects.any? %>
-      <p>Try one of these projects!</p>
-      <div class="project-cards">
-        <% @recommended_projects.each do |project| %>
-        <div class="project-card">
-          <p class="project-name">Name: <%= project.name %></p>
-          <p class="project-category">Category: <%= project.category %></p>
-          <%= link_to '', project_path(project), class: "card-link" %>
+    <%# display recommended projects %>
+    <div class="container">
+      <% if @recommended_projects.any? %>
+      <div class="card text-center">
+        <div class="card-header">
+          Try one of these projects!
         </div>
-        <% end %>
+        <% @recommended_projects.each do |project| %>
+        <div class="card-body">
+          <h5 class="card-title">Name: <%= project.name %></h5>
+          <p class="card-text">Subject: <%= project.subject %></p>
+          <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
+         <% end %>
+        </div>
+          <% else %>
+          <p>Ups Sorry 😬</p>
+          <p>We don't have any matches for you... yet!</p>
+          <p>Wanna get some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %> 🤞🏼</p>
       </div>
-    <% else %>
-      <p>We don't have any matches for you... yet!</p>
-      <p>Try updating your interests or searching for something new.</p>
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
 </div>
