@@ -4,29 +4,32 @@
   <div class="dashboard-container">
     <div class="my-info">
       <%# <%= display user info %>
-      <p>Subject: <%= @user.subject %></p>
-      <p>Current Learning Goal: <%= @user.learning_goal %></p>
-      <p>Grade: <%= @user.grade %></p>
-      <p>My Interests: <%= @user.interests.map(&:name).join(', ') %></p>
+      <hr>
+      <h4>Hi <%= @user.username %> 👋🏽</h4>
+      <hr>
+      <h6>Your Subject: <span class="badge text-bg-light"><%= @user.subject %></span></h6>
+      <h6>Your Current Learning Goal: <span class="badge text-bg-light"><%= @user.learning_goal %></span></h6>
+      <h6>Your grade: <span class="badge text-bg-light"><%= @user.grade %></span></h6>
+      <h6>Your Interests: <span class="badge text-bg-light"><%= @user.interests.map(&:name).join(', ') %></span></h6>
       <%# display latest project %>
       <% if @latest_project %>
-        <p>Latest Project: <%= @latest_project.name %></p>
+        <h6>Latest Project: <span class="badge text-bg-light"><%= @latest_project.name %></span></h6>
       <% else %>
         <p>No project added yet.</p>
       <% end %>
       <%# display upcoming deadlines %>
       <% if @upcoming_projects.any? %>
-        <p>Upcoming Deadlines:</p>
+        <h6>Your Upcoming Deadlines:</h6>
         <ul>
           <% @upcoming_projects.each do |project| %>
             <li><%= project.name %> - <%= project.deadline.strftime('%Y-%m-%d %H:%M') %></li>
           <% end %>
         </ul>
       <% else %>
-        <p>No upcoming deadlines.</p>
+        <h6>No upcoming deadlines.</h6>
       <% end %>
       <%# display user points %>
-      <p>My Points: <%= @user_points %></p>
+      <h6>Your Points: <span class="badge text-bg-light"><%= @user_points %></span></h6>
     </div>
   </div>
 </div>
@@ -43,27 +46,25 @@
   <% end %>
 </div>
 
-    <%# display recommended projects %>
-    <div class="container">
-      <% if @recommended_projects.any? %>
-      <div class="card text-center">
-        <div class="card-header">
-          Try one of these projects!
-        </div>
-        <% @recommended_projects.each do |project| %>
-        <div class="card-body">
-          <h5 class="card-title">Name: <%= project.name %></h5>
-          <p class="card-text">Subject: <%= project.subject %></p>
-          <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
-         <% end %>
-        </div>
-          <% else %>
-          <p>Ups Sorry 😬</p>
-          <p>We don't have any matches for you... yet!</p>
-          <p>Wanna get some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %> 🤞🏼</p>
-      </div>
+<%# display recommended projects %>
+<div class="container">
+  <% if @recommended_projects.any? %>
+  <div class="card text-center">
+    <div class="card-header">
+      Try one of these projects!
+    </div>
+    <% @recommended_projects.each do |project| %>
+    <div class="card-body">
+      <h6 class="card-title">Name: <%= project.name %></h6>
+      <p class="card-text">Subject: <%= project.subject %></p>
+      <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
       <% end %>
     </div>
-
+      <% else %>
+      <p>Ups Sorry 😬</p>
+      <p>We don't have any matches for you... yet!</p>
+      <p>Wanna get some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %> 🤞🏼</p>
   </div>
+  <% end %>
 </div>
+<br>
