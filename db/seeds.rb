@@ -22,23 +22,31 @@ puts 'Database cleaned!'
 
 puts 'Creating users and interests...'
 
+interests = %w[animation dancing singing writing drawing cooking traveling crafts animals anime star\ wars harry\ potter shark\ week samurai martial\ arts]
+
+interests.each do |interest_name|
+  Interest.create!(name: interest_name)
+end
+
 kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
-  password: 'buddy000'
+  password: 'buddy000',
+  subject: 'Language'
 )
 kevin_interest = Interest.create!(
-  name: 'Language'
+  name: 'drawing'
 )
-UserInterest.create!(
-  user: kevin,
-  interest: kevin_interest
-)
+# UserInterest.create!(
+#   user: kevin,
+#   interest: kevin_interest
+# )
 
 curtis = User.create!(
   username: 'american_gummi',
   email: 'curtis@ontrack.com',
-  password: 'buddy000'
+  password: 'buddy000',
+  subject: 'Computer Science'
 )
 
 juri = User.create!(
@@ -89,12 +97,13 @@ puts 'Creating projects...'
 
 spanish_art = Project.create!(
   name: 'Learn Spanish by Drawing Animals',
-  category: 'Language',
+  subject: 'Language',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.now,
   status: :accepted,
   points: 50,
-  user: kevin
+  user: kevin,
+  interest: 'drawing'
 )
 spanish_art_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
@@ -108,12 +117,13 @@ Answer.create!(
 
 spanish_art2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
-  category: 'Language',
+  subject: 'Language',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
   deadline: DateTime.now,
   status: :pending,
   points: 40,
-  user: kevin
+  user: kevin,
+  interest: 'samurai'
 )
 spanish_art_2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
@@ -127,7 +137,7 @@ Answer.create!(
 
 coding = Project.create!(
   name: 'Learn Web Development With Ruby On Rails!',
-  category: 'Computer Science',
+  subject: 'Computer Science',
   description: 'In this engaging and hands-on lesson, students will be introduced to the world of web development using Ruby on Rails, a powerful and user-friendly web application framework. Through a step-by-step approach, students will gain a fundamental understanding of how to create dynamic and interactive web applications.',
   deadline: DateTime.now,
   status: :pending,
@@ -146,7 +156,7 @@ Answer.create!(
 
 history_japanese = Project.create!(
   name: 'Exploring Japanese History through Interactive Timeline',
-  category: 'History',
+  subject: 'History',
   description: 'The objective of this lesson activity is to engage students in exploring key events and periods in Japanese history through an interactive timeline. By the end of the activity, students will have a better understanding of the significant milestones in Japan\'s rich historical past.',
   deadline: DateTime.now,
   status: :completed,
@@ -165,12 +175,13 @@ Answer.create!(
 
 culture_japanese = Project.create!(
   name: 'Anime Cuisine: A Culinary Journey through Japanese Animation',
-  category: 'Culture',
+  subject: 'Culture',
   description: 'The objective of this lesson is to introduce students to the delicious world of Japanese cuisine depicted in anime. Through cooking activities inspired by iconic anime dishes, students will learn about Japanese culture, traditional recipes, and the significance of food in storytelling.',
   deadline: DateTime.now,
   status: :pending,
   points: 80,
-  user: curtis
+  user: curtis,
+  interest: 'animation'
 )
 culture_japanese_question = Question.create!(
   question_content: 'In the anime "Spirited Away," what is the significance of the bento box that Chihiro\'s parents eat?',
@@ -184,7 +195,7 @@ Answer.create!(
 
 math_music = Project.create!(
   name: 'Math in Music: Understanding Rhythms and Beats',
-  category: 'Mathematics',
+  subject: 'Mathematics',
   description: 'This lesson aims to introduce students to the mathematical concepts underlying musical rhythms and beats. By exploring the relationship between math and music, students can develop a deeper appreciation for both subjects.',
   deadline: DateTime.now,
   status: :accepted,
@@ -207,7 +218,7 @@ puts 'All finished!'
 
 # Project.create!(
 #   name:
-#   category:
+#   subject:
 #   description:
 #   deadline:
 #   status:
