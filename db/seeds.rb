@@ -115,7 +115,7 @@ language_drawing = Project.create!(
   name: 'Learn Spanish by Drawing Animals',
   subject: 'Language',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
-  deadline: DateTime.now,
+  deadline: DateTime.parse('2023-09-01 17:30:00'),
   status: :accepted,
   points: 50,
   user: kevin,
@@ -209,6 +209,26 @@ Answer.create!(
   answer_content: 'merging the technical aspects of design with artistic expression',
   points: 5,
   question: architecture_drawing_question
+)
+
+architecture_finalfantasy = Project.create!(
+  name: 'Drawing Fantastical Architecture: Exploring Final Fantasy-Inspired Designs',
+  subject: 'Architecture',
+  description: 'Encourage creativity by having students design their own fantastical architectural structures inspired by the Final Fantasy universe.',
+  deadline: DateTime.parse('2023-09-01 17:30:00'),
+  status: :accepted,
+  points: 30,
+  user: kevin,
+  interest: 'drawing'
+)
+architecture_finalfantasy_question = Question.create!(
+  question_content: 'What are some iconic Final Fantasy architecture?',
+  project: architecture_finalfantasy
+)
+Answer.create!(
+  answer_content: 'Ul\'dah, Gridania, and Limsa Lominsa',
+  points: 20,
+  question: architecture_finalfantasy_question
 )
 
 # Project.create!(
