@@ -143,24 +143,24 @@ Answer.create!(
   question: language_drawing2_question
 )
 
-Project.create!(
-  name:
-  subject:
-  description:
-  deadline:
-  status:
-  points:
-  user:
-  interest:
+language_starwars = Project.create!(
+  name: 'A New Hope: Exploring Spanish Vocabulary Through Star Wars',
+  subject: 'Language',
+  description: 'The objective of this lesson is to introduce students to Spanish vocabulary by using terms and concepts from the Star Wars universe. Students will engage with popular Star Wars characters, settings, and phrases while expanding their language skills.',
+  deadline: DateTime.parse('2023-09-01 17:30:00'),
+  status: :pending,
+  points: 200,
+  user: kevin,
+  interest: 'star wars'
 )
-Question.create!(
-  question_content:
-  project:
+language_starwars_question = Question.create!(
+  question_content: 'What is the Spanish translation for "space" and "planet," two vocabulary words related to Star Wars?',
+  project: language_starwars
 )
 Answer.create!(
-  answer_content:
-  points:
-  question:
+  answer_content: 'espacio and planeta',
+  points: 30,
+  question: language_starwars_question
 )
 
 # *****************CURTIS PROJECTS*****************
