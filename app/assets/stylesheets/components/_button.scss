@@ -19,11 +19,6 @@
 .green-btn a {
   color: white;
 }
-// green review btn(project-list page)
-.projects-listing-card .green-btn {
-  padding: 2px 8px;
-  height: 28px;
-}
 
 // green add button(project show page)
 .showpage-projects-card .green-btn {
@@ -120,6 +115,12 @@
   padding: 6px 24px;
   text-align: center;
   display: flex;
+}
+// blue review btn(project-list page)
+.projects-listing-card .blue-btn {
+  padding: 2px 12px;
+  height: 32px;
+  margin-right: 8px;
 }
 
 // blue buddy part in show page "Tell me more about this projext!"
