@@ -70,7 +70,6 @@ kevin = User.create!(
 kevin_interest = Interest.create!(
   name: 'drawing'
 )
-
 UserInterest.create!(
   user: kevin,
   interest: kevin_interest
@@ -176,10 +175,10 @@ architecture_animation = Project.create!(
   subject: 'Architecture',
   description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
   deadline: DateTime.parse('2023-08-12 17:30:00'),
-  status: :accepted,
+  status: :pending,
   points: 110,
   user: kevin,
-  interest: 'animation'
+  interest: 'drawing'
 )
 architecture_animation_question = Question.create!(
   question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
