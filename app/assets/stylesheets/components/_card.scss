@@ -28,8 +28,13 @@
 }
 
 .category-tag {
+  display: flex;
+  margin-bottom: 6px;
+  gap: 12px;
+}
+
+.subject-tag {
   display: inline-block;
-	margin-bottom: 6px;
 	padding: 0 4px;
 	text-decoration: none;
 	color: white;
@@ -45,6 +50,29 @@
     font-size: 14px;
     color: white;
     text-shadow: 0px 0.1px 0.1px $emerald;
+  }
+}
+
+
+.status-tag {
+  display: inline-block;
+	margin-left: 6px;
+
+	padding: 0 4px;
+	text-decoration: none;
+	color: white;
+	background-color: #fdcf5acf;
+	border: 1px solid $yellow;
+	border-left: 5px solid $yellow;
+  box-shadow: 0 0 10px rgba(0,0,0,0);
+  height: 22px;
+  // text-align: left;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+    text-shadow: 0px 0.1px 0.1px $yellow;
   }
 }
 
