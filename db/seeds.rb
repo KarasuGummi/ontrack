@@ -133,7 +133,9 @@ language_drawing2 = Project.create!(
   points: 40,
   user: kevin,
   interest: 'drawing',
-  learning_goal: 'past tense action verbs'
+  learning_goal: 'past tense action verbs',
+  steps: 'Step 1: Choose your setting. Step 2: Choose your characters. Step 3: Think of 4 -5 main points for your story. Step 4: Make a list of vocab words that you will use. Step 5: Start drawing!',
+  vocab_words: ['bailar', 'comer', 'saltar', 'correr', 'cantar']
 )
 language_drawing2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
