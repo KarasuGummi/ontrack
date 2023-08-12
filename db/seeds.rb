@@ -64,6 +64,7 @@ kevin = User.create!(
   password: 'buddy000',
   subject: 'Architecture',
   buddy: kevin_buddy,
+  age: 21,
   grade: 'college',
   learning_goal: 'vocabulary'
 )
