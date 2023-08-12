@@ -50,7 +50,8 @@ class ProjectsController < ApplicationController
     user_interest_names = current_user.interests.map(&:name)
     @recommended_projects = current_user.projects.pending.where(
       subject: @user.subject,
-      interest: user_interest_names
+      interest: user_interest_names,
+      learning_goal: @user.learning_goal
     )
   end
 
