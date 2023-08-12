@@ -25,7 +25,7 @@
         <div class="content">
           <div class="category-tag">
             <p class="subject-tag"><%= project.subject %></p>
-            <p class="status-tag"><%= project.status %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
           </div>
 
           <h6><strong><%= link_to project.name, project_path(project), class: 'no-link-style' %></strong></h6>
