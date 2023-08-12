@@ -7,13 +7,17 @@
       <hr>
       <h4>Hi <%= @user.username %> 👋🏽</h4>
       <hr>
-      <h6>Your Subject: <span class="badge text-bg-light"><%= @user.subject %></span></h6>
+      <%# <h6>Your Subject: <span class="badge text-bg-light"><%= @user.subject %>
       <h6>Your Current Learning Goal: <span class="badge text-bg-light"><%= @user.learning_goal %></span></h6>
-      <h6>Your grade: <span class="badge text-bg-light"><%= @user.grade %></span></h6>
-      <h6>Your Interests: <span class="badge text-bg-light"><%= @user.interests.map(&:name).join(', ') %></span></h6>
+      <%# <h6>Your grade: <span class="badge text-bg-light"><%= @user.grade %>
+      <%# <h6>Your Interests: <span class="badge text-bg-light"><%= @user.interests.map(&:name).join(', ') %>
       <%# display latest project %>
       <% if @latest_project %>
-        <h6>Latest Project: <span class="badge text-bg-light"><%= @latest_project.name %></span></h6>
+        <h6>Latest Project: 👉
+        <span class="badge text-bg-light">
+          <%= link_to @latest_project.name, projects_path(@project), class: 'no-link-style' %>
+        </span>
+        </h6>
       <% else %>
         <p>No project added yet.</p>
       <% end %>
@@ -29,7 +33,7 @@
         <h6>No upcoming deadlines.</h6>
       <% end %>
       <%# display user points %>
-      <h6>Your Points: <span class="badge text-bg-light"><%= @user_points %></span></h6>
+      <%# <h6>Your Points: <span class="badge text-bg-light"><%= @user_points %>
     </div>
   </div>
 </div>
@@ -63,7 +67,7 @@
       <% else %>
       <p>Ooops! Sorry! 😬</p>
       <p>We don't have any matches for you... yet!</p>
-      <p>Want some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %> 🤞🏼</p>
+      <p>Want some recommendations? Try updating your interests<%= link_to " 👉 Here 👈", profiles_path, class: 'no-link-style' %> 🤞🏼</p>
   </div>
   <% end %>
 </div>
