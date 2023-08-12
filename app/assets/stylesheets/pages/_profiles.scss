@@ -1,0 +1,94 @@
+// user info
+.user_info {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.user_content {
+  width: 100%;
+  padding: 0 16px;
+  line-height: 24px;
+
+  p {
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+
+  li {
+    list-style:none;
+    color: #8b8a8a;
+    font-size: 14px;
+  }
+
+  hr {
+    margin: 4px 0;
+  }
+}
+.user_content ul i {
+  margin-right: 4px;
+}
+
+.profile_edit {
+  display: flex;
+
+  i {
+    color: $dark-blue;
+    font-size: 18px;
+    margin-left: 20px;
+
+    &:hover {
+      color: $emerald;
+      box-shadow: 0 0 10px rgba(0,0,0,0);
+    }
+  }
+}
+
+// Learning Goal
+.blackboard-box{
+  background: #104300;
+  margin: 1em 0;
+  padding: 1em 1em 0 1em;
+  border: 8px solid #a60;
+  box-shadow: 2px 2px 4px #999, 2px 2px 2px #020 inset;
+  opacity: 90%;
+}
+
+.blackboard-box p:first-child{
+  margin-bottom: 8px;
+  padding: 0;
+  color: #fff;
+  text-shadow: 1px 0px 1px #fff;
+  text-decoration: underline;
+}
+.blackboard-box p{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.chalk1{
+  display: block;
+  margin-top: 10px;
+  margin-left: 90%;
+  border: solid 3px #fff;
+  width: 15px;
+  height: 6px;
+  border-radius: 3px 2px 0 2px;
+}
+
+.chalk2{
+  display: block;
+  margin-top: -6px;
+  margin-left: calc(90% - 30px);
+  border: solid 3px #ffee58;
+  width: 20px;
+  height: 6px;
+  border-radius: 3px 2px 0 2px;
+}
+
+// Interests
