@@ -53,7 +53,7 @@
     </div>
     <% @recommended_projects.each do |project| %>
     <div class="card-body">
-      <h6 class="card-title">Name: <%= project.name %></h6>
+      <h6 class="card-title"><strong><%= project.name %></strong></h6>
       <p class="card-text">Subject: <%= project.subject %></p>
       <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
       <% end %>
