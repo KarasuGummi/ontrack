@@ -65,7 +65,7 @@ kevin = User.create!(
   subject: 'Spanish',
   buddy: kevin_buddy,
   grade: 'college',
-  learning_goal: 'vocabulary'
+  learning_goal: 'past tense action verbs'
 )
 
 curtis = User.create!(
@@ -105,13 +105,14 @@ puts 'Creating projects...'
 # *****************KEVIN PROJECTS*****************
 language_drawing = Project.create!(
   name: 'Learn Spanish by Drawing Animals',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.now,
   status: :accepted,
   points: 50,
   user: kevin,
-  interest: 'drawing'
+  interest: 'drawing',
+  learning_goal: 'past tense action verbs'
 )
 language_drawing_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
@@ -125,13 +126,14 @@ Answer.create!(
 
 language_drawing2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
   deadline: DateTime.now,
   status: :pending,
   points: 40,
   user: kevin,
-  interest: 'drawing'
+  interest: 'drawing',
+  learning_goal: 'past tense action verbs'
 )
 language_drawing2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
@@ -145,13 +147,14 @@ Answer.create!(
 
 language_starwars = Project.create!(
   name: 'A New Hope: Exploring Spanish Vocabulary Through Star Wars',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'The objective of this lesson is to introduce students to Spanish vocabulary by using terms and concepts from the Star Wars universe. Students will engage with popular Star Wars characters, settings, and phrases while expanding their language skills.',
   deadline: DateTime.parse('2023-09-01 17:30:00'),
   status: :pending,
   points: 200,
   user: kevin,
-  interest: 'star wars'
+  interest: 'star wars',
+  learning_goal: 'emotions and feelings'
 )
 language_starwars_question = Question.create!(
   question_content: 'What is the Spanish translation for "space" and "planet," two vocabulary words related to Star Wars?',
