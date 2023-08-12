@@ -116,7 +116,7 @@ language_drawing = Project.create!(
   subject: 'Language',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :accepted,
+  status: :completed,
   points: 50,
   user: kevin,
   interest: 'drawing'
@@ -253,7 +253,7 @@ Answer.create!(
 
 language_starwars = Project.create!(
   name: 'A New Hope: Exploring Spanish Vocabulary Through Star Wars',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'The objective of this lesson is to introduce students to Spanish vocabulary by using terms and concepts from the Star Wars universe. Students will engage with popular Star Wars characters, settings, and phrases while expanding their language skills.',
   deadline: DateTime.parse('2023-09-01 17:30:00'),
   status: :pending,
