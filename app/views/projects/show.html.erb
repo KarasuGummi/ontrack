@@ -34,6 +34,17 @@
           </div>
             <h6><strong><%= @project.name %></strong></h6>
             <p><%= @project.description%></p>
+
+            <h6><strong>Project Steps:</strong></h6>
+            <p><%= @project.steps %></p>
+
+            <h6><strong>Vocab Words:</strong></h6>
+            <ul>
+              <% @project.vocab_words.each do |word| %>
+                <li><%= word %></li>
+              <% end %>
+            </ul>
+
           <div class="content-bottom">
             <p>Deadline:<br><small><%= @project.deadline %></small></p>
           </div>
