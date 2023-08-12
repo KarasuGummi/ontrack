@@ -65,7 +65,7 @@ kevin = User.create!(
   subject: 'Architecture',
   buddy: kevin_buddy,
   age: 21,
-  grade: 'college',
+  grade: 'College Junior',
   learning_goal: 'vocabulary'
 )
 kevin_interest = Interest.create!(
@@ -113,7 +113,7 @@ puts 'Creating projects...'
 # *****************KEVIN PROJECTS*****************
 language_drawing = Project.create!(
   name: 'Learn Spanish by Drawing Animals',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
   deadline: DateTime.parse('2023-09-01 17:30:00'),
   status: :completed,
@@ -133,7 +133,7 @@ Answer.create!(
 
 language_drawing2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
-  subject: 'Language',
+  subject: 'Spanish',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
   deadline: DateTime.now,
   status: :pending,
