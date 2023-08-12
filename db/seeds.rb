@@ -219,7 +219,7 @@ architecture_finalfantasy = Project.create!(
   status: :accepted,
   points: 30,
   user: kevin,
-  interest: 'drawing'
+  interest: 'final fantasy'
 )
 architecture_finalfantasy_question = Question.create!(
   question_content: 'What are some iconic Final Fantasy architecture?',
@@ -280,7 +280,7 @@ coding = Project.create!(
   status: :pending,
   points: 100,
   user: curtis,
-  interest: 'coding'
+  interest: 'programming'
 )
 coding_question = Question.create!(
   question_content: 'Does Yann look better with long or short hair?',
