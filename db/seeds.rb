@@ -22,7 +22,7 @@ puts 'Database cleaned!'
 
 puts 'Creating interests...'
 
-interests = %w[animation dancing singing writing drawing cooking traveling crafts animals anime star\ wars harry\ potter shark\ week samurai martial\ arts]
+interests = %w[animation dancing singing writing drawing cooking traveling crafts animals anime manga star\ wars harry\ potter shark\ week samurai martial\ arts programming history music fashion science astronomy yoga video\ games final\ fantasy spider-man kirby]
 
 interests.each do |interest_name|
   Interest.create!(name: interest_name)
@@ -33,28 +33,25 @@ puts 'Creating buddies...'
 kevin_buddy = Buddy.create!(
   name: 'dog',
   personality: 'friendly',
-  love: 10,
+  love: 10
 )
 
 curtis_buddy = Buddy.create!(
-  name: 'dog',
+  name: 'catfish',
   personality: 'shy',
-  love: 10,
-  # user: curtis
+  love: 10
 )
 
 juri_buddy = Buddy.create!(
-  name: 'dog',
+  name: 'cat',
   personality: 'laid-back',
-  love: 10,
-  # user: juri
+  love: 10
 )
 
 favi_buddy = Buddy.create!(
-  name: 'dog',
+  name: 'bird',
   personality: 'energetic',
-  love: 10,
-  # user: favi
+  love: 10
 )
 
 puts 'Buddies created!'
@@ -68,13 +65,6 @@ kevin = User.create!(
   subject: 'Language',
   buddy: kevin_buddy
 )
-kevin_interest = Interest.create!(
-  name: 'drawing'
-)
-# UserInterest.create!(
-#   user: kevin,
-#   interest: kevin_interest
-# )
 
 curtis = User.create!(
   username: 'american_gummi',
@@ -88,6 +78,7 @@ juri = User.create!(
   username: 'japanese_onigiri',
   email: 'juri@ontrack.com',
   password: 'buddy000',
+  subject: 'Design',
   buddy: juri_buddy
 )
 
@@ -95,6 +86,7 @@ favi = User.create!(
   username: 'spanish_tofu',
   email: 'favi@ontrack.com',
   password: 'buddy000',
+  subject: 'Mathematics',
   buddy: favi_buddy
 )
 
@@ -102,7 +94,8 @@ puts 'Users created!'
 
 puts 'Creating projects...'
 
-spanish_art = Project.create!(
+# *****************KEVIN PROJECTS*****************
+language_drawing = Project.create!(
   name: 'Learn Spanish by Drawing Animals',
   subject: 'Language',
   description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
@@ -112,17 +105,17 @@ spanish_art = Project.create!(
   user: kevin,
   interest: 'drawing'
 )
-spanish_art_question = Question.create!(
+language_drawing_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
-  project: spanish_art
+  project: language_drawing
 )
 Answer.create!(
   answer_content: 'Perro, Gato, Elephante',
   points: 5,
-  question: spanish_art_question
+  question: language_drawing_question
 )
 
-spanish_art2 = Project.create!(
+language_drawing2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
   subject: 'Language',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
@@ -130,18 +123,19 @@ spanish_art2 = Project.create!(
   status: :pending,
   points: 40,
   user: kevin,
-  interest: 'samurai'
+  interest: 'drawing'
 )
-spanish_art_2_question = Question.create!(
+language_drawing2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
-  project: spanish_art2
+  project: language_drawing2
 )
 Answer.create!(
   answer_content: 'bailar',
   points: 5,
-  question: spanish_art_2_question
+  question: language_drawing2_question
 )
 
+# *****************CURTIS PROJECTS*****************
 coding = Project.create!(
   name: 'Learn Web Development With Ruby On Rails!',
   subject: 'Computer Science',
@@ -149,7 +143,8 @@ coding = Project.create!(
   deadline: DateTime.now,
   status: :pending,
   points: 100,
-  user: curtis
+  user: curtis,
+  interest: 'coding'
 )
 coding_question = Question.create!(
   question_content: 'Does Yann look better with long or short hair?',
@@ -161,34 +156,15 @@ Answer.create!(
   question: coding_question
 )
 
-history_japanese = Project.create!(
-  name: 'Exploring Japanese History through Interactive Timeline',
-  subject: 'History',
-  description: 'The objective of this lesson activity is to engage students in exploring key events and periods in Japanese history through an interactive timeline. By the end of the activity, students will have a better understanding of the significant milestones in Japan\'s rich historical past.',
-  deadline: DateTime.now,
-  status: :completed,
-  points: 50,
-  user: juri
-)
-history_japanese_question = Question.create!(
-  question_content: 'Which historical event on the Japanese history timeline led to the end of the samurai era and the beginning of the Meiji Restoration?',
-  project: history_japanese
-)
-Answer.create!(
-  answer_content: 'The overthrow of the Tokugawa Shogunate in 1868',
-  points: 15,
-  question: history_japanese_question
-)
-
 culture_japanese = Project.create!(
   name: 'Anime Cuisine: A Culinary Journey through Japanese Animation',
   subject: 'Culture',
   description: 'The objective of this lesson is to introduce students to the delicious world of Japanese cuisine depicted in anime. Through cooking activities inspired by iconic anime dishes, students will learn about Japanese culture, traditional recipes, and the significance of food in storytelling.',
   deadline: DateTime.now,
-  status: :pending,
+  status: :accepted,
   points: 80,
   user: curtis,
-  interest: 'animation'
+  interest: 'cooking'
 )
 culture_japanese_question = Question.create!(
   question_content: 'In the anime "Spirited Away," what is the significance of the bento box that Chihiro\'s parents eat?',
@@ -200,6 +176,88 @@ Answer.create!(
   question: culture_japanese_question
 )
 
+geography_kirby = Project.create!(
+  name: 'Exploring Geography Through Kirby\'s Adventures',
+  subject: 'Geography',
+  description: 'The objective of this lesson is to engage students in learning geography concepts through the world of Kirby, a beloved video game character. By exploring various in-game environments, students will gain insights into geographical features, ecosystems, and their real-world counterparts.',
+  deadline: DateTime.parse('2023-09-01 17:30:00'),
+  status: :completed,
+  points: 50,
+  user: curtis,
+  interest: 'kirby'
+)
+geography_kirby_question = Question.create!(
+  question_content: 'In "Kirby and the Forgotten Land," Kirby explores a post-apocalyptic city. How might this virtual city help us learn about real-world urban environments?',
+  project: geography_kirby
+)
+Answer.create!(
+  answer_content: 'It shows us how cities can change over time due to various factors',
+  points: 20,
+  question: geography_kirby_question
+)
+
+# *****************JURI PROJECTS*****************
+history_japanese = Project.create!(
+  name: 'Exploring Japanese History through Interactive Timeline',
+  subject: 'History',
+  description: 'The objective of this lesson activity is to engage students in exploring key events and periods in Japanese history through an interactive timeline. By the end of the activity, students will have a better understanding of the significant milestones in Japan\'s rich historical past.',
+  deadline: DateTime.now,
+  status: :completed,
+  points: 50,
+  user: juri,
+  interest: 'history'
+)
+history_japanese_question = Question.create!(
+  question_content: 'Which historical event on the Japanese history timeline led to the end of the samurai era and the beginning of the Meiji Restoration?',
+  project: history_japanese
+)
+Answer.create!(
+  answer_content: 'The overthrow of the Tokugawa Shogunate in 1868',
+  points: 15,
+  question: history_japanese_question
+)
+
+design_fashion = Project.create!(
+  name: 'Exploring Design through Fashion: Unleash Your Creative Style',
+  subject: 'Design',
+  description: 'The objective of this lesson is to introduce students to the world of design through the lens of fashion. Students will learn about the principles of design, color theory, and personal expression while creating their own fashion designs.',
+  deadline: DateTime.parse('2023-08-07 14:30:00'),
+  status: :pending,
+  points: 60,
+  user: juri,
+  interest: 'fashion'
+)
+design_fashion_question = Question.create!(
+  question_content: 'What are the fundamental elements of design and how do they apply to fashion?',
+  project: design_fashion
+)
+Answer.create!(
+  answer_content: 'line, shape, form, texture, and color',
+  points: 10,
+  question: design_fashion_question
+)
+
+design_samurai = Project.create!(
+  name: 'Designing Samurai Aesthetics: Exploring Art and Culture',
+  subject: 'Design',
+  description: 'The objective of this lesson is to introduce students to the design principles and artistic aesthetics of samurai culture. Through this lesson, students will learn about the visual elements, symbolism, and historical significance of samurai design.',
+  deadline: DateTime.parse('2023-09-01 17:30:00'),
+  status: :accepted,
+  points: 80,
+  user: juri,
+  interest: 'samurai'
+)
+design_samurai_question = Question.create!(
+  question_content: 'What are some key design elements in samurai culture, and how do they contribute to the aesthetics of samurai armor and weaponry?',
+  project: design_samurai
+)
+Answer.create!(
+  answer_content: 'intricate patterns, symbolic motifs, and careful material selection',
+  points: 25,
+  question: design_samurai_question
+)
+
+# *****************FAVI PROJECTS*****************
 math_music = Project.create!(
   name: 'Math in Music: Understanding Rhythms and Beats',
   subject: 'Mathematics',
@@ -207,7 +265,8 @@ math_music = Project.create!(
   deadline: DateTime.now,
   status: :accepted,
   points: 75,
-  user: favi
+  user: favi,
+  interest: 'music'
 )
 math_music_question = Question.create!(
   question_content: 'How do musicians use fractions in musical notation to represent different note durations?',
@@ -217,6 +276,46 @@ Answer.create!(
   answer_content: 'Each musical note is assigned a specific fraction of a whole note.',
   points: 20,
   question: math_music_question
+)
+
+history_spiderman = Project.create!(
+  name: 'Unraveling History Through Spider-Man: Exploring Social and Cultural Contexts',
+  subject: 'History',
+  description: 'The objective of this lesson is to use Spider-Man as a lens to explore various historical periods and social contexts. Students will analyze how Spider-Man\'s character and stories reflect and respond to the cultural and historical issues of different eras.',
+  deadline: DateTime.parse('2023-08-07 14:30:00'),
+  status: :pending,
+  points: 55,
+  user: favi,
+  interest: 'spider-man'
+)
+history_spiderman_question = Question.create!(
+  question_content: 'How does Spider-Man\'s character and stories reflect the historical and social contexts of different eras?',
+  project: history_spiderman
+)
+Answer.create!(
+  answer_content: 'Spider-Man\'s struggles with responsibility and identity resonate with universal human experiences while also mirroring the challenges and values of the times in which they were written',
+  points: 10,
+  question: history_spiderman_question
+)
+
+math_sharkweek = Project.create!(
+  name: 'Dive into Math with Sharks: Exploring Mathematical Concepts Through Shark Study',
+  subject: 'Mathematics',
+  description: 'The objective of this lesson is to engage students in mathematical concepts by using sharks as a real-world context. Students will apply various math skills to analyze data, make calculations, and solve problems related to shark characteristics and behaviors.',
+  deadline: DateTime.parse('2023-08-07 14:30:00'),
+  status: :completed,
+  points: 100,
+  user: favi,
+  interest: 'shark week'
+)
+math_sharkweek_question = Question.create!(
+  question_content: 'How does math help scientists learn about sharks and their behaviors?',
+  project: math_sharkweek
+)
+Answer.create!(
+  answer_content: 'figure out averages, make predictions, and understand patterns',
+  points: 15,
+  question: math_sharkweek_question
 )
 
 puts 'All finished!'
@@ -231,6 +330,7 @@ puts 'All finished!'
 #   status:
 #   points:
 #   user:
+#   interest:
 # )
 # Question.create!(
 #   question_content:
