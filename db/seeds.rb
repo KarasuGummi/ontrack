@@ -62,8 +62,10 @@ kevin = User.create!(
   username: 'italian_beyonce',
   email: 'kevin@ontrack.com',
   password: 'buddy000',
-  subject: 'Language',
-  buddy: kevin_buddy
+  subject: 'Spanish',
+  buddy: kevin_buddy,
+  grade: 'college',
+  learning_goal: 'vocabulary'
 )
 
 curtis = User.create!(
@@ -71,7 +73,9 @@ curtis = User.create!(
   email: 'curtis@ontrack.com',
   password: 'buddy000',
   subject: 'Computer Science',
-  buddy: curtis_buddy
+  buddy: curtis_buddy,
+  grade: 'college',
+  learning_goal: 'admin'
 )
 
 juri = User.create!(
@@ -79,7 +83,9 @@ juri = User.create!(
   email: 'juri@ontrack.com',
   password: 'buddy000',
   subject: 'Design',
-  buddy: juri_buddy
+  buddy: juri_buddy,
+  grade: 'college',
+  learning_goal: 'historical figures'
 )
 
 favi = User.create!(
@@ -87,7 +93,9 @@ favi = User.create!(
   email: 'favi@ontrack.com',
   password: 'buddy000',
   subject: 'Mathematics',
-  buddy: favi_buddy
+  buddy: favi_buddy,
+  grade: 'college',
+  learning_goal: 'rhythm'
 )
 
 puts 'Users created!'
@@ -133,6 +141,26 @@ Answer.create!(
   answer_content: 'bailar',
   points: 5,
   question: language_drawing2_question
+)
+
+Project.create!(
+  name:
+  subject:
+  description:
+  deadline:
+  status:
+  points:
+  user:
+  interest:
+)
+Question.create!(
+  question_content:
+  project:
+)
+Answer.create!(
+  answer_content:
+  points:
+  question:
 )
 
 # *****************CURTIS PROJECTS*****************
