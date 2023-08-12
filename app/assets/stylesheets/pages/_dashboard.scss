@@ -68,3 +68,16 @@
   padding: 15px;
   width: 100px;
 }
+
+.my-info li{
+  list-style: none;
+}
+
+.latest-project {
+  line-height: 40px;
+
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+}
