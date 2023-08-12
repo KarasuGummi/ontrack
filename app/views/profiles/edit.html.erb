@@ -3,28 +3,28 @@
   <div class="container">
     <h3 class="text-center py-2">Edit Profile</h3>
 
-<div class="bg-white rounded-4 p-3 shadow edit-form">
-  <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
-  <div class="form-group">
-    <%= f.input :age %>
-    <%= f.input :grade %>
-    <%= f.input :subject %>
-    <%= f.input :learning_goal %>
-</div>
+    <div class="bg-white rounded-4 p-3 shadow edit-form">
+      <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
+      <div class="form-group">
+        <%= f.input :age %>
+        <%= f.input :grade, input_html: { value: f.object.grade.to_s.capitalize } %>
+        <%= f.input :subject %>
+        <%= f.input :learning_goal, input_html: { value: f.object.learning_goal.to_s.capitalize } %>
+      </div>
 
-<p>Interests</p>
-<div class="profile_edit_card">
-    <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
-    <div class="user_edit_interest">
-      <%= b.check_box%>
-      <%= b.label %>
+    <p>Interests</p>
+    <div class="profile_edit_card">
+        <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
+        <div class="user_edit_interest">
+          <%= b.check_box%>
+          <%= b.label { b.text.capitalize } %>
+        </div>
+        <% end %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
     </div>
-    <% end %>
+        <% end %>
     </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
-</div>
-    <% end %>
-</div>
-</div>
+  </div>
 </div>
