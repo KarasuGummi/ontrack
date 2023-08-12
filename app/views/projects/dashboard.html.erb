@@ -55,6 +55,8 @@
     <div class="card-body">
       <h6 class="card-title"><strong><%= project.name %></strong></h6>
       <p class="card-text">Subject: <%= project.subject %></p>
+      <p class="card-text">Topic: <%= project.learning_goal %></p>
+
       <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
       <% end %>
     </div>
