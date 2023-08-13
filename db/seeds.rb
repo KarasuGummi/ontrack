@@ -64,9 +64,9 @@ kevin = User.create!(
   password: 'buddy000',
   subject: 'Architecture',
   buddy: kevin_buddy,
-  age: 21,
   grade: 'College Junior',
-  learning_goal: 'vocabulary'
+  learning_goal: 'basic vocabulary'
+  age: 21
 )
 kevin_interest = Interest.create!(
   name: 'drawing'
@@ -119,7 +119,8 @@ language_drawing = Project.create!(
   status: :completed,
   points: 50,
   user: kevin,
-  interest: 'drawing'
+  interest: 'drawing',
+  learning_goal: 'past tense action verbs'
 )
 language_drawing_question = Question.create!(
   question_content: 'Can you mention three animals we drew today in Spanish?',
@@ -139,7 +140,10 @@ language_drawing2 = Project.create!(
   status: :pending,
   points: 40,
   user: kevin,
-  interest: 'drawing'
+  interest: 'drawing',
+  learning_goal: 'past tense action verbs',
+  steps: 'Step 1: Choose your setting. Step 2: Choose your characters. Step 3: Think of 4 -5 main points for your story. Step 4: Make a list of vocab words that you will use. Step 5: Start drawing!',
+  vocab_words: ['bailar', 'comer', 'saltar', 'correr', 'cantar']
 )
 language_drawing2_question = Question.create!(
   question_content: 'How do you say dance in spanish?',
@@ -259,7 +263,8 @@ language_starwars = Project.create!(
   status: :pending,
   points: 200,
   user: kevin,
-  interest: 'star wars'
+  interest: 'star wars',
+  learning_goal: 'emotions and feelings'
 )
 language_starwars_question = Question.create!(
   question_content: 'What is the Spanish translation for "space" and "planet," two vocabulary words related to Star Wars?',
