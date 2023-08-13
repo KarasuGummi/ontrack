@@ -1,12 +1,12 @@
 <%= render "shared/navbar"%>
-    <div class="container" style="margin-bottom: 160px;">
-  <div class="project-list">
-    <%# title %>
+  <div class="container" style="margin-bottom: 160px;">
+    <div class="project-list">
+      <%# title %>
       <div class="projects-page-title col-12 col-lg-6">
         <div class="title">
             <h1>My Learning Tracks</h1>
         </div>
-    <%# paw %>
+        <%# paw %>
         <div class="paw">
           <ul>
             <li><i class="fa-solid fa-paw yellow-paw"></i></li>
@@ -17,9 +17,9 @@
       </div>
 
 
-    <%# card list %>
+      <%# card list %>
       <div class="projects-listing-card">
-      <%# Accepted projects will show only projects that the user added %>
+        <%# Accepted projects will show only projects that the user added %>
         <% if @accepted_projects.any? %>
           <% @accepted_projects.each do |project| %>
         <div class="content">
@@ -40,9 +40,9 @@
         </div>
           <% end %>
       </div>
-        <% else %>
-          <p>No project</p>
-        <% end %>
+          <% else %>
+            <p>No project</p>
+          <% end %>
 
       <div class="add-btn">
         <button class="blue-btn">
