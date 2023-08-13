@@ -2,8 +2,6 @@
   background-color: white;
   height: 50px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  // position: sticky;
   bottom: 0;
   width: 100%;
   font-family: $title-font;
@@ -14,7 +12,16 @@
     padding: 0;
     width: 100%;
     font-size: 32px;
+    // color: $gray;
     color: black;
     text-align: center;
+  }
+}
+
+.footer p{
+
+  &:hover {
+    // color: black;
+    color: gray;
   }
 }
