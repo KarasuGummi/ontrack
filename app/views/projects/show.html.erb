@@ -20,7 +20,7 @@
       <div class="show-content">
         <div class="content-top">
           <div class="category-tag">
-            <p><%= @project.subject %></p>
+            <p class="subject-tag"><%= @project.subject %></p>
           </div>
             <%# Update a pending project to accepted to display in projects list %>
             <% if @project.pending? %>
@@ -46,7 +46,7 @@
             </ul>
 
           <div class="content-bottom">
-            <p>Deadline:<br><small><%= @project.deadline %></small></p>
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= @project.deadline %></small></p>
           </div>
       </div>
     </div>
@@ -74,3 +74,4 @@
         </button>
     </div>
   </div>
+<%= render "shared/footer" %>

@@ -12,19 +12,20 @@
         <%= f.input :learning_goal, input_html: { value: f.object.learning_goal.to_s.capitalize } %>
       </div>
 
-    <p>Interests</p>
-    <div class="profile_edit_card">
+      <p>Interests</p>
+      <div class="profile_edit_card">
         <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
         <div class="user_edit_interest">
           <%= b.check_box( class: "tag-selector" )%>
           <%= b.label( class: "tag-item") { b.text.capitalize } %>
         </div>
         <% end %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
-    </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
+      </div>
         <% end %>
     </div>
   </div>
 </div>
+<%= render "shared/footer" %>

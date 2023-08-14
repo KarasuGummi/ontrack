@@ -2,6 +2,7 @@
   background-color: white;
   margin: 0;
   padding: 0;
+  margin-bottom: 60px;
 }
 
 .edit-form {
@@ -11,6 +12,7 @@
 .tag-item {
   display: inline-block;
   width: 100%;
+
 }
 
 .tag-selector {
@@ -40,4 +42,20 @@
 .tag-selector:checked + label {
   background-color: $yellow;
   color: white;
+}
+
+// ------------------------------------
+// profile edit
+.profile_edit_card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 3px;
+  padding: 4px 5px;
+  gap: 0 5px;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+.user_edit_interest {
+  width: 100%;
 }

@@ -1,51 +1,51 @@
 <%= render "shared/navbar"%>
-<div class="container py-3">
-  <div class="user_info">
-  <%# will change the user avatar placeholder  %>
-    <%= cl_image_tag("https://i.pravatar.cc/", height: 70, crop: :fill, class: "user-avatar")%>
-    <div class="user_content">
-      <div class="profile_edit">
-        <p><strong><%= @user.username %></strong></p>
-            <%= link_to edit_profile_path(current_user) do %>
-              <i class="fa-solid fa-pen-to-square"></i>
-            <% end %>
-      </div>
-      <ul>
-        <li><i class="fa-solid fa-cake-candles"></i> <%= @user.age %> <small>years old</small></li>
-        <li><i class="fa-solid fa-graduation-cap"></i> <%= @user.grade.capitalize %></li>
-        <hr>
-      </ul>
-    </div>
-  </div>
-
-
-
-
-  <div class="blackboard-box">
-      <p>Learning Goals</p>
-      <p><%= @user.learning_goal.capitalize %></p>
-    <div class="chalk1"></div>
-    <div class="chalk2"></div>
-  </div>
-
-  <div class="subject-card">
-    <p><strong>Subject</strong></p>
-    <div class="profile_card">
-      <div class="user-subject">
-        <%= @user.subject %>
+<div class="profile-index">
+  <div class="container">
+    <div class="user_info">
+    <%# will change the user avatar placeholder  %>
+      <%= cl_image_tag("https://i.pravatar.cc/", height: 70, crop: :fill, class: "user-avatar")%>
+      <div class="user_content">
+        <div class="profile_edit">
+          <p><strong><%= @user.username %></strong></p>
+              <%= link_to edit_profile_path(current_user) do %>
+                <i class="fa-solid fa-pen-to-square"></i>
+              <% end %>
+        </div>
+        <ul>
+          <li><i class="fa-solid fa-cake-candles"></i> <%= @user.age %> <small>years old</small></li>
+          <li><i class="fa-solid fa-graduation-cap"></i><%= @user.grade.capitalize %></li>
+          <hr>
+        </ul>
       </div>
     </div>
-  </div>
 
+    <div class="blackboard-box">
+        <p>Learning Goals</p>
+        <p><%= @user.learning_goal.capitalize %></p>
+      <div class="chalk1"></div>
+      <div class="chalk2"></div>
+    </div>
 
-  <div class="interests-card">
-    <p><strong>Interests</strong></p>
-    <div class="profile_card">
-      <% @user.interests.each do |interest| %>
-      <div class="user_interest">
-        <p><%= interest.name.capitalize %></p>
+    <div class="subject-card">
+      <p><strong>Subject</strong></p>
+      <div class="profile_card">
+        <div class="user-subject">
+          <%= @user.subject %>
+        </div>
       </div>
-        <% end %>
+    </div>
+
+
+    <div class="interests-card">
+      <p><strong>Interests</strong></p>
+      <div class="profile_card">
+        <% @user.interests.each do |interest| %>
+        <div class="user_interest">
+          <p><%= interest.name.capitalize %></p>
+        </div>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
+<%= render "shared/footer" %>

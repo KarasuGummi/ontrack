@@ -1,10 +1,11 @@
 // ProjectList-page
 .project-list {
   padding: 0;
-  margin: 0;
   background-color: white;
   overflow-y: scroll;
 }
+
+
 
 // ProjectList-page title
 .projects-page-title {
@@ -36,13 +37,14 @@
 // ProjectList-page buddy
 
 .buddy-text {
-  margin: 6px 0;
+  margin-bottom: 3px;
+  margin-top: 0;
 }
 
 .projectslist-buddy-container {
   position: fixed;
   bottom: 0;
-  height: 170px;
+  height: 130px;
   justify-content: center;
   align-items: center;
   background-color: #f5e2b5;
@@ -52,11 +54,4 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-// Remove default link styling
-
-.no-link-style {
-  text-decoration: none;
-  color: inherit;
 }
