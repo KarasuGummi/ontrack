@@ -5,7 +5,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    question = params[:question]
+    question = Question.find(params[:id])
+    @answers = @question.answers
+    # question = params[:question]
     openai_service = OpenaiService.new(question)
     @response = openai_service.call
 
