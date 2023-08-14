@@ -12,10 +12,17 @@
       </div>
       <% end %>
 
-      <% @recommendations["suggested_projects"].each do |project_info| %>
-        <p><%= project_info %></p>
-        <hr> <!-- Add a separator between projects -->
-      <% end %>
+      <div class="recommended-projects">
+        <div class="suggested-project-card">
+          <% @recommendation["suggested_project"].each do |line| %>
+            <% if line.starts_with?("Title:") || line.blank? %>
+              <h4><%= line unless line.blank? %></h4>
+            <% else %>
+              <p><%= line %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

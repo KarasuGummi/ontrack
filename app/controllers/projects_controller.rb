@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @user_interest = current_user.interests.sample.name # Store user interest for use in the view
     @subject = ""
     @learning_goal = ""
-    @recommendations = generate_recommendations(@subject, @learning_goal, @user_interest)
+    @recommendation = generate_recommendations(@subject, @learning_goal, @user_interest)
   end
 
 
@@ -32,10 +32,10 @@ class ProjectsController < ApplicationController
     user_interest = current_user.interests.sample.name
 
     # Call the method to generate recommendations
-    @recommendations = generate_recommendations(project_subject, project_learning_goal, user_interest)
+    @recommendation = generate_recommendations(project_subject, project_learning_goal, user_interest)
 
     if params[:add_project]
-      selected_suggestion = @recommendations[params[:add_project].to_i]
+      selected_suggestion = @recommendation[params[:add_project].to_i]
       create_pending_project_from_suggestion(selected_suggestion)
     end
 
@@ -80,11 +80,11 @@ class ProjectsController < ApplicationController
 
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
-      Please suggest three project ideas for my #{subject} class.
-      Please limit the words of the description for each project to less than 12 words.
+      Please suggest one project for my #{subject} class.
+      Please limit the words of the description for the project to less than 12 words.
       Please also limit the instructions to 3 - 5 steps max with each step having less than 12 words.
-      The projects should be about #{learning_goal} and the projects should incorporate #{user_interest}.
-      For each project idea, provide the following information:
+      The project should be about #{learning_goal} and the project should incorporate #{user_interest}.
+      For the project, provide the following information:
       - Title
       - Description
       - Subject
@@ -98,14 +98,14 @@ class ProjectsController < ApplicationController
     response = openai_service.call
     # puts "API Response: #{response}"
 
-    suggestions = response["choices"][0]["message"]["content"]
+    suggestion = response["choices"][0]["message"]["content"]
 
-    # Remove leading and trailing whitespace and split the suggestions by line breaks
-    cleaned_suggestions = suggestions.strip.split("\n")
-    structured_recommendations = { "suggested_projects" => cleaned_suggestions }
-    structured_recommendations
+    formatted_suggestion = suggestion.split("\n")
 
-    p structured_recommendations
+    structured_recommendation = { "suggested_project" => formatted_suggestion }
+    structured_recommendation
+
+    p structured_recommendation
   end
 
   def project_params
