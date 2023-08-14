@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @buddy = current_user.buddy
   end
 
   def show
@@ -18,6 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @buddy = current_user.buddy
     @project = Project.new(project_params)
     if @project.save
       redirect_to projects_path
@@ -63,6 +65,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, :deadline, :category, :status)
+    params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status)
   end
 end

@@ -1,2 +1,17 @@
-<h1>Test!</h1>
-<p>Create a new project on this page</p>
+<%= render "shared/navbar"%>
+<div class="row profile-edit col-12">
+  <div class="container">
+    <h3 class="text-center py-2">Add A New Project</h3>
+
+    <div class="bg-white rounded-4 p-3 shadow edit-form">
+      <%= simple_form_for @project, url: projects_path, method: :post do |f| %>
+      <div class="form-group">
+        <%= f.input :subject, placeholder: "Enter a subject" %>
+        <%= f.input :learning_goal, placeholder: "Enter learning goal" %>
+        <%= f.button :submit, "Create Project", class: "green-update-btn w-100" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
