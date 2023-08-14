@@ -11,6 +11,11 @@
         <%= f.button :submit, "Create Project", class: "green-update-btn w-100" %>
       </div>
       <% end %>
+
+      <% @recommendations["suggested_projects"].each do |project_info| %>
+        <p><%= project_info %></p>
+        <hr> <!-- Add a separator between projects -->
+      <% end %>
     </div>
   </div>
 </div>
