@@ -65,7 +65,7 @@ kevin = User.create!(
   subject: 'Architecture',
   buddy: kevin_buddy,
   grade: 'College Junior',
-  learning_goal: 'basic vocabulary'
+  learning_goal: 'basic vocabulary',
   age: 21
 )
 kevin_interest = Interest.create!(
@@ -127,7 +127,7 @@ language_drawing_question = Question.create!(
   project: language_drawing
 )
 Answer.create!(
-  answer_content: 'Perro, Gato, Elephante',
+  answer_content: 'Perro, Gato, Elefante',
   points: 5,
   question: language_drawing_question
 )
