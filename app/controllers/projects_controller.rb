@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
         project_to_accept.update(status: 'accepted')
         flash[:notice] = 'Recommended project added!'
       end
-      redirect_to projects_path
+      # redirect_to projects_path
     else
       puts "Project Errors: #{@project.errors}"
       render 'new'
