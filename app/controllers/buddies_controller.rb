@@ -40,9 +40,8 @@ class BuddiesController < ApplicationController
   def feed
     @buddy = current_user.buddy
     points_to_feed = params[:points].to_i
-    puts current_user.points.class
-    puts points_to_feed.class
-
+    # puts current_user.points.class
+    # puts points_to_feed.class
     if current_user.points >= points_to_feed
       current_user.update(points: current_user.points - points_to_feed)
       @buddy.update(love: @buddy.love + points_to_feed)

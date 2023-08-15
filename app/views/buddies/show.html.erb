@@ -1,38 +1,46 @@
 <%= render "shared/navbar"%>
-<div class="container py-3">
-  <ul class="info">
-    <li><h6>Buddy Info:</h6></li>
-    <li>
-      <h6>Name: <%= @buddy.name %>  </h6>
-    </li>
-    <li>
-      <h6>Personality: <%= @buddy.personality %>  </h6>
-    </li>
-    <li>
-      <h6>Love: 💚 X <%= @buddy.love %>  </h6>
-    </li>
-  </ul>
-</div>
-  <h3 class="text-center">My Buddy</h3>
+<div class="container py-3 buddy-show">
+  <div class="buddy-love">
+    <p><i class="fa-solid fa-heart"></i> &emsp;+<%= @buddy.love %></p>
+  </div>
 
-<div class="dashboard-container">
+  <h3 class="text-center"><%= @buddy.name %></h3>
+</div>
+
   <%# display buddy %>
-  <div class="buddy-container">
-    <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", height: 150, crop: :fill) %>
-    <p class="buddy-text">Give me snacks or I'm going to keep sleeping.</p>
+  <div class="buddy-room-img">
+  <div class="buddy-comment">
+  <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
   </div>
-  <div class="buddy-links text-center">
-    <%# This should link to the buddy show page in the future %>
-    <%= link_to buddies_path(@buddy) do %>
-      <i class="fa-solid fa-paw dashboard-paw"></i>
-    <% end %>
+    <div class="buddy-show-img">
+      <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", height: 140, crop: :fill) %>
+    </div>
   </div>
-</div>
+  <%# <ul class="budy-info">
 
+    <li>
+      <>Name: <%= @buddy.name %>
+    <%# </li>
+    <li>
+      <>Personality: <%= @buddy.personality %>
+    <%# </li>
+
+  </ul> %>
+
+
+  <%# <div class="buddy-links text-center"> %>
+    <%# This should link to the buddy show page in the future %>
+    <%# <%= link_to buddies_path(@buddy) do %>
+      <%# <i class="fa-solid fa-paw dashboard-paw"></i>
+    <% end %>
+  <%# </div> %>
+
+<div class="container py-3 buddy-show">
 <%= form_tag feed_buddy_path, method: :post do %>
   <%= label_tag :points, "Points to feed buddy:" %>
   <%= number_field_tag :points %>
-  <%= submit_tag "Feed Buddy" %>
+  <%= submit_tag "Feed Me" %>
 <% end %>
 <h6> User Points: <%= @user.points %></h6>
 <%= render "shared/footer" %>
+</div>
