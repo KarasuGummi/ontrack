@@ -80,6 +80,26 @@ class ProjectsController < ApplicationController
     )
   end
 
+  def project_params
+    params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
+  end
+
+  def complete
+    @project = Project.find(params[:id])
+    @user = current_user
+
+    if @project.completed?
+      points_earned = 10
+      @user.earn_points(points_earned)
+
+      flash[:notice] = "Congratulations! You've earned #{points_earned} points."
+    else
+      flash[:alert] = "Project not completed yet."
+    end
+
+    redirect_to project_path(@project)
+  end
+
   private
 
   def generate_recommendations(subject, learning_goal, user_interest)
@@ -121,7 +141,5 @@ class ProjectsController < ApplicationController
   end
 
 
-  def project_params
-    params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
-  end
+
 end

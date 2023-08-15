@@ -10,4 +10,9 @@ class User < ApplicationRecord
   has_many :answers, through: :user_answers
   has_many :user_interests
   has_many :interests, through: :user_interests
+
+  attribute :points, :integer, default: 0
+  def earn_points(points)
+    update(points: points + self.points)
+  end
 end

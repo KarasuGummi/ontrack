@@ -28,4 +28,11 @@
     <% end %>
   </div>
 </div>
+
+<%= form_tag feed_buddy_path, method: :post do %>
+  <%= label_tag :points, "Points to feed buddy:" %>
+  <%= number_field_tag :points %>
+  <%= submit_tag "Feed Buddy" %>
+<% end %>
+<h6> User Points: <%= @user.points %></h6>
 <%= render "shared/footer" %>
