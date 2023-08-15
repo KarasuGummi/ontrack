@@ -16,7 +16,7 @@
   border-radius: 30px;
   // border: 0.5px solid #fd1015;
   font-size: 21px;
-  width: 105px;
+  width: 85px;
   height: 35px;
   box-shadow: 0 2px 4px 0 #fd1015;
 
@@ -65,8 +65,9 @@
   p:after {
     position: absolute;
     border-radius: 50%;
-    background-color: orange;
+    background-color: white;
     content: "";
+    border: 3px solid orange;
   }
 
   p:before {
@@ -84,3 +85,6 @@
   }
 
 }
+
+// ------------------------------------------------
+

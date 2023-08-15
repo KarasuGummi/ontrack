@@ -33,7 +33,7 @@ puts 'Creating buddies...'
 kevin_buddy = Buddy.create!(
   name: 'dog',
   personality: 'friendly',
-  love: 10
+  love: 0
 )
 
 curtis_buddy = Buddy.create!(

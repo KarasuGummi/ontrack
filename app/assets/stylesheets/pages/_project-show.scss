@@ -28,3 +28,34 @@
   // 50% {width: 50%}
   100% {width: 100%}
 }
+
+// buddy comment
+.chatting {
+  width: 100%;
+  text-align: left;
+}
+.says {
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+  padding: 9px 12px;
+  border-radius: 15px;
+  background: $dark-blue;
+  color: white;
+  font-family: $body-font;
+}
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid $dark-blue;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+.says p {
+  margin: 0;
+  padding: 0;
+}
