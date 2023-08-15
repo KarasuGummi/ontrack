@@ -46,6 +46,14 @@
           <% end %>
       </div>
     </div>
+    <div class="buddy-part profile-buddy">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+      <div class="chatting">
+        <div class="says">
+          <p><%= @greetings.sample %></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <%= render "shared/footer" %>
