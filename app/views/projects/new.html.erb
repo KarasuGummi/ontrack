@@ -12,18 +12,13 @@
       </div>
       <% end %>
 
-      <div class="recommended-projects">
-        <div class="suggested-project-card">
-          <% @recommendation["suggested_project"].each do |line| %>
-            <% if line.starts_with?("Title:") || line.blank? %>
-              <h4><%= line unless line.blank? %></h4>
-            <% else %>
-              <p><%= line %></p>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+    <div class="suggested-project-card">
+      <h4>Newly Created Project</h4>
+      <h5><%= @project.name %></h5>
+      <p><strong>Subject:</strong> <%= @project.subject %></p>
+      <p><strong>Learning Goal:</strong> <%= @project.learning_goal %></p>
     </div>
+  </div>
   </div>
 </div>
 <%= render "shared/footer" %>
