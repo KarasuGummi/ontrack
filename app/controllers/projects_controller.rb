@@ -84,35 +84,50 @@ class ProjectsController < ApplicationController
 
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
-      Please suggest one project for my #{subject} class.
+      Please suggest one project for my class.
       Please limit the words of the description for the project to less than 12 words.
       Please also limit the instructions to 4 steps with each step having less than 12 words.
-      The project should be about #{learning_goal} and the project should incorporate #{user_interest}.
+      The project should be about my learning and the project should incorporate my interest.
       There should only be 5 vocab words per project.
-      For the project, provide the following information:
-      - Title
-      - Description
-      - Subject
-      - Learning goal
-      - Instructions
-      - User interest
-      - Vocabulary words
+      For the project, provide the output in this format with the following attributes:
+      Title: "title"
+      Description: "description"
+      Subject: #{subject}
+      Learning goal: #{learning_goal}
+      Instructions:
+      1. step 1
+      2. step 2
+      3. step 3
+      4. step 4
+      User interest: #{user_interest}
+      Vocabulary words: "vocab words"
+
+      I will provid the subject, learning_goal, and user_interest. Please provide the other attributes.
     PROMPT
     puts "Generated Prompt: #{prompt}"
     openai_service = OpenaiService.new(prompt)
     response = openai_service.call
+
+
     suggestion = response["choices"][0]["message"]["content"]
     formatted_suggestion = suggestion.split("\n")
     puts "Formatted suggestions: #{formatted_suggestion.inspect}"
 
+    # Extracting the relevant sections of the suggestion
+    title = suggestion.match(/Title: "(.*?)"/)&.captures&.first
+    description = suggestion.match(/Description: "(.*?)"/)&.captures&.first
+    instructions = suggestion.scan(/^\d+\.\s(.*?)$/).flatten
+    user_interest = suggestion.match(/User interest: (.*?)$/)&.captures&.first
+    vocab_words = suggestion.match(/Vocabulary words: "(.*?)"/)&.captures&.first
+
     project_info = {
-      name: formatted_suggestion[1].split(":")[1].to_s.strip,
-      description: formatted_suggestion[2].split(":")[1].to_s.strip,
-      subject: formatted_suggestion[4].split(":")[1].to_s.strip,
-      learning_goal: formatted_suggestion[8].split(":")[1].to_s.strip,
-      interest: formatted_suggestion[10].split(":")[1].to_s.strip,
-      # steps: formatted_suggestion[12..16].map { |step| step.strip if step.present? },  # Extract and format steps
-      # vocab_words: formatted_suggestion[18..-1].map { |word| word.strip if word.present? },  # Extract and format vocab words
+      name: title,
+      description: description,
+      subject: subject,
+      learning_goal: learning_goal,
+      interest: user_interest,
+      steps: instructions,
+      vocab_words: vocab_words,
       status: 'pending',
       user: current_user
     }
