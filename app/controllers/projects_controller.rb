@@ -1,3 +1,5 @@
+require 'json'
+
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
@@ -19,6 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    # loading modal frame modal
     @buddy = current_user.buddy
     @user = current_user
     project_subject = params[:project][:subject]
@@ -28,7 +31,8 @@ class ProjectsController < ApplicationController
     @recommendation = generate_recommendations(project_subject, project_learning_goal, user_interest)
 
     @project = Project.new(@recommendation)
-    @project.user = current_user
+
+    # @project.user = current_user
 
     if @project.save
       flash[:notice] = 'Project created!'
@@ -88,21 +92,21 @@ class ProjectsController < ApplicationController
       Please limit the words of the description for the project to less than 12 words.
       Please also limit the instructions to 4 steps with each step having less than 12 words.
       The project should be about my learning and the project should incorporate my interest.
-      There should only be 5 vocab words per project.
-      For the project, provide the output in this format with the following attributes:
-      Title: "title"
-      Description: "description"
-      Subject: #{subject}
-      Learning goal: #{learning_goal}
-      Instructions:
+      There should only be 5 vocab words per project as strings in an array.
+      For the project, provide the output as a JSON object with the following attributes:
+      name: "name"
+      description: "description"
+      subject: #{subject}
+      learning_goal: #{learning_goal}
+      steps:
       1. step 1
       2. step 2
       3. step 3
       4. step 4
-      User interest: #{user_interest}
-      Vocabulary words: "vocab words"
+      user_interest: #{user_interest}
+      vocab_words: [vocab words]
 
-      I will provid the subject, learning_goal, and user_interest. Please provide the other attributes.
+      I will provide the subject, learning_goal, and user_interest. Please provide the other attributes.
     PROMPT
     puts "Generated Prompt: #{prompt}"
     openai_service = OpenaiService.new(prompt)
@@ -110,27 +114,45 @@ class ProjectsController < ApplicationController
 
 
     suggestion = response["choices"][0]["message"]["content"]
-    formatted_suggestion = suggestion.split("\n")
-    puts "Formatted suggestions: #{formatted_suggestion.inspect}"
-
+    # add an error if the response isn't what we wanted it to be -> try again
+    suggestion = JSON.parse(suggestion)
     # Extracting the relevant sections of the suggestion
-    title = suggestion.match(/Title: "(.*?)"/)&.captures&.first
-    description = suggestion.match(/Description: "(.*?)"/)&.captures&.first
-    instructions = suggestion.scan(/^\d+\.\s(.*?)$/).flatten
-    user_interest = suggestion.match(/User interest: (.*?)$/)&.captures&.first
-    vocab_words = suggestion.match(/Vocabulary words: "(.*?)"/)&.captures&.first
+    # title = suggestion.match(/Title: "(.*?)"/)&.captures&.first
+    # description = suggestion.match(/Description: "(.*?)"/)&.captures&.first
+    # instructions = suggestion.scan(/^\d+\.\s(.*?)$/).flatten
+    # user_interest = suggestion.match(/User interest: (.*?)$/)&.captures&.first
+    # vocab_words = suggestion.match(/Vocabulary words: "(.*?)"/)&.captures&.first
+
+    # default_info = {
+    #   name: "Title not found",
+    #   description: "Description not found",
+    #   subject: subject,
+    #   learning_goal: learning_goal,
+    #   interest: user_interest,
+    #   steps: "Steps not found",
+    #   vocab_words: "Vocab words not found",
+    # }
 
     project_info = {
-      name: title,
-      description: description,
-      subject: subject,
-      learning_goal: learning_goal,
-      interest: user_interest,
-      steps: instructions,
-      vocab_words: vocab_words,
+      name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
+      description: suggestion["description"].empty? ? "Description not found" : suggestion["description"],
+      subject: suggestion["subject"].empty? ? subject : suggestion["subject"],
+      learning_goal: suggestion["learning_goal"].empty? ? learning_goal : suggestion["learning_goal"],
+      interest: suggestion["user_interest"].empty? ? user_interest : suggestion["user_interest"],
+      steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
+      vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
       status: 'pending',
       user: current_user
     }
+
+    # project_info = {
+    #   status: 'pending',
+    #   user: current_user
+    # }
+
+    # suggestion.each do |key, value|
+    #   project_info[key] = value.empty? ? default_info[key] : value
+    # end
 
     project_info
   end
