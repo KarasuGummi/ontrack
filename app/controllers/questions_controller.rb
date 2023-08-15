@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     message = params[:message]
     @response = OpenaiService.new(message).call
+    @questions = Question.all
   end
 
   def show
