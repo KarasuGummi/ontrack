@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @buddy = current_user.buddy
-    @greetings = [
+    @project_greetings = [
       "Tell me more about this project!", "Do you have any snacks?", "Want to review your project?", "You are doing great!",
       "Have you done your project yet?", "Remember what you learned?",
       "What did you learn?"

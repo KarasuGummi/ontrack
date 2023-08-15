@@ -4,9 +4,9 @@ class ProfilesController < ApplicationController
   def index
     @user = current_user
     @buddy = current_user.buddy
-    @greetings = [
+    @profile_greetings = [
       "Hi there!", "What's up?", "What are you interested in?", "Want to add new interest?",
-      "Want to update your profile?", "I know you can do it!", "Don't be afraid to make mistakes.",
+      "Want to update your profile?", "I know you can do it!",
       "What subject do you want to learn?"
     ]
   end
