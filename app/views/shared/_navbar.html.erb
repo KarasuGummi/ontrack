@@ -1,39 +1,72 @@
 <div class="navbar-ontrack fixed-top">
     <%# <div class="container"> %>
-  <%# <div class="row"> %>
+      <%# <div class="row"> %>
       <%# <% if current_user? %>
       <ul class="navbar-icons">
         <li class="text-center">
           <%= link_to dashboard_path do %>
-            <i class="fa-solid fa-house-chimney"></i>
-            <p>Home</p>
+            <% if current_page == 'dashboard' %>
+              <i class="fa-solid fa-house-chimney fa-beat"></i>
+              <p>Home</p>
+            <% else %>
+              <i class="fa-solid fa-house-chimney"></i>
+              <p>Home</p>
+            <% end %>
           <% end %>
         </li>
+
         <li class="text-center">
           <%= link_to new_project_path do %>
-            <i class="fa-regular fa-square-plus"></i>
-            <p>New</p>
+            <% if current_page == 'new_project' %>
+              <i class="fa-regular fa-square-plus fa-beat"></i>
+              <p>New</p>
+            <% else %>
+              <i class="fa-regular fa-square-plus"></i>
+              <p>New</p>
+            <% end %>
           <% end %>
         </li>
+
         <li class="text-center">
           <%= link_to projects_path do %>
-            <i class="fa-solid fa-list-check"></i>
-            <p>Projects</p>
+            <% if current_page == 'projects' %>
+              <i class="fa-solid fa-list-check fa-beat"></i>
+              <p>Projects</p>
+            <% else %>
+              <i class="fa-solid fa-list-check"></i>
+              <p>Projects</p>
+            <% end %>
           <% end %>
         </li>
+
         <li class="text-center">
           <%= link_to buddy_path(@buddy) do %>
-            <i class="fa-solid fa-paw"></i>
-            <p>Buddy</p>
+            <% if current_page == 'buddy' %>
+              <i class="fa-solid fa-paw fa-beat"></i>
+              <p>Buddy</p>
+            <% else %>
+              <i class="fa-solid fa-paw"></i>
+              <p>Buddy</p>
+            <% end %>
           <% end %>
         </li>
+
         <%# ⬇︎will change the path later %>
         <li class="text-center">
           <%= link_to profiles_path do %>
-            <i class="fa-solid fa-user"></i>
-            <p>Me</p>
+            <% if current_page == 'profile_index' %>
+              <i class="fa-solid fa-user fa-beat"></i>
+              <p>Me</p>
+            <% elsif current_page == 'profile_edit' %>
+              <i class="fa-solid fa-user fa-beat"></i>
+              <p>Me</p>
+            <% else %>
+              <i class="fa-solid fa-user"></i>
+              <p>Me</p>
+            <% end %>
           <% end %>
         </li>
+
         <li class="text-center">
           <%= link_to destroy_user_session_path , data: { "turbo-method": :delete } do %>
             <i class="fas fa-sign-out-alt"></i>
