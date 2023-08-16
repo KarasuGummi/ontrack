@@ -18,6 +18,11 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @buddy = current_user.buddy
+    @project_greetings = [
+      "Tell me more about this project!", "Do you have any snacks?", "Want to review your project?", "You are doing great!",
+      "Have you done your project yet?", "Remember what you learned?",
+      "What did you learn?"
+    ]
   end
 
   def create
@@ -82,6 +87,26 @@ class ProjectsController < ApplicationController
       interest: user_interest_names,
       learning_goal: @user.learning_goal
     )
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
+  end
+
+  def complete
+    @project = Project.find(params[:id])
+    @user = current_user
+
+    if @project.completed?
+      points_earned = 10
+      @user.earn_points(points_earned)
+
+      flash[:notice] = "Congratulations! You've earned #{points_earned} points."
+    else
+      flash[:alert] = "Project not completed yet."
+    end
+
+    redirect_to project_path(@project)
   end
 
   private
@@ -158,7 +183,5 @@ class ProjectsController < ApplicationController
   end
 
 
-  def project_params
-    params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
-  end
+
 end

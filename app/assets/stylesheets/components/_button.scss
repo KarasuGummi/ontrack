@@ -123,21 +123,10 @@
   margin-right: 8px;
 }
 
-// blue buddy part in show page "Tell me more about this projext!"
-.show-buddy-blue-btn {
-  color: white;
-  border-radius: 15px;
-  background: $dark-blue;
-  transition: background 0.3s ease;
-  font-family: $body-font;
-  border: none;
-  // box-shadow: 6px 6px 6px gray;
-  height: 34px;
-  padding: 0px 14px;
-  margin-left: 17px;
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
+// blue add-new-project-btn (dashboard)
+.dashboard-add-btn .blue-btn{
+  margin: 8px auto;
+  padding: 6px 24px;
+  text-align: center;
+  display: flex;
 }

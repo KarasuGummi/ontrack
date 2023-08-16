@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'projects#dashboard', as: :dashboard
   get '/next_question', to: 'questions#next_question'
-
+  resources :buddies, only: %i[new create show update] do
+    post 'feed', on: :member
+  end
   resources :buddies, only: %i[new create show update]
   resources :projects, only: %i[index new create show update]
   resources :questions, only: %i[index show]

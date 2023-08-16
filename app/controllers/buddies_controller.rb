@@ -9,6 +9,7 @@ class BuddiesController < ApplicationController
 
   def show
     @buddy = Buddy.find(params[:id])
+    @user = current_user
   end
 
   def create
@@ -34,6 +35,21 @@ class BuddiesController < ApplicationController
     @buddy = Buddy.find(params[:id])
     @buddy.destroy
     redirect_to buddys_path
+  end
+
+  def feed
+    @buddy = current_user.buddy
+    points_to_feed = params[:points].to_i
+    # puts current_user.points.class
+    # puts points_to_feed.class
+    if current_user.points >= points_to_feed
+      current_user.update(points: current_user.points - points_to_feed)
+      @buddy.update(love: @buddy.love + points_to_feed)
+      flash[:notice] = "#{points_to_feed} points fed to your buddy!"
+    else
+      flash[:alert] = "You don't have enough points."
+    end
+    redirect_to buddy_path(@buddy)
   end
 
   private
