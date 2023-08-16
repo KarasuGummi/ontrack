@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get '/dashboard', to: 'projects#dashboard', as: :dashboard
+  get '/history', to: 'projects#history', as: :history
   get '/next_question', to: 'questions#next_question'
   resources :buddies, only: %i[new create show update] do
     post 'feed', on: :member

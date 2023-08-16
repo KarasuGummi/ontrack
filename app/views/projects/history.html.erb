@@ -1,0 +1,54 @@
+<% content_for :current_page, 'history' %>
+
+<%= render "shared/navbar"%>
+  <div class="container" style="margin-bottom: 160px;">
+    <div class="project-list">
+
+      <div class="projects-page-title col-12 col-lg-6">
+        <div class="title">
+          <h1>Completed Learning Tracks</h1>
+        </div>
+
+        <div class="paw">
+          <ul>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <%# card list %>
+      <div class="projects-listing-card">
+        <% if @completed_projects.any? %>
+          <% @completed_projects.each do |project| %>
+            <div class="content">
+              <div class="category-tag">
+                <p class="subject-tag"><%= project.subject %></p>
+                <p class="status-tag"><%= project.status.capitalize %></p>
+              </div>
+
+              <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+
+              <div class="content-bottom">
+                <p><small><i class="fa-regular fa-clock d-frex"></i>Completed on:</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+                <button class="blue-btn">
+                  <%= link_to "Review", next_question_path%>
+                </button>
+              </div>
+
+            </div>
+          <% end %>
+        <% else %>
+          <p>No project</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="projectslist-buddy-container">
+  <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 100, crop: :fill) %>
+  <p class="buddy-text">Ain’t no mountain high enough baby!</p>
+</div>

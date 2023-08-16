@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
         project_to_accept.update(status: 'accepted')
         flash[:notice] = 'Recommended project added!'
       end
-      # redirect_to projects_path
+      redirect_to project_path(@project)
     else
       puts "Project Errors: #{@project.errors}"
       render 'new'
@@ -89,6 +89,12 @@ class ProjectsController < ApplicationController
     )
   end
 
+  def history
+    @user = current_user
+    @buddy = current_user.id
+    @completed_projects = current_user.projects.completed
+  end
+
   def project_params
     params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
   end
@@ -114,7 +120,7 @@ class ProjectsController < ApplicationController
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
       Please suggest one project for my class.
-      Please limit the words of the description for the project to less than 12 words.
+      Please limit the words of the description for the project to less than 15 words.
       Please also limit the instructions to 4 steps with each step having less than 12 words.
       The project should be about my learning and the project should incorporate my interest.
       There should only be 5 vocab words per project as strings in an array.
