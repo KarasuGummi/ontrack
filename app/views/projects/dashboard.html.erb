@@ -2,25 +2,25 @@
 
 <%= render "shared/navbar"%>
 <div class="container py-3">
-  <h3 class="text-center">My Dashboard</h3>
+  <h3 class="text-center dashboard-title">OnTrack</h3>
   <div class="dashboard-container">
     <div class="my-info">
       <%# <%= display user info %>
       <hr>
-      <h4>Hi <%= @user.username %> 👋🏽</h4>
+      <h5><strong><%= @user.username.capitalize %>'s Dashboard</strong></h5>
       <hr>
       <%# display latest project %>
       <div class="latest-project">
         <% if @latest_project %>
-          <h6>Latest Project:</h6>
-          <span class="badge text-bg-light"><%= @latest_project.name %></span>
+          <h6>Latest Project</h6>
+          <p class="dashboard-label"><strong><%= @latest_project.name %></strong></p>
         <% else %>
-          <p>No project added yet.</p>
+          <p class="dashboard-label">No project added yet.</p>
         <% end %>
         <%# display upcoming deadlines %>
 
         <% if @upcoming_projects.any? %>
-          <h6>Your Upcoming Deadlines:</h6>
+          <h6>Your Upcoming Deadlines</h6>
           <ul>
             <% @upcoming_projects.each do |project| %>
               <li><span class="badge text-bg-light"><%= project.deadline.strftime('%Y-%m-%d %H:%M') %></span></li>

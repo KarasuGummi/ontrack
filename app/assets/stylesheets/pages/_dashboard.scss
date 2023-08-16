@@ -73,11 +73,35 @@
   list-style: none;
 }
 
+h5 {
+  font-size: 18px;
+  color: $yellow;
+}
+
 .latest-project {
   line-height: 40px;
 
   h6 {
     margin: 0;
     padding: 0;
+    font-size: 14px;
+    color: $dark-blue;
   }
+}
+
+.dashboard-label {
+  font-size: 14px; /* Adjust the font size as needed */
+  background-color: $light-gray; /* Choose your desired background color */
+  color: black; /* Text color for better contrast */
+  padding: 5px; /* Add padding to the label for spacing */
+  margin: 8px;
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block; /* Prevent long labels from breaking into multiple lines */
+  line-height: 1; /* Reduce the line height to minimize spacing */
+}
+
+.dashboard-title {
+  font-size: 32px;
+  color: $emerald;
+  font-family: $title-font;
 }
