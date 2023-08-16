@@ -89,6 +89,12 @@ class ProjectsController < ApplicationController
     )
   end
 
+  def history
+    @user = current_user
+    @buddy = current_user.id
+    @completed_projects = current_user.projects.completed
+  end
+
   def project_params
     params.require(:project).permit(:name, :deadline, :subject, :learning_goal, :status, :description, :interest, :steps, :vocab_words)
   end
