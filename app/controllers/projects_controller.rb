@@ -120,7 +120,7 @@ class ProjectsController < ApplicationController
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
       Please suggest one project for my class.
-      Please limit the words of the description for the project to less than 12 words.
+      Please limit the words of the description for the project to less than 15 words.
       Please also limit the instructions to 4 steps with each step having less than 12 words.
       The project should be about my learning and the project should incorporate my interest.
       There should only be 5 vocab words per project as strings in an array.
