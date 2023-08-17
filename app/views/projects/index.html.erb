@@ -8,6 +8,7 @@
         <div class="title">
             <h1>My Learning Tracks</h1>
         <%= link_to 'Completed Tracks', history_path, class: "small-link" %>
+        <i class="fa-solid fa-arrow-right-long"></i>
         </div>
 
         <%# paw %>
@@ -38,7 +39,7 @@
             <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
             <button class="blue-btn">
             <%# ⬇︎need to fix the link later %>
-              <%= link_to "Review", next_question_path%>
+              <%= link_to "Review", questions_path%>
             </button>
           </div>
         </div>
