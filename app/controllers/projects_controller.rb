@@ -33,13 +33,30 @@ class ProjectsController < ApplicationController
     project_learning_goal = params[:project][:learning_goal]
     user_interest = current_user.interests.sample.name
 
-    @recommendation = generate_recommendations(project_subject, project_learning_goal, user_interest)
-
-    @project = Project.new(@recommendation)
-
+    # @recommendation = generate_recommendations(project_subject, project_learning_goal, user_interest)
+    # @project = Project.new(@recommendation)
     # @project.user = current_user
 
+    suggestion = generate_recommendations(project_subject, project_learning_goal, user_interest)
+
+    @project = Project.new(
+      name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
+      description: suggestion["description"].empty? ? "Description not found" : suggestion["description"],
+      subject: suggestion["subject"].empty? ? subject : suggestion["subject"],
+      learning_goal: suggestion["learning_goal"].empty? ? learning_goal : suggestion["learning_goal"],
+      interest: suggestion["user_interest"].empty? ? user_interest : suggestion["user_interest"],
+      steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
+      vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
+      status: 'pending',
+      user: current_user
+    )
+
     if @project.save
+      suggestion["questions"].each do |q|
+        question = Question.create(question_content: q["question_content"], project: @project)
+        Answer.create(answer_content: q["answer_content"], question: question)
+      end
+
       flash[:notice] = 'Project created!'
       if params[:add_project]
         project_to_accept = Project.find(params[:add_project])
@@ -154,37 +171,20 @@ class ProjectsController < ApplicationController
     suggestion = response["choices"][0]["message"]["content"]
     # add an error if the response isn't what we wanted it to be -> try again
     suggestion = JSON.parse(suggestion)
-    # Extracting the relevant sections of the suggestion
-    # title = suggestion.match(/Title: "(.*?)"/)&.captures&.first
-    # description = suggestion.match(/Description: "(.*?)"/)&.captures&.first
-    # instructions = suggestion.scan(/^\d+\.\s(.*?)$/).flatten
-    # user_interest = suggestion.match(/User interest: (.*?)$/)&.captures&.first
-    # vocab_words = suggestion.match(/Vocabulary words: "(.*?)"/)&.captures&.first
-
-    # default_info = {
-    #   name: "Title not found",
-    #   description: "Description not found",
-    #   subject: subject,
-    #   learning_goal: learning_goal,
-    #   interest: user_interest,
-    #   steps: "Steps not found",
-    #   vocab_words: "Vocab words not found",
-    # }
-
     p suggestion
 
-    project_info = {
-      name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
-      description: suggestion["description"].empty? ? "Description not found" : suggestion["description"],
-      subject: suggestion["subject"].empty? ? subject : suggestion["subject"],
-      learning_goal: suggestion["learning_goal"].empty? ? learning_goal : suggestion["learning_goal"],
-      interest: suggestion["user_interest"].empty? ? user_interest : suggestion["user_interest"],
-      steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
-      vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
-      status: 'pending',
-      user: current_user
-    }
-    # project_info
+    # project_info = {
+    #   name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
+    #   description: suggestion["description"].empty? ? "Description not found" : suggestion["description"],
+    #   subject: suggestion["subject"].empty? ? subject : suggestion["subject"],
+    #   learning_goal: suggestion["learning_goal"].empty? ? learning_goal : suggestion["learning_goal"],
+    #   interest: suggestion["user_interest"].empty? ? user_interest : suggestion["user_interest"],
+    #   steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
+    #   vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
+    #   status: 'pending',
+    #   user: current_user
+    # }
+    # # project_info
     return suggestion
   end
 end
