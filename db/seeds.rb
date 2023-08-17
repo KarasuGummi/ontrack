@@ -9,6 +9,8 @@ require 'date'
 
 puts 'Cleaning up database...'
 
+Chatroom.destroy_all
+Message.destroy_all
 UserInterest.destroy_all
 Interest.destroy_all
 UserAnswer.destroy_all
