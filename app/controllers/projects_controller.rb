@@ -184,19 +184,7 @@ class ProjectsController < ApplicationController
       status: 'pending',
       user: current_user
     }
-
-    # project_info = {
-    #   status: 'pending',
-    #   user: current_user
-    # }
-
-    # suggestion.each do |key, value|
-    #   project_info[key] = value.empty? ? default_info[key] : value
-    # end
-
-    project_info
+    # project_info
+    return suggestion
   end
-
-
-
 end
