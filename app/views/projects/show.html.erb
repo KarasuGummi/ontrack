@@ -52,10 +52,10 @@
         <h6><strong><%= @project.name %></strong></h6>
         <p><%= @project.description%></p>
 
-        <h6><strong>Project Steps:</strong></h6>
+        <h6><strong>Key Steps:</strong></h6>
         <ul>
           <% @project.steps.each_with_index do |step, index| %>
-            <li><%= "#{index + 1}. #{step}"  %></li>
+            <li><%= "Step #{index + 1}: #{step}"  %></li>
           <% end %>
         </ul>
 
@@ -63,7 +63,7 @@
 
 
 
-        <h6><strong>Vocab Words:</strong></h6>
+        <h6><strong>Key Words:</strong></h6>
         <ul>
           <% @project.vocab_words.each do |word| %>
             <li><%= word %></li>
