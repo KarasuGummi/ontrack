@@ -120,22 +120,30 @@ class ProjectsController < ApplicationController
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
       Please suggest one project for my class.
-      Please limit the words of the description for the project to less than 15 words.
-      Please also limit the instructions to 4 steps with each step having less than 12 words.
-      The project should be about my learning and the project should incorporate my interest.
+      Please limit the words of the description for the project to less than 18 words.
+      Please also limit the instructions to 4 steps with each step having less than 16 words.
+      The steps should be strings in an array.
+      The project should be about the subkect, the learning_goal and my user_interest.
       There should only be 5 vocab words per project as strings in an array.
+      Please create five questions relating to the project.
+      Each question should incorporate a vocab word or a project step.
+      Please also provide answers for each question.
+      Please also provide
       For the project, provide the output as a JSON object with the following attributes:
       name: "name"
       description: "description"
       subject: #{subject}
       learning_goal: #{learning_goal}
-      steps:
-      1. step 1
-      2. step 2
-      3. step 3
-      4. step 4
+      steps: ["step 1", "step 2", "step 3", "step 4"]
       user_interest: #{user_interest}
-      vocab_words: [vocab words]
+      vocab_words: ["vocab word 1", "vocab word 2", "vocab word 3", "vocab word 4", "vocab word 5"]
+      questions: [
+        { question_content: "question 1", answer_content: "answer 1" },
+        { question_content: "question 2", answer_content: "answer 2" },
+        { question_content: "question 3", answer_content: "answer 3" },
+        { question_content: "question 4", answer_content: "answer 4" },
+        { question_content: "question 5", answer_content: "answer 5" }
+      ]
 
       I will provide the subject, learning_goal, and user_interest. Please provide the other attributes.
     PROMPT
