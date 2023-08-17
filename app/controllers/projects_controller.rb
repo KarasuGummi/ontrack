@@ -130,19 +130,19 @@ class ProjectsController < ApplicationController
       Please also provide answers for each question.
       Please also provide
       For the project, provide the output as a JSON object with the following attributes:
-      name: "name"
-      description: "description"
-      subject: #{subject}
-      learning_goal: #{learning_goal}
-      steps: ["step 1", "step 2", "step 3", "step 4"]
-      user_interest: #{user_interest}
-      vocab_words: ["vocab word 1", "vocab word 2", "vocab word 3", "vocab word 4", "vocab word 5"]
-      questions: [
-        { question_content: "question 1", answer_content: "answer 1" },
-        { question_content: "question 2", answer_content: "answer 2" },
-        { question_content: "question 3", answer_content: "answer 3" },
-        { question_content: "question 4", answer_content: "answer 4" },
-        { question_content: "question 5", answer_content: "answer 5" }
+      "name": "name"
+      "description": "description"
+      "subject": #{subject}
+      "learning_goal": #{learning_goal}
+      "steps": ["step 1", "step 2", "step 3", "step 4"]
+      "user_interest": #{user_interest}
+      "vocab_words": ["vocab word 1", "vocab word 2", "vocab word 3", "vocab word 4", "vocab word 5"]
+      "questions: [
+        { "question_content": "question 1", answer_content: "answer 1" },
+        { "question_content": "question 2", answer_content: "answer 2" },
+        { "question_content": "question 3", answer_content: "answer 3" },
+        { "question_content": "question 4", answer_content: "answer 4" },
+        { "question_content": "question 5", answer_content: "answer 5" }
       ]
 
       I will provide the subject, learning_goal, and user_interest. Please provide the other attributes.
@@ -171,6 +171,8 @@ class ProjectsController < ApplicationController
     #   steps: "Steps not found",
     #   vocab_words: "Vocab words not found",
     # }
+
+    p suggestion
 
     project_info = {
       name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
