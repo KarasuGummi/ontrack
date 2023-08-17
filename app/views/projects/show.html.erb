@@ -30,6 +30,12 @@
               <%= f.submit 'Add', class: 'green-btn' %>
             </div>
             <% end %>
+            <%= simple_form_for @project, url: project_path(@project) do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'declined' } %>
+            <div class="button-container">
+              <%= f.submit 'Decline', class: 'yellow-btn' %>
+            </div>
+            <% end %>
           <% end %>
         </div>
         <h6><strong><%= @project.name %></strong></h6>
