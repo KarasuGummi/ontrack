@@ -119,17 +119,16 @@ class ProjectsController < ApplicationController
 
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
-      Please suggest one project for my class.
-      Please limit the words of the description for the project to less than 18 words.
-      Please also limit the instructions to 4 steps with each step having less than 16 words.
-      The steps should be strings in an array.
-      The project should be about the subkect, the learning_goal and my user_interest.
-      There should only be 5 vocab words per project as strings in an array.
-      Please create five questions relating to the project.
-      Each question should incorporate a vocab word or a project step.
-      Please also provide answers for each question.
-      Please also provide
-      For the project, provide the output as a JSON object with the following attributes:
+      I'm seeking a project recommendation for my class. The project should uniquely intertwine the student's interest (user_interest), the subject they're studying (subject), and the specific learning goal (learning_goal) they are targeting.
+
+      Specific guidelines:
+      1. The description should be concise, not exceeding 30 words.
+      2. The instructions for the project should be broken down into 4 distinct steps, each within 16 words.
+      3. Both the user_interest and learning_goal MUST be explicitly mentioned in the project's name or description.
+      4. Vocabulary is essential; hence, suggest 5 vocabulary words relevant to the project.
+      5. Develop five questions about the project. These questions should either reference a vocabulary word or a specific step in the project. Each question should have a corresponding answer.
+
+      Format the output as a JSON object with these attributes:
       "name": "name"
       "description": "description"
       "subject": #{subject}
