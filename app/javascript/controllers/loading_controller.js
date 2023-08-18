@@ -9,9 +9,13 @@ export default class extends Controller {
 
   showModal(event) {
     event.preventDefault();
-    this.modalTarget.style.display = "block";
+    const modal = document.querySelector('.modal');
+    if (modal) {
+      modal.style.display = "block";
+    }
+
     setTimeout(() => {
-      event.target.submit();
+      this.element.submit();
     }, 500);
   }
 
