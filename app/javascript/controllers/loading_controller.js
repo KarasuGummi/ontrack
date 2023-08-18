@@ -13,9 +13,9 @@ export default class extends Controller {
       const secondImage = 'https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png';
 
       if (currentImage === firstImage) {
-        this.dogImageTarget.innerHTML = `<img src="${secondImage}" alt="Animated Dog" height="140" style="crop: fill;">`;
+        this.dogImageTarget.innerHTML = `<img src="${secondImage}" alt="Animated Dog" height="140">`;
       } else {
-        this.dogImageTarget.innerHTML = `<img src="${firstImage}" alt="Animated Dog" height="140" style="crop: fill;">`;
+        this.dogImageTarget.innerHTML = `<img src="${firstImage}" alt="Animated Dog" height="140">`;
       }
     }, 500);
   }
