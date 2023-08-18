@@ -8,16 +8,20 @@
 
   <h3 class="text-center"><%= @buddy.name %></h3>
 </div>
-
 <%# display buddy %>
 <div class="buddy-room-img">
   <div class="buddy-comment">
     <% if @buddy.love == 0 %>
       <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
-    <% elsif @buddy.love >= 1 && @buddy.love <= 5 %>
-      <p class="text-center">Thank you, I like you! Give me more❣️</p>
-    <% else%>
-      <p class="text-center">Thank you, I love you❤️</p>
+    <% elsif @buddy.love >= 1 && @buddy.love <= 3 %>
+    <%# awake buddy %>
+      <p class="text-center">Thank you, I like you! Give me some pizza🍕</p>
+    <%# eating pizza buddy %>
+    <% elsif @buddy.love >= 4 && @buddy.love <= 6 %>
+      <p class="text-center">Thank you, I like you! Give me some donuts🍩</p>
+    <%# eating dounuts buddy %>
+    <% elsif @buddy.love >= 7 && @buddy.love <= 10 %>
+      <p class="text-center">Thank you, I like you! I'm so happy❣️</p>
     <% end %>
   </div>
 </div>
@@ -25,15 +29,13 @@
 <div class="buddy-show-img">
 <%# sleeping buddy %>
   <% if @buddy.love == 0 %>
-    <div class="sleeping-buddy">
-      <section>
+      <section class="sleeping-buddy">
         <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom" , height: 140, crop: :fill) %>
         <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
       </section>
-    </div>
 <%# awake buddy %>
   <% elsif @buddy.love >= 1 && @buddy.love <= 3 %>
-    < class="awake-buddy">
+<div class="awake-buddy">
       <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 140, crop: :fill) %>
     </div>
 <%# eating pizza buddy %>
@@ -44,7 +46,7 @@
         <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-pizza-1_v3burp.png", class: "top", height: 140, crop: :fill) %>
       </section>
 
-<%# eating dounuts buddy %>
+<%# eating donuts buddy %>
   <% elsif @buddy.love >= 7 && @buddy.love <= 10 %>
 
       <section class="buddy-eating">
