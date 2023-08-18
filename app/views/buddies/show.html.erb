@@ -14,9 +14,9 @@
     <div class="buddy-comment">
       <% if @buddy.love == 0 %>
         <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
-      <% elsif @buddy.love >= 3 %>
+      <% elsif @buddy.love >= 1 && @buddy.love <= 5 %>
         <p class="text-center">Thank you, I like you! Give me more❣️</p>
-      <% else %>
+      <% else%>
         <p class="text-center">Thank you, I love you❤️</p>
       <% end %>
     </div>

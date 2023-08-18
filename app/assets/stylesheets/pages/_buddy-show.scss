@@ -66,14 +66,14 @@ section img {
   position: absolute;
   width: 70%;
   height: 140px;
-  animation: fade 3.5s infinite alternate;
+  animation: fade 2.5s infinite alternate;
   top: 45%;
   left: 15%;
 
 }
 
 .bottom {
-  animation-delay: 2s;
+  animation-delay: 1.5s;
 }
 
 @keyframes fade {
