@@ -7,7 +7,7 @@
       <div class="projects-page-title col-12 col-lg-6">
         <div class="title">
             <h1>My Learning Tracks</h1>
-        <%# <%= link_to 'Completed Projects', history_path, class: "small-link" %> 
+        <%# <%= link_to 'Completed Projects', history_path, class: "small-link" %>
         </div>
 
         <%# paw %>
@@ -58,9 +58,10 @@
   <div id="In_progress" class="area">
       <%# card list %>
       <div class="projects-listing-card">
+    <% if @in_progress_projects.any? %>
+      <% @in_progress_projects.each do |project| %>
         <%# Accepted projects will show only projects that the user added %>
-        <% if @accepted_projects.any? %>
-          <% @accepted_projects.each do |project| %>
+
         <div class="content">
           <div class="category-tag">
             <p class="subject-tag"><%= project.subject %></p>
@@ -77,12 +78,12 @@
             </button>
           </div>
         </div>
-          <% end %>
-      </div>
-          <% else %>
-            <p>No project</p>
-          <% end %>
-      </div>
+            <% end %>
+    <% else %>
+      <p>No in-progress projects</p>
+    <% end %>
+  </div>
+</div>
 <%# Completed tab------------------------------------------------------------------------ %>
 <div id="Completed" class="Completed">
 <div class="projects-listing-card">
