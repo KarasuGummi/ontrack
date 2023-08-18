@@ -1,0 +1,38 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinning-pizza {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes rollAway {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100px); }
+}
+
+// .rolling-baseball {
+//   animation: rollAway 5s linear infinite;
+// }
+
+/* Additional styles for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}

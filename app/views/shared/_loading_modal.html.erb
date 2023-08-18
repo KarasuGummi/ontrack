@@ -1,7 +1,9 @@
 <div class="modal">
   <div class="modal-content">
     <%# Dog Image %>
-    <%= cl_image_tag("dog_main", { alt: "Animated Dog", data: { loading_target: "dogImage" }, height: 140, crop: :fill }) %>
+    <div data-loading-target="dogImage">
+      <%= cl_image_tag("gsv9qtfodjbhccbmhwws", { alt: "Animated Dog", height: 140, crop: :fill }) %>
+    </div>
 
     <%# Pizza Image %>
     <%= cl_image_tag("pizza", alt: "Spinning Pizza", class: "spinning-pizza", style: "position:absolute; top:10%; left:50%;") %>
