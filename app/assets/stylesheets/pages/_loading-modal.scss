@@ -4,7 +4,7 @@
 }
 
 .spinning-pizza {
-  animation: spin 1s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes rollAway {
@@ -20,7 +20,7 @@
 .modal {
   display: none;
   position: fixed;
-  top: 0;
+  top: 100;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -35,4 +35,51 @@
   padding: 20px;
   border-radius: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pizza-container {
+  position: relative;
+  width: 620px;
+  height: 620px;
+}
+
+.spinning-pizza {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px; // assuming the pizzas are 40px
+  height: 100px;
+  margin-top: -50px; // half the width to center the pizza
+  margin-left: -50px; // half the height to center the pizza
+  animation: orbit 10s infinite linear;
+
+  // &:nth-of-type(1) { top: 10%; left: 50%; }
+  // &:nth-of-type(2) { top: 50%; left: 10%; }
+  // &:nth-of-type(3) { top: 90%; left: 50%; }
+  // &:nth-of-type(4) { top: 50%; left: 90%; }
+  // &:nth-of-type(5) { top: 25%; left: 25%; }
+
+  // &:nth-of-type(1) { transform: rotate(0deg) translate(200px) rotate(0deg); }
+  // &:nth-of-type(2) { transform: rotate(72deg) translate(200px) rotate(0deg); }
+  // &:nth-of-type(3) { transform: rotate(144deg) translate(200px) rotate(0deg); }
+  // &:nth-of-type(4) { transform: rotate(216deg) translate(200px) rotate(0deg); }
+  // &:nth-of-type(5) { transform: rotate(288deg) translate(200px) rotate(0deg); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translate(200px) rotate(0deg); }
+  100% { transform: rotate(360deg) translate(200px) rotate(0deg); }
+}
+
+
+.centered-dog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }

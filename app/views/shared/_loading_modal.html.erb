@@ -1,13 +1,14 @@
 <div class="modal" data-loading-target="modal">
   <div class="modal-content">
-    <%# Dog Image %>
-    <div data-loading-target="dogImage">
-      <%= cl_image_tag("gsv9qtfodjbhccbmhwws", { alt: "Animated Dog", height: 140, crop: :fill }) %>
-    </div>
-
     <%# Pizza Image %>
-    <%= cl_image_tag("pizza", alt: "Spinning Pizza", class: "spinning-pizza", style: "position:absolute; top:10%; left:50%;") %>
-
+    <div class="pizza-container">
+      <% 5.times do %>
+        <%= cl_image_tag("pizza", alt: "Spinning Pizza", class: "spinning-pizza") %>
+      <% end %>
+      <div data-loading-target="dogImage" class="centered-dog">
+        <%= cl_image_tag("gsv9qtfodjbhccbmhwws", { alt: "Animated Dog", height: 140, crop: :fill }) %>
+      </div>
+    </div>
     <p>Loading...</p>
   </div>
 </div>
