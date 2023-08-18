@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     @buddy = current_user.buddy
     @projects = Project.all
     @accepted_projects = current_user.projects.accepted
+    @completed_projects = current_user.projects.completed
   end
 
   def new

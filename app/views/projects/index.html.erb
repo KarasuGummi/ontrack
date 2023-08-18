@@ -7,7 +7,7 @@
       <div class="projects-page-title col-12 col-lg-6">
         <div class="title">
             <h1>My Learning Tracks</h1>
-        <%= link_to 'Completed Projects', history_path, class: "small-link" %>
+        <%# <%= link_to 'Completed Projects', history_path, class: "small-link" %> 
         </div>
 
         <%# paw %>
@@ -18,9 +18,44 @@
             <li><i class="fa-solid fa-paw yellow-paw"></i></li>
           </ul>
         </div>
+        </div>
+
+<div class="wrapper">
+    <ul class="tab">
+      <li><a href="#ToDo">ToDo</a></li>
+      <li><a href="#In_progress">In progress</a></li>
+      <li><a href="#Completed">Completed</a></li>
+    </ul>
+<%# To do tab------------------------------------------------------------------------ %>
+<div id="ToDo" class="area">
+  <div class="projects-listing-card">
+        <%# Accepted projects will show only projects that the user added %>
+        <% if @accepted_projects.any? %>
+          <% @accepted_projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p class="subject-tag"><%= project.subject %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
+          </div>
+
+          <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+          <%# <p><%= project.description</p>  %>
+          <div class="content-bottom">
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+            <button class="blue-btn">
+            <%# ⬇︎need to fix the link later %>
+              <%= link_to "Review", next_question_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
       </div>
-
-
+          <% else %>
+            <p>No project</p>
+          <% end %>
+  </div>
+  <%# In progress tab------------------------------------------------------------------------ %>
+  <div id="In_progress" class="area">
       <%# card list %>
       <div class="projects-listing-card">
         <%# Accepted projects will show only projects that the user added %>
@@ -47,17 +82,49 @@
           <% else %>
             <p>No project</p>
           <% end %>
+      </div>
+<%# Completed tab------------------------------------------------------------------------ %>
+<div id="Completed" class="Completed">
+<div class="projects-listing-card">
+        <%# Accepted projects will show only projects that the user added %>
+        <% if @completed_projects.any? %>
+          <% @completed_projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p class="subject-tag"><%= project.subject %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
+          </div>
 
-      <%# <div class="add-btn">
-        <button class="blue-btn">
-          <%= link_to "Add New Project", new_project_path%>
-        <%# </button>
-      </div> %>
+          <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+          <%# <p><%= project.description</p>  %>
+          <div class="content-bottom">
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+            <button class="blue-btn">
+            <%# ⬇︎need to fix the link later %>
+              <%= link_to "Review", next_question_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
+      </div>
+          <% else %>
+            <p>No project</p>
+          <% end %>
+      </div>
     </div>
-  </div>
-
+</div>
+</div>
     <%# display buddy %>
   <div class="projectslist-buddy-container">
     <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 100, crop: :fill) %>
     <p class="buddy-text">Ain’t no mountain high enough baby!</p>
   </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
+      <%# <div class="add-btn">
+        <button class="blue-btn">
+          <%= link_to "Add New Project", new_project_path%>
+        <%# </button>
+      </div> %>
