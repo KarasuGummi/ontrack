@@ -13,5 +13,11 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 import BuddyimgController from "./buddyimg_controller"
 application.register("buddyimg", BuddyimgController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
+
+import LoadingController from "./loading_controller"
+application.register("loading", LoadingController)
