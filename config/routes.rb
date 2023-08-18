@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :projects, only: %i[index new create show update]
   resources :questions, only: %i[index show]
   resources :profiles, only: %i[index edit update]
-  post 'generate_response', to: 'questions#show', as: :generate_response
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end

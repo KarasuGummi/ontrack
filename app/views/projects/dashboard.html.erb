@@ -12,10 +12,10 @@
       <%# display latest project %>
       <div class="latest-project">
         <% if @latest_project %>
-          <h6>Latest Project</h6>
+          <h6>Latest Track</h6>
           <p class="dashboard-label"><strong><%= @latest_project.name %></strong></p>
         <% else %>
-          <p class="dashboard-label">No project added yet.</p>
+          <p class="dashboard-label">No tracks added yet.</p>
         <% end %>
         <%# display upcoming deadlines %>
 
@@ -47,7 +47,7 @@
 </div>
 <div class="dashboard-add-btn">
   <button class="blue-btn">
-    <%= link_to "Add New Project", new_project_path%>
+    <%= link_to "Add New Track", new_project_path%>
   </button>
 </div>
 
@@ -56,7 +56,7 @@
   <% if @recommended_projects.any? %>
   <div class="card text-center">
     <div class="card-header">
-      Try one of these projects!
+      Try one of these tracks!
     </div>
     <% @recommended_projects.each do |project| %>
     <div class="card-body">

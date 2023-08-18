@@ -4,8 +4,16 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
 
+<<<<<<< HEAD
 import ProjectlistTabController from "./projectlist_tab_controller"
 application.register("projectlist-tab", ProjectlistTabController)
+=======
+import LoadingController from "./loading_controller"
+application.register("loading", LoadingController)
+>>>>>>> 749e828bfa1dfdb1e49b3c7b5d3bc06edb484e8d

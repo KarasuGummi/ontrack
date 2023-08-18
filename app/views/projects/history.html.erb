@@ -7,6 +7,9 @@
       <div class="projects-page-title col-12 col-lg-6">
         <div class="title">
           <h1>Completed Learning Tracks</h1>
+          <i class="fa-solid fa-arrow-left-long"></i>
+          <%= link_to 'Return to Current Tracks', projects_path, class: "small-link" %>
+
         </div>
 
         <div class="paw">
@@ -34,7 +37,7 @@
               <div class="content-bottom">
                 <p><small><i class="fa-regular fa-clock d-frex"></i>Completed on:</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
                 <button class="blue-btn">
-                  <%= link_to "Review", next_question_path%>
+                  <%= link_to "Review", questions_path%>
                 </button>
               </div>
 
