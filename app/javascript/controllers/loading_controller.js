@@ -6,6 +6,15 @@ export default class extends Controller {
   connect() {
     this.toggleDogImage();
   }
+
+  showModal(event) {
+    event.preventDefault();
+    this.modalTarget.style.display = "block";
+    setTimeout(() => {
+      event.target.submit();
+    }, 500);
+  }
+
   toggleDogImage() {
     setInterval(() => {
       const currentImage = this.dogImageTarget.querySelector('img').getAttribute("src");
