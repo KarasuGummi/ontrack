@@ -6,13 +6,14 @@
     <h3 class="text-center py-2">Add A New Project</h3>
 
     <div class="bg-white rounded-4 p-3 shadow edit-form">
-      <%= simple_form_for @project, url: projects_path, method: :post, data: { controller: "loading", action: "submit->loading#showModal" } do |f| %>
-      <div class="form-group">
+      <%= render 'shared/project_form' %>
+      <%# <%= simple_form_for @project, url: projects_path, method: :post, data: { controller: "loading", action: "submit->loading#showModal" } do |f| %>
+      <%# <div class="form-group">
         <%= f.input :subject, placeholder: "Enter a subject" %>
-        <%= f.input :learning_goal, placeholder: "Enter learning goal" %>
-        <%= f.button :submit, "Create Project", class: "green-update-btn w-100" %>
-      </div>
-      <% end %>
+        <%# <%= f.input :learning_goal, placeholder: "Enter learning goal" %>
+        <%# <%= f.button :submit, "Create Project", class: "green-update-btn w-100" %>
+      <%# </div> %>
+      <%# <% end %>
 
     <%# <div class="suggested-project-card">
       <h4>Newly Created Project</h4>
