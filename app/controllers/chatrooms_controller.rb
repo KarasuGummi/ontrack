@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    chat
+    # chat
   end
 
   def chat
@@ -20,7 +20,7 @@ class ChatroomsController < ApplicationController
     puts "Generated Prompt: #{prompt}"
     openai_service = OpenaiService.new(prompt)
     response = openai_service.call
-    @buddyinit = response["choices"][0]["message"]["content"]
+    @buddychat = response["choices"][0]["message"]["content"]
   end
 end
 
