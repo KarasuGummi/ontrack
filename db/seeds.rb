@@ -462,6 +462,12 @@ Answer.create!(
   question: math_sharkweek_question
 )
 
+puts 'Creating buddy chatroom...'
+
+Chatroom.create!(
+  name: 'Buddy Chat'
+)
+
 puts 'All finished!'
 
 # Format for creating new projects to copy+paste
