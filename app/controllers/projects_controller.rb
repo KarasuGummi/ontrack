@@ -26,7 +26,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # loading modal frame modal
     @buddy = current_user.buddy
     @user = current_user
     project_subject = params[:project][:subject]
@@ -145,23 +144,21 @@ class ProjectsController < ApplicationController
       4. Vocabulary is essential; hence, suggest 5 vocabulary words relevant to the project.
       5. Develop five questions about the project. These questions should either reference a vocabulary word or a specific step in the project. Each question should have a corresponding answer.
 
-      Format the output as a JSON object with these attributes:
-      "name": "name"
-      "description": "description"
-      "subject": #{subject}
-      "learning_goal": #{learning_goal}
-      "steps": ["step 1", "step 2", "step 3", "step 4"]
-      "user_interest": #{user_interest}
-      "vocab_words": ["vocab word 1", "vocab word 2", "vocab word 3", "vocab word 4", "vocab word 5"]
-      "questions: [
-        { "question_content": "question 1", answer_content: "answer 1" },
-        { "question_content": "question 2", answer_content: "answer 2" },
-        { "question_content": "question 3", answer_content: "answer 3" },
-        { "question_content": "question 4", answer_content: "answer 4" },
-        { "question_content": "question 5", answer_content: "answer 5" }
+      Format the output as a JSON object with these attributes and this format. Subject, learning_goal, and user_interest are already provided:
+      "name": "name",
+      "description": "description",
+      "subject": #{subject},
+      "learning_goal": #{learning_goal},
+      "steps": ["step 1", "step 2", "step 3", "step 4"],
+      "user_interest": #{user_interest},
+      "vocab_words": ["vocab word 1", "vocab word 2", "vocab word 3", "vocab word 4", "vocab word 5"],
+      "questions": [
+        { "question_content": "question 1", "answer_content": "answer 1" },
+        { "question_content": "question 2", "answer_content": "answer 2" },
+        { "question_content": "question 3", "answer_content": "answer 3" },
+        { "question_content": "question 4", "answer_content": "answer 4" },
+        { "question_content": "question 5", "answer_content": "answer 5" }
       ]
-
-      I will provide the subject, learning_goal, and user_interest. Please provide the other attributes.
     PROMPT
     puts "Generated Prompt: #{prompt}"
     openai_service = OpenaiService.new(prompt)
@@ -170,7 +167,12 @@ class ProjectsController < ApplicationController
 
     suggestion = response["choices"][0]["message"]["content"]
     # add an error if the response isn't what we wanted it to be -> try again
-    suggestion = JSON.parse(suggestion)
+    begin
+      suggestion = JSON.parse(suggestion)
+    rescue JSON::ParserError
+      render :new, notice: "try again"
+    end
+
     p suggestion
 
     # project_info = {
