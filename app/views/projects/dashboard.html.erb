@@ -47,13 +47,13 @@
 </div>
 <div class="dashboard-add-btn">
   <button class="blue-btn">
-    <%= link_to "Add New Track", new_project_path%>
-  </button>
-</div>
-<div class="dashboard-add-btn">
-  <button class="blue-btn">
     <%= link_to "Chat with your buddy!", chatroom_path(Chatroom.last)%>
   </button>
+  <div class="project-form-container">
+    <%= render 'shared/project_form' %>
+  </div>
+</div>
+<div class="dashboard-add-btn">
 </div>
 
 <%# display recommended projects %>

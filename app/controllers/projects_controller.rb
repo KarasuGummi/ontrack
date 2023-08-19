@@ -87,6 +87,7 @@ class ProjectsController < ApplicationController
   end
 
   def dashboard
+    @project = Project.new
     @user = current_user
     @buddy = current_user.id
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
