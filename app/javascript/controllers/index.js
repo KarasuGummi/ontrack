@@ -16,7 +16,5 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
 
-import ProjectlistTabController from "./projectlist_tab_controller"
-application.register("projectlist-tab", ProjectlistTabController)
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
