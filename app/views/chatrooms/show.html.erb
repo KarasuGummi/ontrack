@@ -1,6 +1,6 @@
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-  <h1>#<%= current_user.buddy.name %></h1>
+  <h1>Chat with <%= current_user.buddy.name.capitalize %>!</h1>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <%#= @buddychat %>
@@ -13,17 +13,6 @@
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= message.content %></p>
-      </div>
-    <% end %>
-
-    <% if @chatbot_response_content %>
-      <!-- Display the chatbot's response -->
-      <div class="chatbot-response">
-        <small>
-          <strong>Chatbot</strong>
-          <i><%= Time.now.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= @chatbot_response_content %></p>
       </div>
     <% end %>
   </div>
