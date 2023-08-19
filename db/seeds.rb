@@ -16,11 +16,12 @@ Interest.destroy_all
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
+User.destroy_all
 Buddy.destroy_all
 Project.destroy_all
-User.destroy_all
 
 puts 'Database cleaned!'
+puts User.count
 
 puts 'Creating interests...'
 

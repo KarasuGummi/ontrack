@@ -6,12 +6,12 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      chatbot_response = generate_chatbot_response(@message.content)
+      generate_chatbot_response(@message.content)
 
       # Create and save the chatbot's response message
-      chatbot_message = Message.new(content: chatbot_response, user: current_user.buddy.user)
-      chatbot_message.chatroom = @chatroom
-      chatbot_message.save
+      # chatbot_message = Message.new(content: chatbot_response, user: current_user.buddy.user)
+      # chatbot_message.chatroom = @chatroom
+      # chatbot_message.save
 
       redirect_to chatroom_path(@chatroom)
     else
