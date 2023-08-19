@@ -39,7 +39,7 @@
             <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
             <button class="blue-btn">
             <%# ⬇︎need to fix the link later %>
-              <%= link_to "Review", questions_path%>
+              <%= link_to "Review Quiz", project_questions_path(project)%>
             </button>
           </div>
         </div>

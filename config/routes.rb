@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     post 'feed', on: :member
   end
   resources :buddies, only: %i[new create show update]
-  resources :projects, only: %i[index new create show update]
-  resources :questions, only: %i[index show]
+  resources :projects, only: %i[index new create show update] do
+    resources :questions, only: %i[index show]
+  end
   resources :profiles, only: %i[index edit update]
   resources :chatrooms, only: :show do
     resources :messages, only: :create
