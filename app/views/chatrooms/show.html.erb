@@ -1,3 +1,6 @@
+<% content_for :current_page, 'chatroom' %>
+
+<%= render "shared/navbar"%>
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
   <h1>Chat with <%= current_user.buddy.name.capitalize %>!</h1>
