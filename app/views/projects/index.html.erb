@@ -30,8 +30,8 @@
 <div id="Recommended" class="area">
   <div class="projects-listing-card">
         <%# Accepted projects will show only projects that the user added %>
-        <% if @accepted_projects.any? %>
-          <% @accepted_projects.each do |project| %>
+        <% if @recommended_projects.any? %>
+          <% @recommended_projects.each do |project| %>
         <div class="content">
           <div class="category-tag">
             <p class="subject-tag"><%= project.subject %></p>

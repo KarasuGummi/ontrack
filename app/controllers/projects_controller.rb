@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     @accepted_projects = current_user.projects.accepted
     @completed_projects = current_user.projects.completed
     @in_progress_projects = @accepted_projects.select { |project| project.status == 'accepted' }
+    @recommended_projects = current_user.projects.pending
   end
 
   def new
