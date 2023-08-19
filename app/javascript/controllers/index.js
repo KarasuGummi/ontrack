@@ -10,9 +10,6 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 // const context = require.context("./controllers", true, /\.js$/)
 // Stimulus.load(definitionsFromContext(context))
 
-import BuddyimgController from "./buddyimg_controller"
-application.register("buddyimg", BuddyimgController)
-
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
