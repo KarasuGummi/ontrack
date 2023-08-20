@@ -1,31 +1,36 @@
 <% content_for :current_page, 'review' %>
 
 <%= render "shared/navbar"%>
-<div class="container">
-  <div class="jumbotron">
-    <h3>Quiz</h3>
-  </div>
+<div class="album py-5 bg-light">
+  <h2 class="text-center">Review</h2>
   <div class="container">
-    <% @questions.each do |question| %>
-      <div class="flashcard-container">
-        <div class="flashcard">
-          <div class="question">
-            <div class="content">
-              <%= question.question_content %>
-            </div>
-          </div>
-          <div class="answer">
-            <div class="content">
-              <% question.answers.each do |answer| %>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="q<%= question.id %>" id="q<%= question.id %>_a<%= answer.id %>" value="<%= answer.id %>">
-                  <label class="form-check-label" for="q<%= question.id %>_a<%= answer.id %>"><%= answer.answer_content %></label>
+    <div class="row">
+      <% @questions.each do |question| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm d-flex flex-fill">
+            <div class="card-body flip-card">
+              <div class="card-inner question d-flex align-items-center justify-content-center">
+                <div class="content text-center">
+                  <p class="mb-0">Question</p>
+                  <p class="card-text m-0 p-4">
+                    <%= question.question_content %>
+                  </p>
                 </div>
-              <% end %>
+              </div>
+              <div class="card-inner answer d-flex align-items-center justify-content-center">
+                <div class="content text-center">
+                  <p class="mb-0">Answer</p>
+                  <p class="card-text m-0 p-4">
+                    <% question.answers.each do |answer| %>
+                      <%= answer.answer_content %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
