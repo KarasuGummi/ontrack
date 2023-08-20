@@ -1,39 +1,28 @@
+.card-body {
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 
-.flashcard-container:hover .flashcard {
-  transform: rotateY(180deg);
-  background-color: blue;
+  height: 300px;
 }
-
-.flashcard-container, .question, .answer {
-  width:35vw;
-  height:25vw;
+.flip-card:hover .card-inner.question {
+  transform: rotateX(180deg);
 }
-
-.flashcard {
-	transition: 0.5s;
-	transform-style: preserve-3d;
+.flip-card:hover .card-inner.answer {
+  transform: rotateX(0deg);
 }
-
-.question {
-	z-index: 5;
-}
-
-.answer {
-	transform: rotateY(180deg);
-}
-
-.question, .answer{
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
   backface-visibility: hidden;
-  border:1px solid #aaa;
-  border-radius:10px 10px;
-  margin:auto;
-  text-align:center;
-	position: absolute;
-	top: 0;
-	left: 0;
-  margin: 2em;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.content{
-  padding:20% 20% 20% 20%;
+.card-inner.answer {
+  transform: rotateX(180deg);
+  height: 300px;
+}
+.content {
+  text-align: center;
 }
