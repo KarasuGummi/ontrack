@@ -105,3 +105,14 @@ h5 {
   color: $emerald;
   font-family: $title-font;
 }
+
+
+.project-form-container {
+  max-width: 350px; /* You can adjust this value to your liking */
+  margin: 0 auto; /* Centers the form container horizontally */
+  padding: 10px;
+
+  .form-group {
+    margin-bottom: 20px; /* Space between form groups */
+  }
+}

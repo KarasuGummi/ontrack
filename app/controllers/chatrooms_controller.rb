@@ -2,7 +2,9 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
-    chat
+    @buddy = current_user.buddy
+
+    # chat
   end
 
   def chat
@@ -12,15 +14,15 @@ class ChatroomsController < ApplicationController
     buddy_name = current_user.buddy.name
 
     prompt = <<~PROMPT
-    Your name is #{buddy_name}.
-    Assume the role of a person with a #{personality} personality.
-    You are talking to a #{age} year old #{grade}.
-    Start by greeting them in a way that is appropriate for this type of person.
-  PROMPT
-  puts "Generated Prompt: #{prompt}"
+      Your name is #{buddy_name}.
+      Assume the role of a person with a #{personality} personality.
+      You are talking to a #{age} year old #{grade}.
+      Start by greeting them in a way that is appropriate for this type of person.
+    PROMPT
+    puts "Generated Prompt: #{prompt}"
     openai_service = OpenaiService.new(prompt)
     response = openai_service.call
-    @buddyinit = response["choices"][0]["message"]["content"]
+    @buddychat = response["choices"][0]["message"]["content"]
   end
 end
 

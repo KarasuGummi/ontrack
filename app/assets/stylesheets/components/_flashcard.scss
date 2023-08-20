@@ -1,0 +1,39 @@
+
+.flashcard-container:hover .flashcard {
+  transform: rotateY(180deg);
+  background-color: blue;
+}
+
+.flashcard-container, .question, .answer {
+  width:35vw;
+  height:25vw;
+}
+
+.flashcard {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+}
+
+.question {
+	z-index: 5;
+}
+
+.answer {
+	transform: rotateY(180deg);
+}
+
+.question, .answer{
+  backface-visibility: hidden;
+  border:1px solid #aaa;
+  border-radius:10px 10px;
+  margin:auto;
+  text-align:center;
+	position: absolute;
+	top: 0;
+	left: 0;
+  margin: 2em;
+
+}
+.content{
+  padding:20% 20% 20% 20%;
+}

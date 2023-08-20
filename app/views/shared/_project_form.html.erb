@@ -1,0 +1,8 @@
+<%= simple_form_for @project, url: projects_path, method: :post, data: { controller: "loading", action: "submit->loading#showModal" } do |f| %>
+  <div class="form-group">
+    <%= f.input :subject, placeholder: "Enter a subject" %>
+    <%= f.input :learning_goal, placeholder: "Enter learning goal" %>
+    <%= f.button :submit, "Find a Project", class: "green-update-btn w-100" %>
+  </div>
+<% end %>
+<%= render "shared/loading_modal" %>

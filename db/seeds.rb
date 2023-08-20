@@ -16,11 +16,12 @@ Interest.destroy_all
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
+User.destroy_all
 Buddy.destroy_all
 Project.destroy_all
-User.destroy_all
 
 puts 'Database cleaned!'
+puts User.count
 
 puts 'Creating interests...'
 
@@ -460,6 +461,12 @@ Answer.create!(
   answer_content: 'figure out averages, make predictions, and understand patterns',
   points: 15,
   question: math_sharkweek_question
+)
+
+puts 'Creating buddy chatroom...'
+
+Chatroom.create!(
+  name: 'Buddy Chat'
 )
 
 puts 'All finished!'

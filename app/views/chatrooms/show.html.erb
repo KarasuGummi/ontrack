@@ -1,10 +1,23 @@
+<% content_for :current_page, 'chatroom' %>
+
+<%= render "shared/navbar"%>
 <div class="container chatroom" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-  <h1>#<%= @chatroom.name %></h1>
+  <h1>Chat with <%= current_user.buddy.name.capitalize %>!</h1>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
+  <div class="messages yellow-bg" data-chatroom-subscription-target="messages">
+    <%#= @buddychat %>
+
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <%# <%= render "messages/message", message: message %>
+      <div id="message-<%= message.id %>">
+        <%= message.is_bot ? cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 32, crop: :fill, class: "buddy-avatar") : cl_image_tag("https://i.pravatar.cc/", height: 32, crop: :fill, class: "user-avatar-chat") %>
+        <small>
+          <strong><%= message.is_bot ? current_user.buddy.name : message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.content %></p>
+      </div>
     <% end %>
   </div>
 
@@ -13,11 +26,10 @@
   %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@chatroom.name}",
+      placeholder: "Talk to ##{current_user.buddy.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 
-  <%= @buddyinit %>
 </div>
