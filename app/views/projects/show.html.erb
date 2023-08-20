@@ -15,84 +15,113 @@
         </ul>
       </div>
     </div>
-    <%# project card %>
+    <%# ---------------------show page -project card--------------------- %>
+    <%= link_to projects_path do %>
+      <div class="back-link">
+        <i class="fa-solid fa-caret-left"></i>
+        <p>Back</p>
+      <% end %>
+    </div>
     <div class="showpage-projects-card">
       <div class="show-content">
         <div class="content-top">
           <div class="category-tag">
             <p class="subject-tag"><%= @project.subject %></p>
+            <%# ---------------------Buttons for pending projects--------------------- %>
+            <% if @project.pending? %>
+              <%= simple_form_for @project, url: project_path(@project) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
+                <div class="button-container">
+                  <%= f.submit 'Add', class: 'show-add-btn' %>
+                </div>
+              <% end %>
+              <%= simple_form_for @project, url: project_path(@project) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'declined' } %>
+                <div class="button-container">
+                  <%= f.submit 'Decline', class: 'show-decline-btn' %>
+                </div>
+              <% end %>
+              <%# Buttons for accepted projects %>
+            <% elsif @project.accepted? %>
+              <%= simple_form_for @project, url: project_path(@project) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'completed' } %>
+                <div class="button-container">
+                  <%= f.submit 'Complete', class: 'show-complete-btn' %>
+                </div>
+              <% end %>
+            <% end %>
+            <%# < class="status-tag"><%= @project.status.capitalize %>
           </div>
-          <%# Buttons for pending projects %>
-          <% if @project.pending? %>
-            <%= simple_form_for @project, url: project_path(@project) do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'accepted' } %>
-              <div class="button-container">
-                <%= f.submit 'Add', class: 'green-btn' %>
-              </div>
-            <% end %>
-            <%= simple_form_for @project, url: project_path(@project) do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'declined' } %>
-              <div class="button-container">
-                <%= f.submit 'Decline', class: 'yellow-btn' %>
-              </div>
-            <% end %>
-            <%# Buttons for accepted projects %>
-          <% elsif @project.accepted? %>
-            <%= simple_form_for @project, url: project_path(@project) do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: 'completed' } %>
-              <div class="button-container">
-                <%= f.submit 'Complete', class: 'blue-btn' %>
-              </div>
-            <% end %>
-          <% end %>
         </div>
         <h6><strong><%= @project.name %></strong></h6>
         <p><%= @project.description%></p>
+        <br>
         <h6><strong>Key Steps:</strong></h6>
         <ul>
           <% @project.steps.each_with_index do |step, index| %>
-            <li><%= " #{index + 1}: #{step}"  %></li>
+            <li><%= "#{step}"  %></li>
           <% end %>
         </ul>
+        <br>
         <h6><strong>Key Words:</strong></h6>
         <ul>
           <% @project.vocab_words.each do |word| %>
             <li><%= word %></li>
           <% end %>
         </ul>
+        <br>
         <div class="content-bottom">
           <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
             <small class= 'project-deadlinedate'><%= @project.deadline %></small></p>
         </div>
       </div>
-    </div>
-    
       <%# Status card for completed project %>
-    <% if @project.completed? %>
-      <div class="showpage-projects-card show-status">
-        <div class="show-status-content">
-          <h6><strong>Status:</strong></h6>
-          <p>Completed!</p>
-          <div class="progBar">
-            <p class="bar"></p>
+      <% if @project.completed? %>
+        <div class="showpage-projects-card show-status">
+          <div class="show-status-content">
+            <h6><strong>Status:</strong></h6>
+            <p>Completed!</p>
+            <div class="progBar">
+              <p class="bar"></p>
+            </div>
+            <p>Key Concepts Learned:</p>
+            <p>Points earned: +<%= @project.points %></p>
           </div>
-          <p>Key Concepts Learned:</p>
-          <p>Points earned: +<%= @project.points %></p>
         </div>
-      </div>
-    <% end %>
-    <div class="buddy-part">
-      <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
-      <div class="chatting">
-        <div class="says">
-          <p><%= @project_greetings.sample %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <button class="green-btn buddy-part-button">
-        <%# need to fix the link %>
+    <%# ---------------------buddy part--------------------- %>
+    <% if @project.pending? %>
+      <div class="buddy-part" style="margin-bottom: 50px;">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <div class="chatting">
+          <div class="says">
+            <p>Do you want to try this project?</p>
+          </div>
+        </div>
+      </div>
+    <% elsif @project.accepted? %>
+      <div class="buddy-part" style="margin-bottom: 50px;">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <div class="chatting">
+          <div class="says">
+            <p>Have you finished your project?<br>Click 'Complete' button🎖️</p>
+          </div>
+        </div>
+      </div>
+    <% elsif @project.completed? %>
+      <div class="buddy-part">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <div class="chatting">
+          <div class="says">
+            <p><%= @project_greetings.sample %></p>
+          </div>
+        </div>
+      </div>
+      <button class="green-btn buddy-part-button">
         <%= link_to "Review Quiz", project_questions_path(@project)%>
-    </button>
-  </div>
-  <%= render "shared/footer" %>
+      </button>
+    </div>
+  <% end %>
 </div>
+<%= render "shared/footer" %>

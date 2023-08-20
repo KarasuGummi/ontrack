@@ -6,7 +6,10 @@ class ProjectsController < ApplicationController
   def index
     @buddy = current_user.buddy
     @projects = Project.all
-    @accepted_projects = current_user.projects.accepted
+    @in_progress_projects = Project.where(status: 1, user: current_user)
+    @completed_projects = current_user.projects.completed
+    # @in_progress_projects = @accepted_projects.select { |project| project.status == 'accepted' }
+    @recommended_projects = current_user.projects.pending
   end
 
   def new
