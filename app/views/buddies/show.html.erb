@@ -4,7 +4,7 @@
   <div class="buddy-love">
     <p><i class="fa-solid fa-heart"></i> &emsp;<%= @buddy.love %></p>
   </div>
-  <h3 class="text-center"><%= @buddy.name %></h3>
+  <h3 class="text-center"><%= @buddy.name.capitalize %></h3>
 </div>
 <%# display buddy %>
 <%# buddy comment------------------------------------------------------ %>
@@ -17,10 +17,10 @@
       <p class="text-center">Thank you, I like you! Give me some pizza🍕</p>
       <%# eating pizza buddy %>
     <% elsif @buddy.love >= 4 && @buddy.love <= 6 %>
-      <p class="text-center">Thank you, I like you! Give me some donuts🍩</p>
+      <p class="text-center">Thank you, Give me some donuts🍩</p>
       <%# eating dounuts buddy %>
     <% elsif @buddy.love >= 7 && @buddy.love <= 10 %>
-      <p class="text-center">Thank you, I like you! I'm so happy❣️</p>
+      <p class="text-center">Thank you, I love you! I'm so happy❣️</p>
     <% end %>
   </div>
   <%# buddy img------------------------------------------------------------------- %>
