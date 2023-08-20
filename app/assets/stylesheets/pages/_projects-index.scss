@@ -16,6 +16,8 @@
 .projects-page-title h1 {
   color: $emerald;
   margin: 0;
+  font-family: $title-font;
+  font-size: 25px;
 }
 // ProjectList-page paw
 .projects-page-title .paw {
@@ -67,7 +69,6 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  // justify-content: space-between;
 }
 
 .nav-item {
