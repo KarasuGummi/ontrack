@@ -98,12 +98,12 @@ class ProjectsController < ApplicationController
       "I'm so glad to see you!", "Finish your project and get me some snacks!", "Don't be afraid to make mistakes.",
       "I want to dance with somebody."
     ]
-    user_interest_names = current_user.interests.map(&:name)
-    @recommended_projects = current_user.projects.pending.where(
-      subject: @user.subject,
-      interest: user_interest_names,
-      learning_goal: @user.learning_goal
-    )
+    # user_interest_names = current_user.interests.map(&:name)
+    # @recommended_projects = current_user.projects.pending.where(
+    #   subject: @user.subject,
+    #   interest: user_interest_names,
+    #   learning_goal: @user.learning_goal
+    # )
   end
 
   def history

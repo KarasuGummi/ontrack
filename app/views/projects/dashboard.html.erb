@@ -57,26 +57,26 @@
 </div>
 
 <%# display recommended projects %>
-<div class="container">
+<%# <div class="container">
   <% if @recommended_projects.any? %>
-  <div class="card text-center">
-    <div class="card-header">
-      Try one of these tracks!
-    </div>
-    <% @recommended_projects.each do |project| %>
-    <div class="card-body">
-      <h6 class="card-title"><strong><%= project.name %></strong></h6>
-      <p class="card-text">Subject: <%= project.subject %></p>
-      <p class="card-text">Topic: <%= project.learning_goal %></p>
+  <%# <div class="card text-center"> %>
+    <%# <div class="card-header"> %>
+      <%# Try one of these tracks! %>
+    <%# </div> %>
+    <%# <% @recommended_projects.each do |project| %>
+    <%# <div class="card-body"> %>
+      <%# <h6 class="card-title"><strong><%= project.name %>
+      <%# <p class="card-text">Subject: <%= project.subject %>
+      <%# <p class="card-text">Topic: <%= project.learning_goal %>
 
-      <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
-      <% end %>
-    </div>
-      <% else %>
-      <p>Ooops! Sorry! 😬</p>
-      <p>We don't have any matches for you... yet!</p>
-      <p>Want some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %> 🤞🏼</p>
-  </div>
-  <% end %>
-</div>
-<br>
+      <%# <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
+      <%# <% end %>
+    <%# </div> %>
+      <%# <% else %>
+      <%# <p>Ooops! Sorry! 😬</p> %>
+      <%# <p>We don't have any matches for you... yet!</p> %>
+      <%# <p>Want some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %>
+  <%# </div> %>
+  <%# <% end %>
+<%# </div>
+<br> %>
