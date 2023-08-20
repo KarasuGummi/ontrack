@@ -91,7 +91,25 @@
       <% end %>
     </div>
     <%# ---------------------buddy part--------------------- %>
-    <% if @project.completed? %>
+    <% if @project.pending? %>
+      <div class="buddy-part" style="margin-bottom: 50px;">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <div class="chatting">
+          <div class="says">
+            <p>Do you want to try this project?</p>
+          </div>
+        </div>
+      </div>
+    <% elsif @project.accepted? %>
+      <div class="buddy-part" style="margin-bottom: 50px;">
+        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <div class="chatting">
+          <div class="says">
+            <p>How is your project going?</p>
+          </div>
+        </div>
+      </div>
+    <% elsif @project.completed? %>
       <div class="buddy-part">
         <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
         <div class="chatting">
