@@ -92,7 +92,7 @@
   width: 70%;
   height: 140px;
   animation: fade 2.5s infinite alternate;
-  top: 53%;
+  top: 50%;
   left: 15%;
 }
 
@@ -111,10 +111,10 @@
 .awake-buddy img{
   animation: korokoro 2s linear 0s 0.8;
   position: absolute;
-  width: 160px;
+  width: 150px;
   height: 140px;
-  top: 47%;
-  left: 30%;
+  top: 48%;
+  left: 29%;
 }
 
 @keyframes korokoro {
@@ -137,7 +137,7 @@
   width: 200px;
   height: 200px;
   animation: fade 2.8s infinite alternate;
-  top: 48%;
+  top: 50%;
   left: 24%
 }
 
@@ -155,4 +155,9 @@
 // buddy showpage paw--------------------------------
 .show-buddy-links {
   margin-top: 10px;
+}
+
+// buddy points form
+.buddy-points {
+  margin-bottom: 30px;
 }

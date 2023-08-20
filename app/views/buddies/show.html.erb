@@ -56,7 +56,7 @@
     <i class="fa-solid fa-paw dashboard-paw"></i>
   <% end %>
 </div>
-<div class="container py-3 buddy-show">
+<div class="container py-3 buddy-show buddy-points">
   <%= form_tag feed_buddy_path, method: :post do %>
     <%= label_tag :points, "Points to feed buddy:" %>
     <%= number_field_tag :points %>
