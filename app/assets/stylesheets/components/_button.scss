@@ -1,4 +1,4 @@
-// green btn
+// ---------------------green btn---------------------
 .green-btn {
   color: white;
   padding: 5px 6px;
@@ -51,8 +51,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0);
   }
 }
-// ----------------------------------------------
-// yellow btn
+// ---------------------yellow btn---------------------
 .yellow-btn {
   color: white;
   padding: 5px 22px;
@@ -79,6 +78,31 @@
   margin-top: 10px;
 }
 
+// yellow comlete btn(project-show page)
+.complete-btn {
+  padding: 2px 10px;
+  height: 27px;
+  color: white;
+  border-radius: 5px;
+  background: #FFC65A;
+  transition: background 0.3s ease;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+  position: absolute;
+  right: 3px;
+  top: 0px;
+
+  a {
+    color: white;
+  }
+  &:hover {
+    background:  #daa216;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
+
 // .sign_in_up .yellow-btn:last-child{
 //   background-color: white;
 //   a {
@@ -86,8 +110,7 @@
 //   }
 // }
 
-// ------------------------------------------------
-// blue btn
+// ---------------------blue btn---------------------
 .blue-btn {
   color: white;
   padding: 5px 22px;
@@ -123,10 +146,61 @@
   margin: 0 0px 5px 45px;
 }
 
+
 // blue add-new-project-btn (dashboard)
-.dashboard-add-btn .blue-btn{
+.show-complete-btn .blue-btn{
   margin: 8px auto;
   padding: 6px 24px;
   text-align: center;
   display: flex;
+}
+
+//Decline btn(project-show page)
+.show-decline-btn {
+  padding: 2px 10px;
+  height: 29px;
+  color: white;
+  border-radius: 5px;
+  background: #7e7e7e;
+  transition: background 0.3s ease;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  border: none;
+  box-shadow: 3px 3px 3px #afafaf;
+  position: absolute;
+  right: 3px;
+  top: 0px;
+
+  a {
+    color: white;
+  }
+  &:hover {
+    background:  #daa216;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
+}
+
+//Add btn(project-show page)
+.show-add-btn {
+  padding: 2px 10px;
+  height: 27px;
+  color: white;
+  border-radius: 5px;
+  background: #FFC65A;
+  transition: background 0.3s ease;
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  border: none;
+  box-shadow: 3px 3px 3px #afafaf;
+  position: absolute;
+  right: 88px;
+  top: 0px;
+
+  a {
+    color: white;
+  }
+  &:hover {
+    background:  #daa216;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
 }
