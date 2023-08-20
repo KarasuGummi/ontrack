@@ -165,7 +165,7 @@
   display: flex;
 }
 // blue show more btn(project-list page)
-.projects-listing-card .blue-btn {
+.content-bottom .blue-btn {
   padding: 2px 10px;
   height: 30px;
   margin: 0 0px 5px 45px;
@@ -178,6 +178,29 @@
   padding: 6px 24px;
   text-align: center;
   display: flex;
+}
+
+// blue dashboard-blue-btn (dashboard)
+.dashboard-blue-btn {
+  color: white;
+  padding: 5px 22px;
+  border-radius: 15px;
+  background: $dark-blue;
+  transition: background 0.3s ease;
+  font-family: $body-font;
+  border: none;
+  box-shadow: 6px 6px 6px gray;
+  text-align: center;
+
+  a {
+    color: white;
+  }
+
+  &:hover {
+    background: #0f5b71;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+  }
 }
 
 //Decline btn(project-show page)

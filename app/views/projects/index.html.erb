@@ -57,7 +57,8 @@
             <% end %>
           </div>
         <% else %>
-          <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Learning Tracks.<br>Time to start something new!!</p>
+          <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Learning Tracks.<br>
+            Time to start something new!!</p>
         <% end %>
       </div>
       <%#------------------------- In progress -------------------------%>
@@ -80,41 +81,42 @@
                   </button>
                 </div>
               </div>
-          <% end %>
-            </div>
-      <% else %>
-        <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Learning Tracks.<br>Time to start something new!!</p>
-      <% end %>
-        </div>
-    <%#------------------------- Completed -------------------------%>
-    <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">
-      <div class="projects-listing-card">
-        <% if @completed_projects.any? %>
-          <% @completed_projects.each do |project| %>
-            <div class="content">
-              <div class="category-tag">
-                <p class="subject-tag"><%= project.subject %></p>
-                <p class="status-tag"><%= project.status.capitalize %></p>
-              </div>
-              <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
-              <%# <p><%= project.description</p>  %>
-              <div class="content-bottom">
-                <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
-                  <small class= 'project-deadlinedate'><%= project.deadline %></small></p>
-                <button class="blue-btn">
-                  <%= link_to "Show more", project_path(project)%>
-                </button>
-              </div>
-            </div>
-        <% end %>
+            <% end %>
           </div>
-    <% else %>
-      <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Completed projects.</p>
-    <% end %>
+        <% else %>
+          <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Learning Tracks.<br>
+            Time to start something new!!</p>
+        <% end %>
       </div>
-  </div>
-  <%# --------------------------------------------------%>
+      <%#------------------------- Completed -------------------------%>
+      <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">
+        <div class="projects-listing-card">
+          <% if @completed_projects.any? %>
+            <% @completed_projects.each do |project| %>
+              <div class="content">
+                <div class="category-tag">
+                  <p class="subject-tag"><%= project.subject %></p>
+                  <p class="status-tag"><%= project.status.capitalize %></p>
+                </div>
+                <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+                <%# <p><%= project.description</p>  %>
+                <div class="content-bottom">
+                  <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
+                    <small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+                  <button class="blue-btn">
+                    <%= link_to "Show more", project_path(project)%>
+                  </button>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p style="font-size: 14px; margin-top: 10px;">You currently don't have any Completed projects.</p>
+        <% end %>
+      </div>
     </div>
+    <%# --------------------------------------------------%>
+  </div>
 </div>
 </div>
 </div>
