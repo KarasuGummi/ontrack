@@ -5,8 +5,6 @@
   overflow-y: scroll;
 }
 
-
-
 // ProjectList-page title
 .projects-page-title {
   display: flex;
@@ -61,7 +59,7 @@
   flex-direction: column;
 }
 
-// Project index tab------------------------------
+// ------------------------------Project index tab------------------------------
 
 .nav-tabs {
   display: flex;
@@ -76,78 +74,15 @@
   display: flex;
   padding: 0;
   margin: 0;
+  background-color: $navbar-gray;
 }
 
 .nav-link {
   margin: 0;
   padding: 5px 9px;
-  list-style:none;
+  color: rgb(123, 123, 123);
+
+  &:hover {
+  color: black;
+  }
 }
-
-// .tab{
-//   display: flex;
-//   flex-wrap: wrap;
-//   list-style:none;
-// }
-// .tab li a{
-//   display: block;
-//   background:#ddd;
-//   margin: 0 1px;
-//   padding: 6px 9px;
-// }
-// /*liにactiveクラスがついた時の形状*/
-// .tab li.active a{
-//   background:#fff;
-// }
-
-
-// /*エリアの表示非表示と形状*/
-// .area {
-//   display: none;/*はじめは非表示*/
-//   opacity: 0;/*透過0*/
-//   background: #fff;
-//   // padding:50px 20px;
-// }
-
-// /*areaにis-activeというクラスがついた時の形状*/
-// .area.is-active {
-//     display: block;/*表示*/
-//     animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
-//     animation-duration: 2s;
-//     animation-fill-mode: forwards;
-// }
-
-// @keyframes displayAnime{
-//   from {
-//     opacity: 0;
-//   }
-//   to {
-//     opacity: 1;
-//   }
-// }
-
-// // Project index tab
-
-// /*========= レイアウトのためのCSS ===============*/
-
-// #Recommended-tab a{
-//   color:#333;
-//   text-decoration: none;
-// }
-
-// #myTab{
-//   width:100%;
-//   max-width: 960px;
-//   margin: 0 auto;
-//   background:#fefefe;
-// }
-
-// .area h2{
-//   font-size:1.3rem;
-//   margin:0 0 20px 10px;
-// }
-
-// .area li{
-//   padding: 10px;
-//   border-bottom: 1px solid #ddd;
-// }

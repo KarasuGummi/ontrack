@@ -1,174 +1,122 @@
-<% content_for :current_page, 'projects' %>
+
 <%= render "shared/navbar"%>
-<div class="container" style="margin-bottom: 160px;">
-  <div class="project-list" data-controller="projectlist-tab">
-    <%# title %>
-    <div class="projects-page-title col-12 col-lg-6">
-      <div class="title">
-        <h1>My Learning Tracks </h1>
-        <%# <%= link_to 'Completed Projects', history_path, class: "small-link" %>
-      </div>
-      <%# paw %>
-      <div class="paw">
-        <ul>
-          <li data-projectlist-tab-target="firstli" class="active"><i class="fa-solid fa-paw yellow-paw"></i></li>
-          <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
-          <li><i class="fa-solid fa-paw yellow-paw"></i></li>
-        </ul>
-      </div>
+  <div class="container" style="margin-bottom: 160px;">
+    <div class="project-list">
+      <%# title %>
+      <div class="projects-page-title col-12 col-lg-6">
+        <div class="title">
+            <h1>My Learning Tracks</h1>
+        </div>
+        <%# paw %>
+        <div class="paw">
+          <ul>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw-center"></i></li>
+            <li><i class="fa-solid fa-paw yellow-paw"></i></li>
+          </ul>
+        </div>
     </div>
-
-<%# bootstrap------------------------ %>
+<%# -------------------------projects tab -------------------------%>
+<%# ---------------------------------------------------------------%>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-<%# Recommended tab------------------------------------------------------------------------ %>
+<%# recommended %>
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="Recommended-tab" data-bs-toggle="tab" data-bs-target="#Recommended-tab-pane" type="button" role="tab" aria-controls="Recommended-tab-pane" aria-selected="true">
-   <div class="projects-listing-card">
-          <%# Accepted projects will show only projects that the user added %>
-          <% if @recommended_projects.any? %>
-            <% @recommended_projects.each do |project| %>
-              <div class="content">
-                <div class="category-tag">
-                  <p class="subject-tag"><%= project.subject %></p>
-                  <p class="status-tag"><%= project.status.capitalize %></p>
-                </div>
-                <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
-                <%# <p><%= project.description</p>  %>
-                <div class="content-bottom">
-                  <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
-                    <small class= 'project-deadlinedate'><%= project.deadline %></small></p>
-                  <button class="blue-btn">
-                    <%# ⬇︎need to fix the link later %>
-                    <%= link_to "Review", questions_path%>
-                  </button>
-                </div>
-            <% end %>
-        <% else %>
-          <p>You currently don't have any Learning Tracks. Time to start something new!!</p>
-        <% end %>
-          </div>
-              </div>
-    </button>
-
-
-
-
-
-
-
-
-
-
-
-
+    <button class="nav-link active" id="recommended-tab" data-bs-toggle="tab" data-bs-target="#recommended-tab-pane" type="button" role="tab" aria-controls="recommended-tab-pane" aria-selected="true">Recommended</button>
   </li>
+<%# In progress %>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="inprogress-tab" data-bs-toggle="tab" data-bs-target="#inprogress-tab-pane" type="button" role="tab" aria-controls="inprogress-tab-pane" aria-selected="false">Profile</button>
+    <button class="nav-link" id="inprogress-tab" data-bs-toggle="tab" data-bs-target="#inprogress-tab-pane" type="button" role="tab" aria-controls="inprogress-tab-pane" aria-selected="false">In progress</button>
   </li>
+  <%# Completed %>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-tab-pane" type="button" role="tab" aria-controls="completed-tab-pane" aria-selected="false">Contact</button>
+    <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-tab-pane" type="button" role="tab" aria-controls="completed-tab-pane" aria-selected="false">Completed</button>
   </li>
 </ul>
-
+<%# -------------------------projects tab content-------------------------%>
+<%# ---------------------------------------------------------------%>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="Recommended-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="inprogress-tab" tabindex="0">...</div>
-  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">...</div>
-</div>
-
-
-
-
-
-
-
-
-
-      <%# In progress tab------------------------------------------------------------------------ %>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="inprogress-tab" data-bs-toggle="tab" data-bs-target="#inprogress-tab-pane" type="button" role="tab" aria-controls="inprogress-tab-pane" aria-selected="false">
-<div id="In_progress" class="area">
-        <%# card list %>
-        <div class="projects-listing-card">
-          <% if @in_progress_projects.any? %>
-            <% @in_progress_projects.each do |project| %>
-              <%# Accepted projects will show only projects that the user added %>
-              <div class="content">
-                <div class="category-tag">
-                  <p class="subject-tag"><%= project.subject %></p>
-                  <p class="status-tag"><%= project.status.capitalize %></p>
-                </div>
-                <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
-                <%# <p><%= project.description</p>  %>
-                <div class="content-bottom">
-                  <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
-                    <small class= 'project-deadlinedate'><%= project.deadline %></small></p>
-                  <button class="blue-btn">
-                    <%# ⬇︎need to fix the link later %>
-                    <%= link_to "Review", next_question_path%>
-                  </button>
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <p>No in-progress projects</p>
-          <% end %>
-        </div>
-      </div>
-      </li>
-      </button>
-      <li class="nav-item" role="presentation">
- </ul>
-        <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed-tab-pane" type="button" role="tab" aria-controls="completed-tab-pane" aria-selected="false">Completed</button>
-      <%# Completed tab------------------------------------------------------------------------ %>
-      <div id="Completed" class="area">
-        <div class="projects-listing-card">
-          <%# Accepted projects will show only projects that the user added %>
-          <% if @completed_projects.any? %>
-            <% @completed_projects.each do |project| %>
-              <div class="content">
-                <div class="category-tag">
-                  <p class="subject-tag"><%= project.subject %></p>
-                  <p class="status-tag"><%= project.status.capitalize %></p>
-                </div>
-                <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
-                <%# <p><%= project.description</p>  %>
-                <div class="content-bottom">
-                  <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
-                    <small class= 'project-deadlinedate'><%= project.deadline %></small></p>
-                  <button class="blue-btn">
-                    <%# ⬇︎need to fix the link later %>
-                    <%= link_to "Review", next_question_path%>
-                  </button>
-                </div>
-              </div>
-            <% end %>
+ <%#------------------------- recommended -------------------------%>
+  <div class="tab-pane fade show active" id="recommended-tab-pane" role="tabpanel" aria-labelledby="recommended-tab" tabindex="0">
+      <div class="projects-listing-card">
+        <% if @recommended_projects.any? %>
+          <% @recommended_projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p class="subject-tag"><%= project.subject %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
           </div>
-        <% else %>
-          <p>No project</p>
-        <% end %>
+          <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+          <%# <p><%= project.description</p>  %>
+          <div class="content-bottom">
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+            <button class="blue-btn">
+              <%= link_to "Review", questions_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
       </div>
-    </div>
+          <% else %>
+            <p>You currently don't have any Learning Tracks. Time to start something new!!</p>
+          <% end %>
   </div>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="Recommended-tab-pane" role="tabpanel" aria-labelledby="Recommended-tab" tabindex="0">...hi</div>
-      <div class="tab-pane fade" id="inprogress-tab-pane" role="tabpanel" aria-labelledby="inprogress-tab" tabindex="0">.hu..</div>
-      <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">...</div>
+  <%#------------------------- In progress -------------------------%>
+  <div class="tab-pane fade" id="inprogress-tab-pane" role="tabpanel" aria-labelledby="inprogress-tab" tabindex="0">
+      <div class="projects-listing-card">
+        <% if @in_progress_projects.any? %>
+          <% @in_progress_projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p class="subject-tag"><%= project.subject %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
+          </div>
+          <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+          <%# <p><%= project.description</p>  %>
+          <div class="content-bottom">
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+            <button class="blue-btn">
+              <%= link_to "Review", questions_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
+      </div>
+          <% else %>
+            <p>You currently don't have any Learning Tracks. Time to start something new!!</p>
+          <% end %>
+  </div>
+    <%#------------------------- Completed -------------------------%>
+  <div class="tab-pane fade" id="completed-tab-pane" role="tabpanel" aria-labelledby="completed-tab" tabindex="0">
+      <div class="projects-listing-card">
+        <% if @completed_projects.any? %>
+          <% @completed_projects.each do |project| %>
+        <div class="content">
+          <div class="category-tag">
+            <p class="subject-tag"><%= project.subject %></p>
+            <p class="status-tag"><%= project.status.capitalize %></p>
+          </div>
+          <h6><strong>「<%= link_to project.name, project_path(project), class: 'lising-project-name' %>」</strong></h6>
+          <%# <p><%= project.description</p>  %>
+          <div class="content-bottom">
+            <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
+            <button class="blue-btn">
+              <%= link_to "Review", questions_path%>
+            </button>
+          </div>
+        </div>
+          <% end %>
+      </div>
+          <% else %>
+            <p>You currently don't have any Learning Tracks. Time to start something new!!</p>
+          <% end %>
     </div>
+<%# --------------------------------------------------%>
+  </div>
+  </div>
+  </div>
 
-    <%# ------------------------- %>
-</div>
-<%# display buddy %>
-<div class="projectslist-buddy-container">
-  <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 100, crop: :fill) %>
-  <p class="buddy-text">Ain’t no mountain high enough baby!</p>
-</div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-4-1/js/5-4-1.js"></script>
-<%# <div class="add-btn">
-        <button class="blue-btn">
-          <%= link_to "Add New Project", new_project_path%>
-<%# </button>
-      </div> %>
+    <%# display buddy %>
+  <div class="projectslist-buddy-container">
+    <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 100, crop: :fill) %>
+    <p class="buddy-text">Ain’t no mountain high enough baby!</p>
+  </div>
