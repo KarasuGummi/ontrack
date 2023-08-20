@@ -2,6 +2,7 @@
   h3 {
     margin: 0;
     padding: 0;
+    font-family: $title-font;
   }
 
   p {
@@ -38,7 +39,7 @@
 
 
 
-// buddy comment----------------------------
+// ----------------------buddy comment----------------------
 .buddy-comment {
 
   margin: 0 10px;
@@ -56,7 +57,7 @@
     background-color: #fff;
     color: black;
     font-size: 15px;
-    top: 87px;
+    top: 65px;
     // margin: 0 8px;
     border: 3px solid orange;
     width: 95%;
@@ -86,14 +87,14 @@
   }
 
 }
-// sleeping buddy animation----------------------
+// ----------------------sleeping buddy animation----------------------
 .sleeping-buddy img{
   position: absolute;
-  width: 70%;
-  height: 140px;
+  width: 65%;
+  height: 125px;
   animation: fade 2.5s infinite alternate;
-  top: 51%;
-  left: 15%;
+  top: 56%;
+  left: 17%;
 }
 
 .sleeping-buddy .bottom {
@@ -107,14 +108,14 @@
   100% { opacity: 0; }
 }
 
-// awake buddy img--------------------------------------------------
+// ----------------------awake buddy img----------------------
 .awake-buddy img{
   animation: korokoro 2s linear 0s 0.8;
   position: absolute;
-  width: fit-content;
-  height: 140;
-  top: 50%;
-  left: 37%;
+  width: 140px;
+  height: 140px;
+  top: 48%;
+  left: 31%;
 }
 
 @keyframes korokoro {
@@ -131,14 +132,14 @@
   100% { transform: translate(0%, 0%) rotate(0deg); }
 }
 
-// buddy eating animation----------------------
+// ----------------------buddy eating animation----------------------
 .buddy-eating img{
   position: absolute;
-  width: fit-content;
-  height: 200px;
+  width: 205px;
+  height: 205px;
   animation: fade 2.8s infinite alternate;
-  top: 40%;
-  left: 24%
+  top: 37%;
+  left: 25%;
 }
 
 .buddy-eating .bottom {
@@ -152,7 +153,12 @@
   100% { opacity: 0; }
 }
 
-// buddy showpage paw--------------------------------
+//----------------------buddy showpage paw----------------------
 .show-buddy-links {
   margin-top: 10px;
+}
+
+// buddy points form
+.buddy-points {
+  margin-bottom: 60px;
 }

@@ -4,7 +4,7 @@
   <div class="buddy-love">
     <p><i class="fa-solid fa-heart"></i> &emsp;<%= @buddy.love %></p>
   </div>
-  <h3 class="text-center"><%= @buddy.name %></h3>
+  <h3 class="text-center"><%= @buddy.name.capitalize %></h3>
 </div>
 <%# display buddy %>
 <%# buddy comment------------------------------------------------------ %>
@@ -17,10 +17,10 @@
       <p class="text-center">Thank you, I like you! Give me some pizza🍕</p>
       <%# eating pizza buddy %>
     <% elsif @buddy.love >= 4 && @buddy.love <= 6 %>
-      <p class="text-center">Thank you, I like you! Give me some donuts🍩</p>
+      <p class="text-center">Thank you, Give me some donuts🍩</p>
       <%# eating dounuts buddy %>
     <% elsif @buddy.love >= 7 && @buddy.love <= 10 %>
-      <p class="text-center">Thank you, I like you! I'm so happy❣️</p>
+      <p class="text-center">Thank you, I love you! I'm so happy❣️</p>
     <% end %>
   </div>
   <%# buddy img------------------------------------------------------------------- %>
@@ -28,7 +28,7 @@
     <%# sleeping buddy %>
     <% if @buddy.love == 0 %>
       <section class="sleeping-buddy">
-        <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom" , height: 140, crop: :fill) %>
+        <%= cl_image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
         <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
       </section>
       <%# awake buddy %>
@@ -56,7 +56,7 @@
     <i class="fa-solid fa-paw dashboard-paw"></i>
   <% end %>
 </div>
-<div class="container py-3 buddy-show">
+<div class="container py-3 buddy-show buddy-points">
   <%= form_tag feed_buddy_path, method: :post do %>
     <%= label_tag :points, "Points to feed buddy:" %>
     <%= number_field_tag :points %>
