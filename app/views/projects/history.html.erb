@@ -37,7 +37,7 @@
               <div class="content-bottom">
                 <p><small><i class="fa-regular fa-clock d-frex"></i>Completed on:</small><br><small class= 'project-deadlinedate'><%= project.deadline %></small></p>
                 <button class="blue-btn">
-                  <%= link_to "Review", questions_path%>
+                  <%= link_to "Review", project_questions_path(project)%>
                 </button>
               </div>
 
