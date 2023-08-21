@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :interests, through: :user_interests
   has_many :messages, dependent: :destroy
 
+  has_one_attached :photo
+
   attribute :points, :integer, default: 0
   def earn_points(points)
     update(points: points + self.points)
