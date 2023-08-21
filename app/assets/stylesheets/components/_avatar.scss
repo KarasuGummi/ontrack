@@ -45,8 +45,10 @@
   }
 
 .user-avatar-chat {
-  border-radius: 50px;
+  border-radius: 50%;
   box-shadow: 0 2px 4.5px 1px black;
+  width: 32px;
+  height: 32px;
 }
 
   // .user-avatar {
