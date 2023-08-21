@@ -18,7 +18,7 @@
           <% if message.user.photo.attached? %>
             <%= cl_image_tag(message.user.photo.key, width: 64, height: 64, crop: :thumb, gravity: :face, class: "user-avatar-chat") %>
           <% else %>
-            <i class="fa-solid fa-user"></i>
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692612721/user-icon.png", width: 150, height: 150, class: "user-avatar") %>
           <% end %>
         <% end %>
 
