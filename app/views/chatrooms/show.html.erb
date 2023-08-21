@@ -11,7 +11,7 @@
     <% @chatroom.messages.each do |message| %>
       <%# <%= render "messages/message", message: message %>
       <div id="message-<%= message.id %>">
-        <%= message.is_bot ? cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 32, crop: :fill, class: "buddy-avatar") : cl_image_tag("https://i.pravatar.cc/", height: 32, crop: :fill, class: "user-avatar-chat") %>
+        <%= message.is_bot ? image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 32, crop: :fill, class: "buddy-avatar") : cl_image_tag("https://i.pravatar.cc/", height: 32, crop: :fill, class: "user-avatar-chat") %>
         <small>
           <strong><%= message.is_bot ? current_user.buddy.name : message.user.username %></strong>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
