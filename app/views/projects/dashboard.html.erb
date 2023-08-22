@@ -1,9 +1,9 @@
 <% content_for :current_page, 'dashboard' %>
 
 <%= render "shared/navbar"%>
-<div class="container py-3">
+<div class="dashboard-container p-2">
   <h3 class="text-center dashboard-title">OnTrack</h3>
-  <div class="dashboard-container">
+  <div class="dashboard-top">
     <div class="my-info">
       <%# <%= display user info %>
       <hr>
@@ -17,8 +17,8 @@
         <% else %>
           <p class="dashboard-label">No tracks added yet.</p>
         <% end %>
-        <%# display upcoming deadlines %>
 
+        <%# display upcoming deadlines %>
         <% if @upcoming_projects.any? %>
           <h6>Your Upcoming Deadlines</h6>
           <ul>
@@ -34,29 +34,43 @@
   </div>
 </div>
 
-<%# display buddy %>
+<%# display buddy - static version w/ main pose %>
+<%# <div class="buddy-container"> %>
+  <%# image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
+  <%# <p class="buddy-text"><%= @greetings.sample %>
+<%# </div> %>
+
+<%# play version with ball %>
 <div class="buddy-container">
-  <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
-  <p class="buddy-text"><%= @greetings.sample %></p>
+  <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666748/buddy-play-1.png", class: "animated-buddy", alt: "Animated Buddy") %>
+  <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666758/buddy-play-2.png", class: "animated-buddy buddy-play-2", alt: "Animated Buddy 2") %>
+  <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "rolling-baseball", alt: "Rolling Baseball") %>
+  <div class="dashboard-buddy-text">
+    <p class="text-center"><%= @greetings.sample %></p>
+  </div>
 </div>
+
+
 <div class="buddy-links text-center">
-  <%# This should link to the buddy show page in the future %>
   <%= link_to buddy_path(@buddy) do %>
     <i class="fa-solid fa-paw dashboard-paw"></i>
   <% end %>
 </div>
 
+<div class="dashboard-add-btn text-center py-1">
 
 
 
-<div class="dashboard-add-btn text-center py-3">
+
   <button class="blue-btn">
     <%= link_to "Chat with your buddy!", chatroom_path(Chatroom.last)%>
   </button>
 </div>
 
-<div class="project-form-container">
-  <%= render 'shared/project_form' %>
+<div class="project-form-card">
+  <h4 class="text-center">Find Your Next Track</h4>
+    <%= render 'shared/project_form' %>
+
 </div>
 
 

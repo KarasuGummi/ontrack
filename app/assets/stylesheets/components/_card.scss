@@ -262,3 +262,21 @@
   font-size: 12px;
   text-align: center;
 }
+
+
+// ------------------------------------
+// dashboard page
+
+.project-form-card {
+  max-width: 330px;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}

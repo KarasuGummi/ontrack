@@ -7,14 +7,6 @@
   animation: spin 2s linear infinite;
 }
 
-@keyframes rollAway {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100px); }
-}
-
-// .rolling-baseball {
-//   animation: rollAway 5s linear infinite;
-// }
 
 /* Additional styles for the modal */
 .modal {
