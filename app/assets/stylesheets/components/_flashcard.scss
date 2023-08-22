@@ -1,28 +1,51 @@
-.card-body {
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
+// .card-body {
+//   transform-style: preserve-3d;
+//   transition: transform 0.5s;
 
-  height: 300px;
+//   height: 300px;
+// }
+// .flip-card:hover .card-inner.question {
+//   transform: rotateX(180deg);
+// }
+// .flip-card:hover .card-inner.answer {
+//   transform: rotateX(0deg);
+// }
+// .card-inner {
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   backface-visibility: hidden;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .card-inner.answer {
+//   transform: rotateX(180deg);
+//   height: 300px;
+// }
+// .content {
+//   text-align: center;
+// }
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
 }
-.flip-card:hover .card-inner.question {
-  transform: rotateX(180deg);
-}
-.flip-card:hover .card-inner.answer {
-  transform: rotateX(0deg);
-}
-.card-inner {
+
+.flip-card {
   width: 100%;
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.5s;
 }
-.card-inner.answer {
-  transform: rotateX(180deg);
-  height: 300px;
+
+.flip-card.front {
+  transform: rotateY(0deg);
 }
-.content {
-  text-align: center;
+
+.flip-card.back {
+  transform: rotateY(180deg);
 }
