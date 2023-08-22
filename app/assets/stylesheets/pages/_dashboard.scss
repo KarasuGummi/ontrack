@@ -116,3 +116,110 @@ h5 {
     margin-bottom: 20px; /* Space between form groups */
   }
 }
+
+// Play buddy animation
+
+.animated-buddy {
+  position: absolute;
+  left: 60%;
+  width: 180px; // Adjust width to your preference
+  height: auto; // Adjust height to your preference
+}
+
+// Toggle buddy
+
+@keyframes toggleBuddy {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.buddy-play-1 {
+  animation: toggleBuddy 1s infinite;
+}
+
+.buddy-play-2 {
+  animation: toggleBuddy 1s infinite reverse; // reverse makes the second image show when the first is hidden
+}
+
+
+// Define the baseball animation
+@keyframes rollAway {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-280px) rotate(360deg);
+  }
+}
+
+
+
+// Add styles for the rolling baseball
+.rolling-baseball {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 30px; // Adjust width to your preference
+  height: 30px; // Adjust height to your preference
+  animation: rollAway 3s linear infinite;
+}
+
+.buddy-container {
+  position: relative;
+  height: 200px;
+}
+
+// ----------------------buddy comment----------------------
+.dashboard-buddy-text {
+
+  margin: 0 10px;
+  p {
+    // position: relative;
+    // padding: 6px;
+    // border-radius: 30px;
+    // background-color: $yellow;
+    // color: white;
+    // font-size: 15px;
+    // margin: 10px 6px;
+    left: 32%;
+    top: 12%;
+    transform: translateX(-50%);
+    position: absolute;
+    padding: 4px 4px;
+    border-radius: 30px;
+    background-color: #fff;
+    color: black;
+    font-size: 14px;
+    // margin: 0 8px;
+    border: 3px solid orange;
+    width: 35%;
+  }
+
+  p:before,
+  p:after {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    content: "";
+    border: 3px solid orange;
+  }
+
+  p:before {
+    top: 112%;
+    right: -25px;
+    height: 15px;
+    width: 15px;
+  }
+
+  p:after {
+    top: 162%;
+    right: -43px;
+    height: 10px;
+    width: 10px;
+  }
+
+}
