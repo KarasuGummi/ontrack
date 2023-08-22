@@ -121,8 +121,8 @@ h5 {
 
 .animated-buddy {
   position: absolute;
-  left: 60%;
-  width: 180px; // Adjust width to your preference
+  left: 50%;
+  width: 170px; // Adjust width to your preference
   height: auto; // Adjust height to your preference
 }
 
@@ -152,7 +152,7 @@ h5 {
     transform: translateX(0) rotate(0deg);
   }
   100% {
-    transform: translateX(-280px) rotate(360deg);
+    transform: translateX(-380px) rotate(360deg);
   }
 }
 
@@ -161,11 +161,11 @@ h5 {
 // Add styles for the rolling baseball
 .rolling-baseball {
   position: absolute;
-  top: 70%;
-  left: 50%;
+  top: 75%;
+  left: 90%;
   width: 30px; // Adjust width to your preference
   height: 30px; // Adjust height to your preference
-  animation: rollAway 3s linear infinite;
+  animation: rollAway 3.5s linear infinite;
 }
 
 .buddy-container {
@@ -185,8 +185,8 @@ h5 {
     // color: white;
     // font-size: 15px;
     // margin: 10px 6px;
-    left: 32%;
-    top: 12%;
+    left: 22%;
+    top: 8%;
     transform: translateX(-50%);
     position: absolute;
     padding: 4px 4px;
@@ -196,7 +196,7 @@ h5 {
     font-size: 14px;
     // margin: 0 8px;
     border: 3px solid orange;
-    width: 35%;
+    width: 40%;
   }
 
   p:before,
@@ -209,7 +209,7 @@ h5 {
   }
 
   p:before {
-    top: 112%;
+    top: 109%;
     right: -25px;
     height: 15px;
     width: 15px;

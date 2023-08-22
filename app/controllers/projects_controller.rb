@@ -97,7 +97,7 @@ class ProjectsController < ApplicationController
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
     @greetings = [
-      "You study and I'll play!", "Why don't you try a new project?", "Study study study!", "Hello!", "Look! A ball!"
+      "You study and I play!", "Try a new project?", "Study study study!", "Hello!", "Look! A ball!"
     ]
     # user_interest_names = current_user.interests.map(&:name)
     # @recommended_projects = current_user.projects.pending.where(
