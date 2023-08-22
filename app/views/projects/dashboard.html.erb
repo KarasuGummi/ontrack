@@ -1,9 +1,9 @@
 <% content_for :current_page, 'dashboard' %>
 
 <%= render "shared/navbar"%>
-<div class="container py-3">
+<div class="dashboard-container p-2">
   <h3 class="text-center dashboard-title">OnTrack</h3>
-  <div class="dashboard-container">
+  <div class="dashboard-top">
     <div class="my-info">
       <%# <%= display user info %>
       <hr>
@@ -17,8 +17,8 @@
         <% else %>
           <p class="dashboard-label">No tracks added yet.</p>
         <% end %>
-        <%# display upcoming deadlines %>
 
+        <%# display upcoming deadlines %>
         <% if @upcoming_projects.any? %>
           <h6>Your Upcoming Deadlines</h6>
           <ul>
@@ -57,15 +57,15 @@
   <% end %>
 </div>
 
-<div class="dashboard-add-btn">
+<div class="dashboard-add-btn text-center py-1">
   <button class="blue-btn">
     <%= link_to "Chat with your buddy!", chatroom_path(Chatroom.last)%>
   </button>
-  <div class="project-form-container">
-    <%= render 'shared/project_form' %>
-  </div>
 </div>
-<div class="dashboard-add-btn">
+
+<div class="project-form-card">
+  <h4 class="text-center">Find Your Next Track</h4>
+    <%= render 'shared/project_form' %>
 </div>
 
 <%# display recommended projects %>
