@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
+  before_action :set_project
+
   def index
     message = params[:message]
     @response = OpenaiService.new(message).call
-    @questions = Question.all
+    @questions = @project.questions
     @buddy = current_user.buddy
   end
 
@@ -10,5 +12,11 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:id])
     @answers = @question.answers
     # question = params[:question]
+  end
+
+  private
+
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 end

@@ -3,18 +3,15 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-// window.Stimulus = Application.start()
-// const context = require.context("./controllers", true, /\.js$/)
-// Stimulus.load(definitionsFromContext(context))
 
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
 import FlashController from "./flash_controller"
 application.register("flash", FlashController)
+
+import FlashcardController from "./flashcard_controller"
+application.register("flashcard", FlashcardController)
 
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
