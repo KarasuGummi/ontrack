@@ -91,10 +91,10 @@ class ProjectsController < ApplicationController
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
     @greetings = [
-      "You study and I play!", "Try a new project!", "Study study study!", "Hi #{@user.username}!", "Look! A ball!"
+      "What are you studying?", "Try a new project!", "Study study study!", "Hi #{@user.username}!"
     ]
     @interest_greetings = [
-      "Do you like #{@user.interests.sample.name}?", "#{@user.interests.sample.name.capitalize}! #{@user.interests.sample.name.capitalize}! #{@user.interests.sample.name.capitalize}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
+      "Do you like #{@user.interests.sample.name} too?", "I love #{@user.interests.sample.name}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
     ]
   end
 
