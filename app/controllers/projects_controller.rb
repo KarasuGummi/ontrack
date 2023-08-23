@@ -93,15 +93,15 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @user = current_user
     @buddy = current_user.id
-    @interest_updated = current_user.interest_updated_recently?
-    @latest_project = current_user.projects.accepted.order(created_at: :desc).first
+    # @interest_updated = current_user.interest_updated_recently?
+    # @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
     @greetings = [
       "You study and I play!", "Try a new project!", "Study study study!", "Hi #{@user.username}!", "Look! A ball!"
     ]
     @interest_greetings = [
-      "I like baseball!", "What do you like?", "#{@user.interest.sample} sounds fun!"
+      "I like baseball!", "What do you like?", "#{@user.interests.sample.name.capitalize} sounds fun!"
     ]
     # user_interest_names = current_user.interests.map(&:name)
     # @recommended_projects = current_user.projects.pending.where(
