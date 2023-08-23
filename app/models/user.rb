@@ -18,4 +18,9 @@ class User < ApplicationRecord
   def earn_points(points)
     update(points: points + self.points)
   end
+
+  def interest_updated_recently?
+    latest_interest_update = self.user_interests.order(updated_at: :desc).first&.updated_at
+    latest_interest_update && latest_interest_update > 10.minutes.ago
+  end
 end
