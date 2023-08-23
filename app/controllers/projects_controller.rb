@@ -139,10 +139,6 @@ class ProjectsController < ApplicationController
 
   private
 
-  def interest_updated_recently?
-    self.interest_updated_at > 10.minutes.ago
-  end
-
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
       I'm seeking a project recommendation for my class. The project should uniquely intertwine the student's interest (user_interest), the subject they're studying (subject), and the specific learning goal (learning_goal) they are targeting.
