@@ -6,7 +6,10 @@ class ProjectsController < ApplicationController
   def index
     @buddy = current_user.buddy
     @projects = Project.all
-    @accepted_projects = current_user.projects.accepted
+    @in_progress_projects = Project.where(status: 1, user: current_user)
+    @completed_projects = current_user.projects.completed
+    # @in_progress_projects = @accepted_projects.select { |project| project.status == 'accepted' }
+    @recommended_projects = current_user.projects.pending
   end
 
   def new
@@ -94,16 +97,14 @@ class ProjectsController < ApplicationController
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
     @greetings = [
-      "Hi there!", "Do you have any snacks?", "Want to try a new project?", "What are you learning these days?",
-      "I'm so glad to see you!", "Finish your project and get me some snacks!", "Don't be afraid to make mistakes.",
-      "I want to dance with somebody."
+      "You study and I play!", "Try a new project!", "Study study study!", "Hi #{@user.username}!", "Look! A ball!"
     ]
-    user_interest_names = current_user.interests.map(&:name)
-    @recommended_projects = current_user.projects.pending.where(
-      subject: @user.subject,
-      interest: user_interest_names,
-      learning_goal: @user.learning_goal
-    )
+    # user_interest_names = current_user.interests.map(&:name)
+    # @recommended_projects = current_user.projects.pending.where(
+    #   subject: @user.subject,
+    #   interest: user_interest_names,
+    #   learning_goal: @user.learning_goal
+    # )
   end
 
   def history

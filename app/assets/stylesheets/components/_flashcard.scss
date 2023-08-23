@@ -40,6 +40,13 @@
   position: absolute;
   backface-visibility: hidden;
   transition: transform 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .content {
+    text-align: center;
+  }
 }
 
 .flip-card.front {

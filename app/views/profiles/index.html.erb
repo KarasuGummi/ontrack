@@ -5,7 +5,12 @@
   <div class="container">
     <div class="user_info">
     <%# will change the user avatar placeholder  %>
-      <%= cl_image_tag("https://i.pravatar.cc/", height: 70, crop: :fill, class: "user-avatar")%>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, zoom: "0.6", class: "user-avatar"%>
+      <% else %>
+        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692612721/user-icon.png", width: 150, height: 150, class: "user-avatar") %>
+      <% end %>
+      <%# <%= cl_image_tag("https://i.pravatar.cc/", height: 70, crop: :fill, class: "user-avatar")%>
       <div class="user_content">
         <div class="profile_edit">
           <p><strong><%= @user.username %></strong></p>
@@ -49,7 +54,7 @@
       </div>
     </div>
     <div class="buddy-part profile-buddy">
-        <%= cl_image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
       <div class="chatting">
         <div class="says">
           <p><%= @profile_greetings.sample %></p>

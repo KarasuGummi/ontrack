@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
+require 'open-uri'
 
 puts 'Cleaning up database...'
 
@@ -72,9 +73,14 @@ kevin = User.create!(
   age: 21,
   points: 10
 )
+
+kevin_profile_img = URI.open('https://res.cloudinary.com/du53mgiot/image/upload/v1692580133/gi4y7v0luoez7fb6mgz0.jpg')
+kevin.photo.attach(io: kevin_profile_img, filename: 'kevin_profile.jpg', content_type: 'image/png')
+
 kevin_interest = Interest.create!(
   name: 'drawing'
 )
+
 UserInterest.create!(
   user: kevin,
   interest: kevin_interest
