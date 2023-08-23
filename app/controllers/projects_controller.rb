@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
       "You study and I play!", "Try a new project!", "Study study study!", "Hi #{@user.username}!", "Look! A ball!"
     ]
     @interest_greetings = [
-      "Do #{@user.interests.sample.name} involve playing catch?", "Tell me more about #{@user.interests.sample.name}.", "#{@user.interests.sample.name.capitalize} sounds fun!"
+      "Do you like #{@user.interests.sample.name}?", "#{@user.interests.sample.name.capitalize}! #{@user.interests.sample.name.capitalize}! #{@user.interests.sample.name.capitalize}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
     ]
   end
 
