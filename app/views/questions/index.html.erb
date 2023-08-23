@@ -4,23 +4,25 @@
 <div class="album py-3 bg-light">
   <h2 class="text-center">Review</h2>
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <% @questions.each do |question| %>
-        <div class="col-md-4">
+        <div class="col-md-12">
           <div class="card mb-4 shadow-sm d-flex flex-fill"
-              data-controller="flashcard"
-              data-action="click->flashcard#flip">
+              data-controller="flashcard">
 
-            <!-- Front side -->
-            <div class="card-body flip-card front" data-flashcard-target="question">
-              <%= question.question_content %>
-              <input type="text" class="answer-textbox" placeholder="Enter your answer">
-              <button class="flip-button" data-action="click->flashcard#flip">Flip</button>
-            </div>
+            <div class="flashcard-container" data-flashcard-target="container">
 
-            <!-- Back side -->
-            <div class="card-body flip-card back hidden" data-flashcard-target="answer">
-              <%= question.answers.first.answer_content %>
+              <!-- Front side -->
+              <div class="card-body flip-card front" data-flashcard-target="question">
+                <%= question.question_content %>
+                <input type="text" class="answer-textbox" placeholder="Enter your answer" data-flashcard-target="userAnswer">
+                <button class="flip-button" data-action="click->flashcard#flip">Flip</button>
+              </div>
+
+              <!-- Back side -->
+              <div class="card-body flip-card back" data-flashcard-target="answer" data-action="click->flashcard#flipBack">
+                <%= question.answers.first.answer_content %>
+              </div>
             </div>
           </div>
         </div>
