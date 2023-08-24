@@ -1,13 +1,9 @@
-.buddy-show {
-  h3 {
-    margin: 0;
-    padding: 0;
-    font-family: $title-font;
-  }
 
-  p {
-    color: black;
-  }
+//  love and point part------------------------------------------------------
+.love-point {
+  display: flex;
+  color: black;
+  gap: 12px;
 }
 
 .buddy-love {
@@ -17,13 +13,38 @@
   border-radius: 30px;
   // border: 0.5px solid #fd1015;
   font-size: 21px;
-  width: 85px;
+  width: 100px;
   height: 35px;
   box-shadow: 0 2px 4px 0 #fd1015;
 
   i {
     color: red;
+    font-size: 22px;
   }
+}
+
+.user-points {
+  margin: 0px;
+  padding: 1px 8px;
+  background-color: white;
+  border-radius: 30px;
+  // border: 0.5px solid #fd1015;
+  font-size: 21px;
+  width: 100px;
+  height: 35px;
+  box-shadow: 0 2px 4px 0 $yellow;
+
+  i {
+    color: $yellow;
+    font-size: 22px;
+  }
+}
+
+
+.buddy-name {
+  margin-top: 8px;
+  padding: 0;
+  font-family: $title-font;
 }
 
 .buddy-room-img {

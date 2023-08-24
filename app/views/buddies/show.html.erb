@@ -1,11 +1,17 @@
 <% content_for :current_page, 'buddy' %>
 <%= render "shared/navbar"%>
 <div class="container py-3 buddy-show col-12">
-  <div class="buddy-love">
-    <p><i class="fa-solid fa-heart"></i> &emsp;<%= @buddy.love %></p>
+  <%# love and point part------------------------------------------------------ %>
+  <div class="love-point">
+    <div class="buddy-love">
+      <p><i class="fa-solid fa-heart"></i> &emsp;<%= @buddy.love %></p>
+    </div>
+    <div class="user-points">
+      <p><i class="fa-solid fa-medal"></i> &emsp;<%= current_user.points %></p>
+    </div>
   </div>
-  <h3 class="text-center"><%= @buddy.name.capitalize %></h3>
 </div>
+    <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %></h3>
 <%# display buddy %>
 <%# buddy comment------------------------------------------------------ %>
 <div class="buddy-room-img">
@@ -50,11 +56,6 @@
       </section>
     <% end %>
   </div>
-</div>
-<div class="buddy-links show-buddy-links text-center">
-  <%= link_to dashboard_path do %>
-    <i class="fa-solid fa-paw dashboard-paw"></i>
-  <% end %>
 </div>
 <div class="container py-3 buddy-show buddy-points">
   <%= form_tag feed_buddy_path, method: :post do %>
