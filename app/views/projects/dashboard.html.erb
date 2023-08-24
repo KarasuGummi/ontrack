@@ -48,10 +48,18 @@
       <div class="dashboard-buddy-text">
         <p class="text-center"><%= @interest_greetings.sample %></p>
       </div>
+    <% elsif @buddy.love == 0 %>
+      <section class="sleeping-buddy-dashboard">
+        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
+        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
+        <div class="dashboard-buddy-text">
+          <p class="text-center"><%= @sleepy_greetings.sample %></p>
+        </div>
+      </section>
     <% else %>
       <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
       <div class="dashboard-buddy-text">
-        <p class="text-center"><%= @greetings.sample %></p>
+        <p class="text-center"><%= @greetings.sample %> </p>
       </div>
     <% end %>
 </div>
