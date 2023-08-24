@@ -1,0 +1,17 @@
+{
+  "background_color": "white",
+  "description": "Your Ultimate Education Companion. Embark on a purposeful learning journey with OnTrack, the app designed to keep you motivated, focused, and on the right path. Elevate your educational experience with personalized project recommendations tailored to your interests and goals.",
+  "display": "fullscreen",
+  "name": "OnTrack",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}
