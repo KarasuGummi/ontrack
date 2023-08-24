@@ -13,7 +13,7 @@
   border-radius: 30px;
   // border: 0.5px solid #fd1015;
   font-size: 21px;
-  width: 100px;
+  width: 95px;
   height: 35px;
   box-shadow: 0 2px 4px 0 #fd1015;
 
@@ -30,7 +30,7 @@
   border-radius: 30px;
   // border: 0.5px solid #fd1015;
   font-size: 21px;
-  width: 100px;
+  width: 95px;
   height: 35px;
   box-shadow: 0 2px 4px 0 $yellow;
 
@@ -174,12 +174,25 @@
   100% { opacity: 0; }
 }
 
+//----------------------buddy showpage snack----------------------
+.buddy-points {
+  display: flex;
+  margin-bottom: 30px 20px 60px 20px;
+  justify-content: space-between;
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  i {
+    color: $yellow;
+    font-size: 40px;
+  }
+}
+
+
 //----------------------buddy showpage paw----------------------
 .show-buddy-links {
   margin-top: 10px;
-}
-
-// buddy points form
-.buddy-points {
-  margin-bottom: 60px;
 }
