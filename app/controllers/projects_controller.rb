@@ -97,7 +97,7 @@ class ProjectsController < ApplicationController
       "Do you like #{@user.interests.sample.name} too?", "I love #{@user.interests.sample.name}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
     ]
     @sleepy_greetings = [
-      "Snacks... Snacks... Snacks...", "I'm dreaming of you giving me snacks...", "Snacktime?"
+      "Snacks... Snacks... Snacks...", "I'm dreaming of you giving me snacks...", "Snack time?"
     ]
     @congratulation_greetings = [
       "Let's study again!", "That was fun!", "Thanks for all the treats!"
