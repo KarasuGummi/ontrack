@@ -21,6 +21,6 @@ class User < ApplicationRecord
 
   def interest_updated_recently?
     latest_interest_update = self.user_interests.order(updated_at: :desc).first&.updated_at
-    latest_interest_update && latest_interest_update > 5.minutes.ago
+    latest_interest_update && latest_interest_update > 1.minute.ago
   end
 end

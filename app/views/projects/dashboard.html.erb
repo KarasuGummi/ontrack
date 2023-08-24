@@ -49,7 +49,7 @@
         <p class="text-center"><%= @sleepy_greetings.sample %></p>
     </div>
     </section>
-  <% elsif @buddy.love === 20 %>
+  <% elsif @buddy.love == 20 %>
     <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 150, crop: :fill)%>
     <div class="dashboard-buddy-text">
       <p class="text-center"><%= @congratulation_greetings.sample %></p>
