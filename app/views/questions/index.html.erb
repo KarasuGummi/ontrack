@@ -1,32 +1,50 @@
 <% content_for :current_page, 'review' %>
-
 <%= render "shared/navbar"%>
-<div class="album py-3 bg-light">
-  <h2 class="text-center">Review</h2>
-  <div class="container">
-    <div class="row mb-5">
-      <% @questions.each do |question| %>
-        <div class="col-md-12">
-          <div class="card mb-4 shadow-sm d-flex flex-fill"
-              data-controller="flashcard">
 
-            <div class="flashcard-container" data-flashcard-target="container">
-
-              <!-- Front side -->
-              <div class="card-body flip-card front" data-flashcard-target="question">
+<div class="container py-5">
+  <div class="align-items-center mb-3">
+    <h2 class="text-center"> <strong> Review </strong> </h2>
+  </div>
+  <div class="row">
+    <% @questions.each do |question| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <div class="card d-flex flex-fill" data-controller="flashcard">
+          <div class="flashcard-container" data-flashcard-target="container">
+            <!-- Front side -->
+            <div class="card-body flip-card front" data-flashcard-target="question">
+              <h4 class="card-title text-center fst-italic"> <strong> Question </strong> </h4>
+              <p class="fw-light">
                 <%= question.question_content %>
-                <input type="text" class="answer-textbox" placeholder="Enter your answer" data-flashcard-target="userAnswer">
-                <button class="flip-button" data-action="click->flashcard#flip">Flip</button>
+              </p>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label fw-light">Your answer here..</label>
+                <textarea class="form-control font-monospace" id="exampleFormControlTextarea1 answer" rows="3" data-flashcard-target="userAnswer"></textarea>
               </div>
-
-              <!-- Back side -->
-              <div class="card-body flip-card back" data-flashcard-target="answer" data-action="click->flashcard#flipBack">
-                <%= question.answers.first.answer_content %>
+              <div class="d-grid gap-2">
+                <button class="flip-button btn btn-outline-info" type="button" data-action="click->flashcard#flip">Flip</button>
               </div>
+            </div>
+            <!-- Back side -->
+            <div class="card-body flip-card back" data-flashcard-target="answer" data-action="click->flashcard#flipBack">
+                  <div class="list-group">
+                    <h4 class="alert-heading text-center">Well done!</h4>
+                    <a href="#" class="list-group-item list-group-item-action border-info" aria-current="true">
+                      <div class="w-100 justify-content-between">
+                        <h5 class="mb-1 text-center fst-italic" style="color: #1684A7;">Answer</h5>
+                      </div>
+                      <p class="mb-1 fw-light" style="color: #1684A7;"><%= question.answers.first.answer_content %></p>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action border-warning">
+                      <div class="w-100 justify-content-between">
+                        <h5 class="mb-1 text-center fst-italic" style="color: #E67E22;">Your Answer</h5>
+                      </div>
+                      <p class="mb-1 answer" id="answer"></p>
+                    </a>
+                  </div>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
