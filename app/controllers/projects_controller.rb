@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
   def dashboard
     @project = Project.new
     @user = current_user
-    @buddy = current_user.id
+    @buddy = current_user.buddy
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
@@ -95,6 +95,12 @@ class ProjectsController < ApplicationController
     ]
     @interest_greetings = [
       "Do you like #{@user.interests.sample.name} too?", "I love #{@user.interests.sample.name}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
+    ]
+    @sleepy_greetings = [
+      "Snacks... Snacks... Snacks...", "I'm dreaming of you giving me snacks...", "Snack time?"
+    ]
+    @congratulation_greetings = [
+      "Let's study again!", "That was fun!", "Thanks for all the treats!"
     ]
   end
 
