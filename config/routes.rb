@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :buddies, only: %i[new create show update]
   resources :projects, only: %i[index new create show update] do
+    patch 'complete', on: :member
     resources :questions, only: %i[index show]
   end
   resources :profiles, only: %i[index edit update]

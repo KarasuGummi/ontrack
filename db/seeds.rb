@@ -71,7 +71,7 @@ kevin = User.create!(
   grade: 'College Junior',
   learning_goal: 'basic vocabulary',
   age: 21,
-  points: 10
+  points: 0
 )
 
 kevin_profile_img = URI.open('https://res.cloudinary.com/du53mgiot/image/upload/v1692580133/gi4y7v0luoez7fb6mgz0.jpg')

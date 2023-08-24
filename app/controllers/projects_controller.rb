@@ -121,16 +121,19 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = current_user
 
-    if @project.completed?
-      points_earned = 10
-      @user.earn_points(points_earned)
 
+    if @project.update(status: "completed")
+      points_earned = @project.points
+      @user.earn_points(points_earned)
       flash[:notice] = "Congratulations! You've earned #{points_earned} points."
+      # change this path later
+      redirect_to project_path(@project)
     else
-      flash[:alert] = "Project not completed yet."
+      flash[:notice] = "Sorry we couldn't complete your project"
+      redirect_to project_path(@project)
     end
 
-    redirect_to project_path(@project)
+
   end
 
   private
