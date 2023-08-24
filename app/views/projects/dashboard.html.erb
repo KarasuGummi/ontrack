@@ -13,10 +13,16 @@
       <div class="latest-project">
         <% if @latest_project %>
           <h6>Latest Track</h6>
-          <p class="dashboard-label"><strong><%= @latest_project.name %></strong></p>
+          <p class="dashboard-label">
+          <strong>
+            <%= link_to @latest_project.name, project_path(@latest_project) %>
+          </strong>
+          </p>
         <% else %>
           <p class="dashboard-label">No tracks added yet.</p>
         <% end %>
+
+
 
         <%# display upcoming deadlines %>
         <% if @upcoming_projects.any? %>

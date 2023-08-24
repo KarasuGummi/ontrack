@@ -123,15 +123,26 @@ h4 {
   }
 }
 
+
 .dashboard-label {
   font-size: 14px; /* Adjust the font size as needed */
   background-color: $light-gray; /* Choose your desired background color */
-  color: black; /* Text color for better contrast */
+  color: $dark-blue; /* Text color for better contrast */
   padding: 5px; /* Add padding to the label for spacing */
   margin: 8px;
   border-radius: 5px; /* Rounded corners */
   display: inline-block; /* Prevent long labels from breaking into multiple lines */
   line-height: 1; /* Reduce the line height to minimize spacing */
+
+  a {
+    color: $dark-blue;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 
 .dashboard-title {
