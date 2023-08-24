@@ -35,10 +35,6 @@ class ProjectsController < ApplicationController
     project_learning_goal = params[:project][:learning_goal]
     user_interest = current_user.interests.sample.name
 
-    # @recommendation = generate_recommendations(project_subject, project_learning_goal, user_interest)
-    # @project = Project.new(@recommendation)
-    # @project.user = current_user
-
     suggestion = generate_recommendations(project_subject, project_learning_goal, user_interest)
 
     @project = Project.new(
@@ -70,9 +66,7 @@ class ProjectsController < ApplicationController
       puts "Project Errors: #{@project.errors}"
       render 'new'
     end
-
   end
-
 
   def destroy
     @project = Project.find(params[:id])
@@ -97,14 +91,11 @@ class ProjectsController < ApplicationController
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
     @user_points = current_user.projects.sum(:points)
     @greetings = [
-      "You study and I play!", "Try a new project!", "Study study study!", "Hi #{@user.username}!", "Look! A ball!"
+      "What are you studying?", "Try a new project!", "Study study study!", "Hi #{@user.username}!"
     ]
-    # user_interest_names = current_user.interests.map(&:name)
-    # @recommended_projects = current_user.projects.pending.where(
-    #   subject: @user.subject,
-    #   interest: user_interest_names,
-    #   learning_goal: @user.learning_goal
-    # )
+    @interest_greetings = [
+      "Do you like #{@user.interests.sample.name} too?", "I love #{@user.interests.sample.name}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
+    ]
   end
 
   def history
@@ -169,29 +160,13 @@ class ProjectsController < ApplicationController
     openai_service = OpenaiService.new(prompt)
     response = openai_service.call
 
-
     suggestion = response["choices"][0]["message"]["content"]
-    # add an error if the response isn't what we wanted it to be -> try again
     begin
       suggestion = JSON.parse(suggestion)
     rescue JSON::ParserError
       render :new, notice: "try again"
     end
-
     p suggestion
-
-    # project_info = {
-    #   name: suggestion["name"].empty? ? "Title not found" : suggestion["name"],
-    #   description: suggestion["description"].empty? ? "Description not found" : suggestion["description"],
-    #   subject: suggestion["subject"].empty? ? subject : suggestion["subject"],
-    #   learning_goal: suggestion["learning_goal"].empty? ? learning_goal : suggestion["learning_goal"],
-    #   interest: suggestion["user_interest"].empty? ? user_interest : suggestion["user_interest"],
-    #   steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
-    #   vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
-    #   status: 'pending',
-    #   user: current_user
-    # }
-    # # project_info
     return suggestion
   end
 end
