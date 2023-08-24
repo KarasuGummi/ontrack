@@ -18,11 +18,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .content {
+    text-align: center;
+  }
 }
 .card-inner.answer {
   transform: rotateX(180deg);
   height: 300px;
-}
-.content {
-  text-align: center;
 }
