@@ -59,6 +59,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+
+  .buddy-listing-image {
+    margin-left: -70%
+  }
 }
 
 // ------------------------------Project index tab------------------------------
@@ -86,4 +90,87 @@
   &:hover {
   color: black;
   }
+}
+
+
+
+// Play buddy animation
+
+.animated-buddy-listing {
+  position: absolute;
+  width: 100px; // Adjust width to your preference
+  height: auto; // Adjust height to your preference
+}
+
+// Toggle buddy
+
+@keyframes toggleBuddy {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.buddy-backpack-1 {
+  animation: toggleBuddy 1s infinite;
+}
+
+.buddy-backpack-2 {
+  animation: toggleBuddy 1s infinite reverse; // reverse makes the second image show when the first is hidden
+}
+
+
+
+
+// ----------------------buddy comment----------------------
+.listing-buddy-text {
+
+  margin: 0 10px;
+  p {
+    // position: relative;
+    // padding: 6px;
+    // border-radius: 30px;
+    // background-color: $yellow;
+    // color: white;
+    // font-size: 15px;
+    // margin: 10px 6px;
+    left: 65%;
+    top: 8%;
+    transform: translateX(-50%);
+    position: absolute;
+    padding: 4px 4px;
+    border-radius: 30px;
+    background-color: #fff;
+    color: black;
+    font-size: 14px;
+    // margin: 0 8px;
+    border: 3px solid orange;
+    width: 60%;
+  }
+
+  p:before,
+  p:after {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    content: "";
+    border: 3px solid orange;
+  }
+
+  p:before {
+    top: 100%;
+    left: -15px;
+    height: 15px;
+    width: 15px;
+  }
+
+  p:after {
+    top: 152%;
+    left: -25px;
+    height: 10px;
+    width: 10px;
+  }
+
 }
