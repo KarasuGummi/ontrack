@@ -24,14 +24,14 @@
 
 
 
-        <%# display upcoming deadlines %>
-        <% if @upcoming_projects.any? %>
-          <h6>Your Upcoming Deadlines</h6>
-          <ul>
-            <% @upcoming_projects.each do |project| %>
-              <li><span class="badge text-bg-light"><%= project.deadline.strftime('%Y-%m-%d %H:%M') %></span></li>
-            <% end %>
-          </ul>
+        <%# display the most pressing deadline %>
+        <% if @nearest_deadline_project %>
+          <h6>Your Upcoming Deadline</h6>
+          <p class="dashboard-label">
+            <strong>
+              <%= link_to @nearest_deadline_project.deadline.strftime('%Y-%m-%d %H:%M'), project_path(@nearest_deadline_project) %>
+            </strong>
+          </p>
         <% else %>
           <h6>No upcoming deadlines.</h6>
         <% end %>
