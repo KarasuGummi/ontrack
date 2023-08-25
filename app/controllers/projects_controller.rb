@@ -46,7 +46,8 @@ class ProjectsController < ApplicationController
       steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
       vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
       status: 'pending',
-      user: current_user
+      user: current_user,
+      deadline: Time.now + 1.week
     )
 
     if @project.save
