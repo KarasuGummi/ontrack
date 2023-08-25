@@ -3,10 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["question", "answer", "container", "userAnswer"];
 
-  // flip() {
-  //   this.questionTarget.classList.toggle("hidden");
-  //   this.answerTarget.classList.toggle("hidden");
-  // }
 
   flip() {
     // Ensure there's a user answer before flipping.
@@ -15,11 +11,20 @@ export default class extends Controller {
         return;
     }
 
-    const isShowingFront = this.containerTarget.style.transform !== "rotateY(180deg)";
-    this.containerTarget.style.transform = isShowingFront ? "rotateY(180deg)" : "rotateY(0deg)";
+    // const isShowingFront = this.containerTarget.style.transform !== "rotateY(180deg)";
+    // this.containerTarget.style.transform = isShowingFront ? "rotateY(180deg)" : "rotateY(0deg)";
+
+    // Display the user's answer on the back side.
+    const answerParagraph = this.answerTarget.querySelector(".answer");
+    answerParagraph.textContent = this.userAnswerTarget.value;
+
+    // Flip the card.
+    this.containerTarget.style.transform = "rotateY(180deg)";
+
+
   }
 
   flipBack() {
-    this.containerTarget.style.transform = "rotateY(0deg";
+    this.containerTarget.style.transform = "rotateY(0deg)";
   }
 }
