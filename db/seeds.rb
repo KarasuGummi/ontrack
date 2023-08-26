@@ -35,7 +35,7 @@ end
 puts 'Creating buddies...'
 
 kevin_buddy = Buddy.create!(
-  name: 'dog',
+  name: 'Pochi',
   personality: 'friendly',
   love: 0
 )
@@ -63,13 +63,13 @@ puts 'Buddies created!'
 puts 'Creating users...'
 
 kevin = User.create!(
-  username: 'italian_beyonce',
+  username: 'Kevin',
   email: 'kevin@ontrack.com',
   password: 'buddy000',
-  subject: 'Architecture',
+  subject: 'Spanish',
   buddy: kevin_buddy,
   grade: 'College Junior',
-  learning_goal: 'basic vocabulary',
+  learning_goal: 'Basic Vocabulary',
   age: 21,
   points: 0
 )
@@ -152,7 +152,7 @@ language_drawing2 = Project.create!(
   user: kevin,
   interest: 'drawing',
   learning_goal: 'past tense action verbs',
-  steps: 'Step 1: Choose your setting. Step 2: Choose your characters. Step 3: Think of 4 -5 main points for your story. Step 4: Make a list of vocab words that you will use. Step 5: Start drawing!',
+  steps: ['Step 1: Choose your setting.', 'Step 2: Choose your characters.', 'Step 3: Think of 4 -5 main points for your story.', 'Step 4: Make a list of vocab words that you will use.', 'Step 5: Start drawing!'],
   vocab_words: ['bailar', 'comer', 'saltar', 'correr', 'cantar']
 )
 language_drawing2_question = Question.create!(
@@ -165,45 +165,45 @@ Answer.create!(
   question: language_drawing2_question
 )
 
-architecture_harrypotter = Project.create!(
-  name: 'Magical Architectural Wonders: Unveiling the Enchantment of Harry Potter-Inspired Architecture',
-  subject: 'Architecture',
-  description: 'Understand the influence of architecture in storytelling and fantasy literature. Recognize architectural elements inspired by the Harry Potter series. Explore the creative process of designing magical structures. Develop critical thinking skills by analyzing the connection between architecture and the world of Harry Potter.',
-  deadline: DateTime.parse('2023-08-12 17:30:00'),
-  status: :pending,
-  points: 120,
-  user: kevin,
-  interest: 'harry potter'
-)
-architecture_harrypotter_question = Question.create!(
-  question_content: 'What are some iconic locations from the Harry Potter series, and how does their architecture reflect the magical nature of the wizarding world?',
-  project: architecture_harrypotter
-)
-Answer.create!(
-  answer_content: 'Hogwarts Castle, Diagon Alley, and the Burrow',
-  points: 20,
-  question: architecture_harrypotter_question
-)
+# architecture_harrypotter = Project.create!(
+#   name: 'Magical Architectural Wonders: Unveiling the Enchantment of Harry Potter-Inspired Architecture',
+#   subject: 'Architecture',
+#   description: 'Understand the influence of architecture in storytelling and fantasy literature. Recognize architectural elements inspired by the Harry Potter series. Explore the creative process of designing magical structures. Develop critical thinking skills by analyzing the connection between architecture and the world of Harry Potter.',
+#   deadline: DateTime.parse('2023-08-12 17:30:00'),
+#   status: :pending,
+#   points: 120,
+#   user: kevin,
+#   interest: 'harry potter'
+# )
+# architecture_harrypotter_question = Question.create!(
+#   question_content: 'What are some iconic locations from the Harry Potter series, and how does their architecture reflect the magical nature of the wizarding world?',
+#   project: architecture_harrypotter
+# )
+# Answer.create!(
+#   answer_content: 'Hogwarts Castle, Diagon Alley, and the Burrow',
+#   points: 20,
+#   question: architecture_harrypotter_question
+# )
 
-architecture_animation = Project.create!(
-  name: 'Animate Your Architectural Imagination: Exploring Architecture through Japanese Animation',
-  subject: 'Architecture',
-  description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
-  deadline: DateTime.parse('2023-08-12 17:30:00'),
-  status: :pending,
-  points: 110,
-  user: kevin,
-  interest: 'drawing'
-)
-architecture_animation_question = Question.create!(
-  question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
-  project: architecture_animation
-)
-Answer.create!(
-  answer_content: 'The integration of architecture and animation in anime creates a multi-layered visual experience.',
-  points: 25,
-  question: architecture_animation_question
-)
+# architecture_animation = Project.create!(
+#   name: 'Animate Your Architectural Imagination: Exploring Architecture through Japanese Animation',
+#   subject: 'Architecture',
+#   description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
+#   deadline: DateTime.parse('2023-08-12 17:30:00'),
+#   status: :pending,
+#   points: 110,
+#   user: kevin,
+#   interest: 'drawing'
+# )
+# architecture_animation_question = Question.create!(
+#   question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
+#   project: architecture_animation
+# )
+# Answer.create!(
+#   answer_content: 'The integration of architecture and animation in anime creates a multi-layered visual experience.',
+#   points: 25,
+#   question: architecture_animation_question
+# )
 
 architecture_drawing = Project.create!(
   name: 'Architectural Sketching: Bringing Buildings to Life',
@@ -213,7 +213,9 @@ architecture_drawing = Project.create!(
   status: :pending,
   points: 70,
   user: kevin,
-  interest: 'drawing'
+  interest: 'drawing',
+  steps: ['Step 1: Gather your favorite art materials.', 'Step 2: Choose the type of structure to draw.', 'Step 3: Research examples of your structure.', 'Step 4: Create a rough sketch.', 'Step 5: Start drawing!'],
+  vocab_words: ['bridge', 'structure', 'angles', 'scaffolding', 'building']
 )
 architecture_drawing_question = Question.create!(
   question_content: 'How does architectural sketching bridge the gap between architecture and art?',
@@ -225,25 +227,25 @@ Answer.create!(
   question: architecture_drawing_question
 )
 
-architecture_finalfantasy = Project.create!(
-  name: 'Drawing Fantastical Architecture: Exploring Final Fantasy-Inspired Designs',
-  subject: 'Architecture',
-  description: 'Encourage creativity by having students design their own fantastical architectural structures inspired by the Final Fantasy universe.',
-  deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :accepted,
-  points: 30,
-  user: kevin,
-  interest: 'final fantasy'
-)
-architecture_finalfantasy_question = Question.create!(
-  question_content: 'What are some iconic Final Fantasy architecture?',
-  project: architecture_finalfantasy
-)
-Answer.create!(
-  answer_content: 'Ul\'dah, Gridania, and Limsa Lominsa',
-  points: 20,
-  question: architecture_finalfantasy_question
-)
+# architecture_finalfantasy = Project.create!(
+#   name: 'Drawing Fantastical Architecture: Exploring Final Fantasy-Inspired Designs',
+#   subject: 'Architecture',
+#   description: 'Encourage creativity by having students design their own fantastical architectural structures inspired by the Final Fantasy universe.',
+#   deadline: DateTime.parse('2023-09-01 17:30:00'),
+#   status: :accepted,
+#   points: 10,
+#   user: kevin,
+#   interest: 'final fantasy'
+# )
+# architecture_finalfantasy_question = Question.create!(
+#   question_content: 'What are some iconic Final Fantasy architecture?',
+#   project: architecture_finalfantasy
+# )
+# Answer.create!(
+#   answer_content: 'Ul\'dah, Gridania, and Limsa Lominsa',
+#   points: 5,
+#   question: architecture_finalfantasy_question
+# )
 
 # Project.create!(
 #   name:
@@ -270,11 +272,13 @@ language_starwars = Project.create!(
   subject: 'Spanish',
   description: 'The objective of this lesson is to introduce students to Spanish vocabulary by using terms and concepts from the Star Wars universe. Students will engage with popular Star Wars characters, settings, and phrases while expanding their language skills.',
   deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :pending,
-  points: 200,
+  status: :accepted,
+  points: 10,
   user: kevin,
   interest: 'star wars',
-  learning_goal: 'emotions and feelings'
+  learning_goal: 'emotions and feelings',
+  steps: ['Step 1: Choose your favorite Star Wars character.', 'Step 2: Choose a scene that involved that character that you felt attached to.', 'Step 3: Write down 3 - 5 feelings that describe that character in that moment.', 'Step 4: Find the Spanish translation for those words.', 'Step 5: Write a short story describing how those characters felt in Spanish!'],
+  vocab_words: ['relajada', 'emocionado', 'aburrida', 'feliz', 'triste']
 )
 language_starwars_question = Question.create!(
   question_content: 'What is the Spanish translation for "space" and "planet," two vocabulary words related to Star Wars?',
