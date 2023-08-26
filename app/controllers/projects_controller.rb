@@ -46,7 +46,8 @@ class ProjectsController < ApplicationController
       steps: suggestion["steps"].empty? ? "Steps not found" : suggestion["steps"],
       vocab_words: suggestion["vocab_words"].empty? ? ["Vocab words not found"] : suggestion["vocab_words"],
       status: 'pending',
-      user: current_user
+      user: current_user,
+      deadline: Time.now + 1.week
     )
 
     if @project.save
@@ -86,15 +87,22 @@ class ProjectsController < ApplicationController
   def dashboard
     @project = Project.new
     @user = current_user
-    @buddy = current_user.id
+    @buddy = current_user.buddy
     @latest_project = current_user.projects.accepted.order(created_at: :desc).first
     @upcoming_projects = current_user.projects.accepted.where('deadline > ?', DateTime.now)
+    @nearest_deadline_project = current_user.projects.accepted.where('deadline > ?', DateTime.now).order(:deadline).first
     @user_points = current_user.projects.sum(:points)
     @greetings = [
       "What are you studying?", "Try a new project!", "Study study study!", "Hi #{@user.username}!"
     ]
     @interest_greetings = [
       "Do you like #{@user.interests.sample.name} too?", "I love #{@user.interests.sample.name}!", "#{@user.interests.sample.name.capitalize}? How exciting!"
+    ]
+    @sleepy_greetings = [
+      "Snacks... Snacks... Snacks...", "I'm dreaming of you giving me snacks...", "Snack time?"
+    ]
+    @congratulation_greetings = [
+      "Let's study again!", "That was fun!", "Thanks for all the treats!"
     ]
   end
 
