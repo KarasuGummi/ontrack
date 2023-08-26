@@ -133,6 +133,16 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update_points
+    current_user.earn_points(5)
+    if current_user.save
+      redirect_to buddy_path(current_user.buddy)
+    else
+      flash[:error] = "Error updating points. Please try again."
+      redirect_to project_questions_path(@project)
+    end
+  end
+
   private
 
   def generate_recommendations(subject, learning_goal, user_interest)
