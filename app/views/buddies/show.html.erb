@@ -58,25 +58,32 @@
   </div>
 </div>
 <%# buddy snacks------------------------------------------------------------------- %>
-<div class="container py-3 buddy-show buddy-points">
+
+<%= form_tag feed_buddy_path, method: :post, data: { controller: "feed" } do %>
+
+  <div class="container py-3 buddy-show buddy-points">
   <i class="fa-solid fa-bone icon-born"></i>
-<%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill) %>
-<%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill) %>
-<%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill) %>
-<%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill) %>
-
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", "data-points": 1, data: { action: "feed#click" }, crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", "data-points": 1, data: { action: "feed#click" }, crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", "data-points": 1, data: { action: "feed#click" }, crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", "data-points": 1, data: { action: "feed#click" }, crop: :fill) %>
 </div>
+  <%= label_tag :points, "Points to feed buddy:" %>
+  <%= number_field_tag :points, 1, min: 1 %>
+  <%= hidden_field_tag :selected_points, nil, id: "selected-points-field" %>
 
+  <%= submit_tag nil, class: "hidden-submit-button" %>
+<% end %>
+
+<div class="container py-3 buddy-show">
   <%= form_tag feed_buddy_path, method: :post do %>
     <%= label_tag :points, "Points to feed buddy:" %>
-    <%= number_field_tag :points, 1, min: 1 %>
-    <div class="container py-3 buddy-show buddy-points">
-    <i class="fa-solid fa-bone icon-born"></i>
-    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill) %>
-    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill) %>
-    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill) %>
-    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill) %>
-  </div>
+    <%= number_field_tag :points %>
+    <%= submit_tag "Feed Me" %>
+  <% end %>
+
+
+
 
 
 
