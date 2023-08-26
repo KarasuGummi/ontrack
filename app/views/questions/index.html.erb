@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <% @questions.each do |question| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
         <div class="card d-flex flex-fill" data-controller="flashcard">
           <div class="flashcard-container" data-flashcard-target="container">
             <!-- Front side -->
@@ -40,6 +40,18 @@
                       </div>
                       <p class="mb-1 answer" id="answer"></p>
                     </a>
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                      <button type="button" class="btn btn-outline-info">1</button>
+                      <button type="button" class="btn btn-outline-info">2</button>
+                      <button type="button" class="btn btn-outline-info">3</button>
+                      <button type="button" class="btn btn-outline-info">4</button>
+                      <button type="button" class="btn btn-outline-info">5</button>
+                    </div>   
+    
+                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                      <button type="button" class="btn btn-outline-info">Right 🙂</button>
+                      <button type="button" class="btn btn-outline-info">Wrong 😞</button>
+                    </div>
                   </div>
             </div>
           </div>
