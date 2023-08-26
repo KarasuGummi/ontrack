@@ -131,12 +131,20 @@
 
 // ----------------------awake buddy img----------------------
 .awake-buddy img{
-  animation: korokoro 2s linear 0s 0.8;
+  // animation: korokoro 2s linear 0s 0.8;
   position: absolute;
   width: 140px;
   height: 140px;
   top: 48%;
   left: 31%;
+  animation-name:
+    korokoro, yochiyochi;
+  animation-duration:
+    2000ms, 1000ms;
+  animation-timing-function:
+    ease-in, ease-out;
+  animation-iteration-count:
+    1, 1;
 }
 
 @keyframes korokoro {
@@ -151,6 +159,14 @@
   65%  { transform: translate(-7%, 0%) rotate(-7deg); }
   75%  { transform: translate(0%, 0%) rotate(0deg); }
   100% { transform: translate(0%, 0%) rotate(0deg); }
+}
+
+@keyframes yochiyochi {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(0, 1) rotate(2deg); }
+  50%  { transform: translate(0, 2) rotate(4deg); }
+  75%  { transform: translate(0, 1) rotate(2deg); }
+  100% { transform: translate(0, 0); }
 }
 
 // ----------------------buddy eating animation----------------------
@@ -197,65 +213,20 @@
   margin-top: 10px;
 }
 
-// snacks form
-.category-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
+@keyframes animate-station {
+  0% { margin-top: 48px; }
+  25% { margin-top: 47px; }
+  50% { margin-top: 46px; }
+  75% { margin-top: 47px; }
+  100% { margin-top: 48px; }
 }
-
-.category-item {
-  flex: 0 0 30%;
-}
-
-.category-selector {
-  position: absolute;
-  transform: scale(0);
-}
-
-.category-selector + label {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 12px;
-  text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
-  background-color: white;
-}
-
-.category-selector:checked + label {
-  color: white !important;
-}
-
-
-#snippet_category_ruby + label {
-  color: #FD1015;
-}
-
-#snippet_category_ruby:checked + label {
-  background-color: #FD1015;
-  border-color: #FD1015;
-}
-
-
-#snippet_category_javascript + label {
-  color: #FFC65A;
-}
-
-#snippet_category_javascript:checked + label {
-  background-color: #FFC65A;
-  border-color: #FFC65A;
-}
-
-
-#snippet_category_css + label {
-  color: #62DDF5;
-}
-
-#snippet_category_css:checked + label {
-  background-color: #62DDF5;
-  border-color: #62DDF5;
+.station-container {
+display: grid;
+grid-template-columns: repeat(6, 200px);
+grid-template-rows: 152px 152px;
+animation-name: animate-station;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-timing-function: steps(1);
 }

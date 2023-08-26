@@ -10,6 +10,7 @@ class BuddiesController < ApplicationController
   def show
     @buddy = Buddy.find(params[:id])
     @user = current_user
+    @treat = flash[:treat] || nil
   end
 
   def create
@@ -39,17 +40,34 @@ class BuddiesController < ApplicationController
 
   def feed
     @buddy = current_user.buddy
-    points_to_feed = params[:points].to_i
+    # points_to_feed = params[:points].to_i
+    treats = { donut: 1, pizza: 2, baseball: 3, book: 4 }
+    treat = params[:treat] || nil
+    treat_points = treats[treat.to_sym]
     # puts current_user.points.class
     # puts points_to_feed.class
-    if current_user.points >= points_to_feed
-      current_user.update(points: current_user.points - points_to_feed)
-      @buddy.update(love: @buddy.love + points_to_feed)
-      flash[:notice] = "#{points_to_feed} points fed to your buddy!"
-    else
-      flash[:alert] = "You don't have enough points."
+
+    if current_user.points >= treat_points
+      current_user.update(points: current_user.points - treat_points)
+      @buddy.update(love: @buddy.love + treat_points)
+      flash[:notice] = "#{treat_points} points fed to your buddy!"
+      case treat
+      when 'pizza'
+        flash[:treat] = 'pizza'
+      when 'donut'
+        flash[:treat] = 'donut'
+      when 'book'
+        flash[:treat] = 'book'
+      when 'baseball'
+        flash[:treat] = 'baseball'
+      # Add more cases for other treats if needed
+      # flash[:treat] = "book"
+      # flash[:treat] = "baseball"
+      else
+        flash[:alert] = "You don't have enough points."
+      end
+      redirect_to buddy_path(@buddy)
     end
-    redirect_to buddy_path(@buddy)
   end
 
   private
