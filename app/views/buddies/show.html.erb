@@ -1,11 +1,17 @@
 <% content_for :current_page, 'buddy' %>
 <%= render "shared/navbar"%>
 <div class="container py-3 buddy-show col-12">
-  <div class="buddy-love">
-    <p><i class="fa-solid fa-heart"></i> &emsp;<%= @buddy.love %></p>
+  <%# love and point part------------------------------------------------------ %>
+  <div class="love-point">
+    <div class="buddy-love">
+      <p><i class="fa-solid fa-heart"></i>&emsp;<%= @buddy.love %></p>
+    </div>
+    <div class="user-points">
+      <p><i class="fa-solid fa-medal"></i>&emsp;<%= current_user.points %></p>
+    </div>
   </div>
-  <h3 class="text-center"><%= @buddy.name.capitalize %></h3>
 </div>
+    <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %></h3>
 <%# display buddy %>
 <%# buddy comment------------------------------------------------------ %>
 <div class="buddy-room-img">
@@ -51,10 +57,14 @@
     <% end %>
   </div>
 </div>
-<div class="buddy-links show-buddy-links text-center">
-  <%= link_to dashboard_path do %>
-    <i class="fa-solid fa-paw dashboard-paw"></i>
-  <% end %>
+<%# buddy snacks------------------------------------------------------------------- %>
+
+  <div class="container py-3 buddy-show buddy-points">
+  <i class="fa-solid fa-bone icon-born"></i>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill) %>
 </div>
 <div class="container py-3 buddy-show buddy-points">
   <%= form_tag feed_buddy_path, method: :post do %>
@@ -62,10 +72,9 @@
     <%= number_field_tag :points %>
     <%= submit_tag "Feed Me" %>
   <% end %>
-  <h6> My Points: <%= current_user.points %></h6>
-  <%# <i class="fa-solid fa-bone"></i> %>
 </div>
 <%= render "shared/footer" %>
+
 <%# <ul class="budy-info">
 
     <li>
