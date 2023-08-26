@@ -131,8 +131,6 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Sorry we couldn't complete your project"
       redirect_to project_path(@project)
     end
-
-
   end
 
   private
