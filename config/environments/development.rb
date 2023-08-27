@@ -73,6 +73,6 @@ Rails.application.configure do
   config.hosts.clear
 
   # Remove if unnecessary
-  config.assets.debug = true
-  config.assets.compile = true
+  # config.assets.debug = true
+  # config.assets.compile = true
 end
