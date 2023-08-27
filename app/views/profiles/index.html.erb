@@ -12,6 +12,7 @@
       <% end %>
       <%# <%= cl_image_tag("https://i.pravatar.cc/", height: 70, crop: :fill, class: "user-avatar")%>
       <div class="user_content">
+      
         <div class="profile_edit">
           <p><strong><%= @user.username %></strong></p>
               <%= link_to edit_profile_path(current_user) do %>
@@ -25,24 +26,6 @@
         </ul>
       </div>
     </div>
-
-    <div class="blackboard-box">
-        <p>Learning Goals</p>
-        <p><%= @user.learning_goal.capitalize %></p>
-      <div class="chalk1"></div>
-      <div class="chalk2"></div>
-    </div>
-
-    <div class="subject-card">
-      <p><strong>Subject</strong></p>
-      <div class="profile_card">
-        <div class="user-subject">
-          <%= @user.subject %>
-        </div>
-      </div>
-    </div>
-
-
     <div class="interests-card">
       <p><strong>Interests</strong></p>
       <div class="profile_card">

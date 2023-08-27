@@ -106,6 +106,10 @@ juri = User.create!(
   learning_goal: 'historical figures'
 )
 
+juri_interest = Interest.create!(
+  name: 'dancing'
+)
+
 favi = User.create!(
   username: 'spanish_tofu',
   email: 'favi@ontrack.com',
