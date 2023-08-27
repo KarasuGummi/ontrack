@@ -229,7 +229,7 @@
 //----------------------buddy showpage snack----------------------
 .buddy-snacks {
   display: flex;
-  margin-top: 5px;
+  margin-top: 8px;
   justify-content: space-between;
   padding: 0 8px;
 }
@@ -263,19 +263,11 @@
   border-radius: 0 0 3px 3px;
   width: 82px;
   height: 20px;
+
+  img {
+    margin-right: 6px;
+  }
 }
-// .coin-point {
-//   margin: 0px;
-//   padding: 1px 8px;
-//   background-color: white;
-//   border-radius: 30px;
-//   // border: 0.5px solid #fd1015;
-//   width: 95px;
-//   height: 35px;
-//   box-shadow: 0 2px 4px 0 #fd1015;
-
-// }
-
 
 //----------------------buddy showpage paw----------------------
 .show-buddy-links {
