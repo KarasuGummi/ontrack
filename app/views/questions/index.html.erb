@@ -3,7 +3,7 @@
 
 <div class="container py-5">
   <div class="align-items-center mb-3">
-    <h2 class="text-center"> <strong> Review </strong> </h2>
+    <h2 class="text-center review-title">Review</h2>
   </div>
   <div class="row">
     <% @questions.each do |question| %>
@@ -12,7 +12,7 @@
           <div class="flashcard-container" data-flashcard-target="container">
             <!-- Front side -->
             <div class="card-body flip-card front" data-flashcard-target="question">
-              <h4 class="card-title text-center fst-italic"> <strong> Question </strong> </h4>
+              <h4 class="card-title text-center question-header"> <strong> Question </strong> </h4>
               <p class="fw-light">
                 <%= question.question_content %>
               </p>
@@ -27,7 +27,7 @@
             <!-- Back side -->
             <div class="card-body flip-card back" data-flashcard-target="answer" data-action="click->flashcard#flipBack">
                   <div class="list-group">
-                    <h4 class="alert-heading text-center">Well done!</h4>
+                    <%# <h4 class="alert-heading text-center">Well done!</h4> %>
                     <a href="#" class="list-group-item list-group-item-action border-info" aria-current="true">
                       <div class="w-100 justify-content-between">
                         <h5 class="mb-1 text-center fst-italic" style="color: #1684A7;">Answer</h5>
@@ -49,8 +49,8 @@
                     </div>    %>
     
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                      <button type="button" class="btn btn-outline-info">Right 🙂</button>
-                      <button type="button" class="btn btn-outline-info">Wrong 😞</button>
+                      <button type="button" class="btn btn-outline-info">Try Again 💪</button>
+                      <button type="button" class="btn btn-outline-info">Correct 🙂</button>
                     </div>
                   </div>
             </div>

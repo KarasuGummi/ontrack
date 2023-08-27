@@ -71,4 +71,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   config.hosts.clear
+
+  # Remove if unnecessary
+  config.assets.debug = true
+  config.assets.compile = true
 end

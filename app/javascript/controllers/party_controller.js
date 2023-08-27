@@ -18,7 +18,7 @@ export default class extends Controller {
 
     setTimeout(() => {
       this.element.closest('form').submit();
-    }, 5000);
+    }, 4000);
   }
 
 }

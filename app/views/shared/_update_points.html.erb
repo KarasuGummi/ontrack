@@ -1,6 +1,6 @@
 <%= simple_form_for :point, url: update_points_path, method: :post, data: { controller: "party", action: "click->party#showModal" } do |f| %>
   <div class="form-group">
-    <%= f.button :submit, "Complete Review", class: 'btn btn-primary' %>
+    <%= f.button :submit, "Complete Review", class: 'green-update-btn w-100' %>
   </div>
 <% end %>
 <%= render "shared/loading_party_modal" %>
