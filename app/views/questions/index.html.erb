@@ -58,8 +58,5 @@
         </div>
       </div>
     <% end %>
-    <%= simple_form_for :point, url: update_points_path, method: :post do |f| %>
-      <%= f.button :submit, "Earn 5 Points", class: 'btn btn-primary' %>
-    <% end %>
+  <%= render "shared/update_points" %>
   </div>
-</div>

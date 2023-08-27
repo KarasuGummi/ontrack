@@ -12,11 +12,12 @@
 .modal {
   display: none;
   position: fixed;
-  top: 100;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.7);
+  // background: rgba(0,0,0,0.7);
+  background: white;
   z-index: 9999;
   align-items: center;
   justify-content: center;
@@ -68,7 +69,7 @@
 }
 
 
-@keyframes toggleDog {
+@keyframes toggleSleepyDog {
   0%, 49% {
       background-image: url('https://res.cloudinary.com/du53mgiot/image/upload/v1691390417/gsv9qtfodjbhccbmhwws.png');
   }
@@ -88,5 +89,5 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  animation: toggleDog 1s infinite;
+  animation: toggleSleepyDog 1s infinite;
 }

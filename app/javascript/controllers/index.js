@@ -15,3 +15,6 @@ application.register("flashcard", FlashcardController)
 
 import LoadingController from "./loading_controller"
 application.register("loading", LoadingController)
+
+import PartyController from "./party_controller"
+application.register("party", PartyController)

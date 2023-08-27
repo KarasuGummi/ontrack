@@ -1,0 +1,18 @@
+<div class="party-modal" data-loading-target="party-modal">
+<%# <div class="modal" data-controller="loading-party" data-loading-target="party-modal"> %>
+  <div class="party-modal-content">
+    <%# Party Image %>
+    <div class="party-container">
+      <% 10.times do %>
+        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", alt: "Spinning Party Image", class: "spinning-coin") %>
+        <!-- Update the above image path as per your need later -->
+      <% end %>
+      <div data-loading-target="partyDog" class="centered-party-dog"></div>
+      <!-- You can update the above target and class name based on your needs -->
+      <br>
+      <br>
+      <br>
+      <h2 class="text-center reward-text">You earned 5 points!</h2>
+    </div>
+  </div>
+</div>
