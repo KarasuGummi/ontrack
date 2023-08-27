@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+  post 'update_points', to: 'projects#update_points'
 end
