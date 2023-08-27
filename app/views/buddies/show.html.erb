@@ -8,8 +8,8 @@
     </div>
     <div class="user-points">
       <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 23, crop: :fill) %>&emsp;<%= current_user.points %></p>
-    </div>
   </div>
+</div>
 </div>
 <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %></h3>
 <%# display buddy %>
@@ -19,26 +19,26 @@
     <%# awake buddy %>
     <% if @buddy.love > 0 && !@treat %>
       <p class="text-center">I'm hungry, give me snacks!</p>
-    <%# eating pizza buddy %>
+      <%# eating pizza buddy %>
     <% elsif @buddy.love > 0 && @treat == "pizza" %>
       <p class="text-center">Does Le Wagon have pizza too?🍕</p>
-    <%# eating dounuts buddy %>
+      <%# eating dounuts buddy %>
     <% elsif @buddy.love > 0 && @treat == "donut" %>
       <p class="text-center">So yummy! I love donuts🍩</p>
-    <%# study buddy %>
+      <%# study buddy %>
     <% elsif @buddy.love > 0 && @treat == "book" %>
       <p class="text-center">Let's study together📚</p>
-    <%# baseball buddy %>
+      <%# baseball buddy %>
     <% elsif @buddy.love > 0 && @treat == "baseball" %>
       <p class="text-center">Play with me⚾️</p>
-    <%# sleeping buddy %>
+      <%# sleeping buddy %>
     <% else %>
       <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
     <% end %>
   </div>
   <%# -----------------------------------buddy img----------------------------------- %>
   <div class="buddy-show-img">
-      <%# awake buddy %>
+    <%# awake buddy %>
     <% if @buddy.love > 0 && !@treat %>
       <div class="awake-buddy">
         <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 140, crop: :fill) %>
@@ -77,42 +77,62 @@
   </div>
 </div>
 <%# -----------------------------------buddy snacks----------------------------------- %>
-<div class="container py-3 buddy-show buddy-points">
-  <%= form_tag feed_buddy_path, method: :post do %>
-    <%= hidden_field_tag "treat", "donut" %>
-    <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill, height: 40, width: 40) %>
-  <% end %>
-  <%= form_tag feed_buddy_path, method: :post do %>
-    <%= hidden_field_tag "treat", "pizza"%>
-    <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill, height: 40, width: 40) %>
-  <% end %>
-  <%= form_tag feed_buddy_path, method: :post do %>
-    <%= hidden_field_tag "treat", "book" %>
-    <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill, height: 40, width: 40) %>
-  <% end %>
-  <%= form_tag feed_buddy_path, method: :post do %>
-    <%= hidden_field_tag "treat", "baseball" %>
-    <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill, height: 40, width: 40) %>
-  <% end %>
+<div class="container buddy-show buddy-snacks">
+  <div class="buddy-snack text-center">
+    <%= form_tag feed_buddy_path, method: :post do %>
+      <%= hidden_field_tag "treat", "donut" %>
+      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill, height: 40, width: 40) %>
+    <% end %>
+  </div>
+  <div class="buddy-snack text-center">
+    <%= form_tag feed_buddy_path, method: :post do %>
+      <%= hidden_field_tag "treat", "pizza"%>
+      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill, height: 40, width: 40) %>
+    <% end %>
+  </div>
+  <div class="buddy-snack text-center">
+    <%= form_tag feed_buddy_path, method: :post do %>
+      <%= hidden_field_tag "treat", "book" %>
+      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill, height: 40, width: 40) %>
+    <% end %>
+  </div>
+  <div class="buddy-snack text-center">
+    <%= form_tag feed_buddy_path, method: :post do %>
+      <%= hidden_field_tag "treat", "baseball" %>
+      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill, height: 40, width: 40) %>
+    <% end %>
+  </div>
 </div>
-<div class="coin-point">
-<p><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 10, width: 10, crop: :fill) %>×1</p>
+<%# -----------------------------------snack points----------------------------------- %>
+<div class="coin-points">
+  <div class="coin-point">
+    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %> ×1</p>
+  </div>
+  <div class="coin-point">
+    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %> ×2</p>
+  </div>
+  <div class="coin-point">
+    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %> ×3</p>
+  </div>
+  <div class="coin-point">
+    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %> ×4</p>
+  </div>
 </div>
 <%= render "shared/footer" %>
 <%# <div class="container py-3 buddy-show buddy-points"> %>
-  <%# <%= form_tag feed_buddy_path, method: :post do %>
-    <%# <%= label_tag :points, "Points to feed buddy:" %>
-    <%# <%= number_field_tag :points %>
-    <%# <%= submit_tag "Feed Me" %>
+<%# <%= form_tag feed_buddy_path, method: :post do %>
+  <%# <%= label_tag :points, "Points to feed buddy:" %>
+  <%# <%= number_field_tag :points %>
+  <%# <%= submit_tag "Feed Me" %>
   <%# <% end %>
-<%# </div> %>
-<%# <ul class="budy-info">
+  <%# </div> %>
+  <%# <ul class="budy-info">
 
     <li>
       <>Name: <%= @buddy.name %>
-<%# </li>
+  <%# </li>
     <li>
       <>Personality: <%= @buddy.personality %>
-<%# </li>
+  <%# </li>
 
   </ul> %>

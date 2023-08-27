@@ -227,38 +227,53 @@
 }
 
 //----------------------buddy showpage snack----------------------
-.buddy-points {
+.buddy-snacks {
   display: flex;
-  // margin: 10px 0px 70px 0px;
-  margin: 10px 0px 0px 0px;
+  margin-top: 5px;
   justify-content: space-between;
+  padding: 0 8px;
+}
 
-  img {
-    height: 40px;
-    width: 40px;
-  }
+.buddy-snack {
+  background-color: $faded-yellow;
+  box-shadow: 0 0 4px 0 $yellow;
+  margin: 0px;
+  border-radius: 3px 3px 0 0;
+  width: 82px;
+  height: 50px;
+  padding: 5px 0;
+}
+// coin-points-------------------------------
+.coin-points {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px 80px 8px;
 
-  i {
-    color: $yellow;
-    font-size: 40px;
+  p {
+    font-size: 14px;
+    color: black;
+    padding: 0;
+    margin: 0;
   }
 }
 
-.icon-donut-show {
-  box-shadow: 0 2px 4px 0 #fd1015;
-  border-radius: 30px;
+.coin-point {
+  padding: 0 12px;
+  box-shadow: 0 2px 4px 0 $yellow;
+  border-radius: 0 0 3px 3px;
+  width: 82px;
+  height: 20px;
 }
-
 // .coin-point {
 //   margin: 0px;
 //   padding: 1px 8px;
 //   background-color: white;
 //   border-radius: 30px;
 //   // border: 0.5px solid #fd1015;
-//   font-size: 21px;
 //   width: 95px;
 //   height: 35px;
 //   box-shadow: 0 2px 4px 0 #fd1015;
+
 // }
 
 
