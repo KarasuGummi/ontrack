@@ -28,7 +28,7 @@
   // margin-bottom: 0.4rem;
 
     margin: 3px;
-    padding: 4px 10px;
+    padding: 4px;
     background-color: white;
     border-radius: 32px;
     font-size: 12px;
@@ -48,7 +48,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   margin: 3px;
   padding: 4px 5px;
-  gap: 0 5px;
+  gap: 0 10px;
   height: 320px
   // overflow-y: scroll;
 }
@@ -62,3 +62,5 @@
   color: $emerald;
   font-size: 25px;
 }
+
+
