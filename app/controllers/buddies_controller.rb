@@ -41,7 +41,7 @@ class BuddiesController < ApplicationController
   def feed
     @buddy = current_user.buddy
     # points_to_feed = params[:points].to_i
-    treats = { donut: 1, pizza: 2, baseball: 3, book: 4 }
+    treats = { donut: 1, pizza: 2, book: 3, baseball: 4 }
     treat = params[:treat] || nil
     treat_points = treats[treat.to_sym]
     # puts current_user.points.class
@@ -60,9 +60,6 @@ class BuddiesController < ApplicationController
         flash[:treat] = 'book'
       when 'baseball'
         flash[:treat] = 'baseball'
-      # Add more cases for other treats if needed
-      # flash[:treat] = "book"
-      # flash[:treat] = "baseball"
       else
         flash[:alert] = "You don't have enough points."
       end
