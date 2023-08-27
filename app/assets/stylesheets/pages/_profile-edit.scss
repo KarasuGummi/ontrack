@@ -2,11 +2,7 @@
   background-color: white;
   margin: 0;
   padding: 0;
-  margin-bottom: 60px;
-}
-
-.edit-form {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .tag-item {
@@ -33,10 +29,11 @@
 
     margin: 3px;
     padding: 4px 10px;
-    background-color: #fdcf5a8f;
+    background-color: white;
     border-radius: 32px;
     font-size: 12px;
     text-align: center;
+    box-shadow: 0 2px 4px 0 $yellow;
 }
 
 .tag-selector:checked + label {
@@ -52,8 +49,8 @@
   margin: 3px;
   padding: 4px 5px;
   gap: 0 5px;
-  height: 150px;
-  overflow-y: scroll;
+  height: 320px
+  // overflow-y: scroll;
 }
 
 .user_edit_interest {
