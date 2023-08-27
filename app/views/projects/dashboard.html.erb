@@ -66,7 +66,8 @@
     <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666758/buddy-play-2.png", class: "animated-buddy buddy-play-2", alt: "Animated Buddy 2") %>
     <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "rolling-baseball", alt: "Rolling Baseball") %>
     <div class="dashboard-buddy-text">
-      <p class="text-center"><%= @interest_greetings.sample %></p>
+      <p class="text-center"><%= @user.interests.sample.name %></p>
+      <%# <%= @interest_greetings.sample %>
     </div>
   <% else %>
     <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>

@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
     @completed_projects = current_user.projects.completed
     # @in_progress_projects = @accepted_projects.select { |project| project.status == 'accepted' }
     @recommended_projects = current_user.projects.pending
+    @tab = flash[:status] == 'accepted' ? 'inprogress' : 'recommended'
   end
 
   def new
@@ -78,6 +79,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
+      flash[:status] = params[:project][:status]
       redirect_to projects_path, notice: 'This project was updated successfully!'
     else
       render 'show'

@@ -34,9 +34,8 @@
   height: 35px;
   box-shadow: 0 2px 4px 0 $yellow;
 
-  i {
-    color: $yellow;
-    font-size: 22px;
+  img {
+    margin-bottom: 5px;
   }
 }
 
@@ -133,10 +132,10 @@
 .awake-buddy img{
   animation: korokoro 2s linear 0s 0.8;
   position: absolute;
-  width: 140px;
+  width: 120px;
   height: 140px;
   top: 48%;
-  left: 31%;
+  left: 37%;
 }
 
 @keyframes korokoro {
@@ -152,6 +151,7 @@
   75%  { transform: translate(0%, 0%) rotate(0deg); }
   100% { transform: translate(0%, 0%) rotate(0deg); }
 }
+
 
 // ----------------------buddy eating animation----------------------
 .buddy-eating img{
@@ -174,88 +174,120 @@
   100% { opacity: 0; }
 }
 
-//----------------------buddy showpage snack----------------------
-.buddy-points {
-  display: flex;
-  margin-bottom: 30px 20px 60px 20px;
-  justify-content: space-between;
+// ----------------------study buddy img----------------------
 
-  img {
-    height: 40px;
-    width: 40px;
+.buddy-studing img{
+  animation: purupuru 0.8s linear 0s 1;
+  position: absolute;
+  width: 120px;
+  height: 140px;
+  top: 48%;
+  left: 37%;
+}
+
+@keyframes purupuru {
+  0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+  20%  { transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
+  50%  { transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
+  65%  { transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
+  80%  { transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
+  100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+// ----------------------playing buddy img----------------------
+
+.animated-buddy-show {
+  position: absolute;
+  left: 35%;
+  width: 170px;
+  height: auto;
+  top: 136px;
+}
+
+.buddy-play-2-show {
+  animation: toggleBuddy 1s infinite reverse; // reverse makes the second image show when the first is hidden
+}
+
+@keyframes rollAway {
+  0% {
+    transform: translateX(0) rotate(0deg);
   }
-
-  i {
-    color: $yellow;
-    font-size: 40px;
+  100% {
+    transform: translateX(-380px) rotate(360deg);
   }
 }
 
+.rolling-baseball-show {
+  position: absolute;
+  top: 89%;
+  left: 90%;
+  width: 30px; // Adjust width to your preference
+  height: 30px; // Adjust height to your preference
+  animation: rollAway 3.5s linear infinite;
+}
+
+//----------------------buddy showpage snack----------------------
+.buddy-snacks {
+  display: flex;
+  margin-top: 8px;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.buddy-snack {
+  background-color: $faded-yellow;
+  box-shadow: 0 0 4px 0 $yellow;
+  margin: 0px;
+  border-radius: 3px 3px 0 0;
+  width: 82px;
+  height: 50px;
+  padding: 5px 0;
+}
+// coin-points-------------------------------
+.coin-points {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 8px 80px 8px;
+
+  p {
+    font-size: 14px;
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.coin-point {
+  padding: 0 12px;
+  box-shadow: 0 2px 4px 0 $yellow;
+  border-radius: 0 0 3px 3px;
+  width: 82px;
+  height: 20px;
+
+  img {
+    margin-right: 6px;
+  }
+}
 
 //----------------------buddy showpage paw----------------------
 .show-buddy-links {
   margin-top: 10px;
 }
 
-// snacks form
-.category-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
+@keyframes animate-station {
+  0% { margin-top: 48px; }
+  25% { margin-top: 47px; }
+  50% { margin-top: 46px; }
+  75% { margin-top: 47px; }
+  100% { margin-top: 48px; }
 }
-
-.category-item {
-  flex: 0 0 30%;
-}
-
-.category-selector {
-  position: absolute;
-  transform: scale(0);
-}
-
-.category-selector + label {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 12px;
-  text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
-  background-color: white;
-}
-
-.category-selector:checked + label {
-  color: white !important;
-}
-
-
-#snippet_category_ruby + label {
-  color: #FD1015;
-}
-
-#snippet_category_ruby:checked + label {
-  background-color: #FD1015;
-  border-color: #FD1015;
-}
-
-
-#snippet_category_javascript + label {
-  color: #FFC65A;
-}
-
-#snippet_category_javascript:checked + label {
-  background-color: #FFC65A;
-  border-color: #FFC65A;
-}
-
-
-#snippet_category_css + label {
-  color: #62DDF5;
-}
-
-#snippet_category_css:checked + label {
-  background-color: #62DDF5;
-  border-color: #62DDF5;
+.station-container {
+display: grid;
+grid-template-columns: repeat(6, 200px);
+grid-template-rows: 152px 152px;
+animation-name: animate-station;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-timing-function: steps(1);
 }
