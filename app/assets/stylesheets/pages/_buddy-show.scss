@@ -132,18 +132,10 @@
 .awake-buddy img{
   animation: korokoro 2s linear 0s 0.8;
   position: absolute;
-  width: 130px;
+  width: 120px;
   height: 140px;
   top: 48%;
-  left: 35%;
-  // animation-name:
-  //   korokoro, yochiyochi;
-  animation-duration:
-    2000ms, 1000ms;
-  animation-timing-function:
-    ease-in, ease-out;
-  animation-iteration-count:
-    1, 1;
+  left: 37%;
 }
 
 @keyframes korokoro {
@@ -184,32 +176,61 @@
 
 // ----------------------study buddy img----------------------
 
-.study-buddy img{
-  animation: yochiyochi 2s linear 0s 0.8;
+.buddy-studing img{
+  animation: purupuru 0.8s linear 0s 1;
   position: absolute;
-  width: 130px;
+  width: 120px;
   height: 140px;
   top: 48%;
-  left: 35%;
-  animation-duration:
-    2000ms, 1000ms;
-  animation-timing-function:
-    ease-in, ease-out;
-  animation-iteration-count:
-    1, 1;
+  left: 37%;
 }
 
-@keyframes yochiyochi {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(0, 1) rotate(2deg); }
-  50%  { transform: translate(0, 2) rotate(4deg); }
-  75%  { transform: translate(0, 1) rotate(2deg); }
-  100% { transform: translate(0, 0); }
+@keyframes purupuru {
+  0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+  20%  { transform: scale(1.0, 1.06) translate(-5%, -4%) skew(6deg, 0deg); }
+  50%  { transform: scale(1.0, 0.94) translate(5%, 4%) skew(-6deg, 0deg); }
+  65%  { transform: scale(1.0, 1.03) translate(2%, -2%) skew(-3deg, 0deg); }
+  80%  { transform: scale(1.0, 0.97) translate(-2%, 2%) skew(3deg, 0deg); }
+  100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
 }
+
+// ----------------------playing buddy img----------------------
+
+.animated-buddy-show {
+  position: absolute;
+  left: 35%;
+  width: 170px;
+  height: auto;
+  top: 136px;
+}
+
+.buddy-play-2-show {
+  animation: toggleBuddy 1s infinite reverse; // reverse makes the second image show when the first is hidden
+}
+
+@keyframes rollAway {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-380px) rotate(360deg);
+  }
+}
+
+.rolling-baseball-show {
+  position: absolute;
+  top: 89%;
+  left: 90%;
+  width: 30px; // Adjust width to your preference
+  height: 30px; // Adjust height to your preference
+  animation: rollAway 3.5s linear infinite;
+}
+
 //----------------------buddy showpage snack----------------------
 .buddy-points {
   display: flex;
-  margin: 10px 0px 70px 0px;
+  // margin: 10px 0px 70px 0px;
+  margin: 10px 0px 0px 0px;
   justify-content: space-between;
 
   img {
@@ -222,6 +243,23 @@
     font-size: 40px;
   }
 }
+
+.icon-donut-show {
+  box-shadow: 0 2px 4px 0 #fd1015;
+  border-radius: 30px;
+}
+
+// .coin-point {
+//   margin: 0px;
+//   padding: 1px 8px;
+//   background-color: white;
+//   border-radius: 30px;
+//   // border: 0.5px solid #fd1015;
+//   font-size: 21px;
+//   width: 95px;
+//   height: 35px;
+//   box-shadow: 0 2px 4px 0 #fd1015;
+// }
 
 
 //----------------------buddy showpage paw----------------------
