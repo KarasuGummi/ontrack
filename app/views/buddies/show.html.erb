@@ -1,7 +1,7 @@
 <% content_for :current_page, 'buddy' %>
 <%= render "shared/navbar"%>
 <div class="container py-3 buddy-show col-12">
-  <%# love and point part------------------------------------------------------ %>
+  <%# -----------------------------------love and point part----------------------------------- %>
   <div class="love-point">
     <div class="buddy-love">
       <p><i class="fa-solid fa-heart"></i>&emsp;<%= @buddy.love %></p>
@@ -13,7 +13,7 @@
 </div>
 <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %></h3>
 <%# display buddy %>
-<%# buddy comment------------------------------------------------------ %>
+<%# -----------------------------------buddy comment----------------------------------- %>
 <div class="buddy-room-img">
   <div class="buddy-comment">
     <% if @buddy.love > 0 && !@treat %>
@@ -29,10 +29,9 @@
       <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
     <% end %>
   </div>
-  <%# buddy img------------------------------------------------------------------- %>
+  <%# -----------------------------------buddy img----------------------------------- %>
   <div class="buddy-show-img">
-    <%# sleeping buddy %>
-    <%# awake buddy %>
+      <%# awake buddy %>
     <% if @buddy.love > 0 && !@treat %>
       <div class="awake-buddy">
         <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 140, crop: :fill) %>
@@ -49,6 +48,11 @@
         <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-2_or42m8.png", class: "bottom" , height: 140, crop: :fill) %>
         <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-1_1_e5bmzt.png", class: "top", height: 140, crop: :fill) %>
       </section>
+       <%# study buddy %>
+    <% elsif @buddy.love > 0 && @treat == "book" %>
+      <section class="buddy-studing">
+        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840872/twrzudjszwplnkzcumb3.png", height: 140, crop: :fill) %>
+      </section>
     <% else %>
       <section class="sleeping-buddy">
         <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
@@ -57,7 +61,7 @@
     <% end %>
   </div>
 </div>
-<%# buddy snacks------------------------------------------------------------------- %>
+<%# -----------------------------------buddy snacks----------------------------------- %>
 <div class="container py-3 buddy-show buddy-points">
   <%= form_tag feed_buddy_path, method: :post do %>
     <%= hidden_field_tag "treat", "donut" %>
@@ -75,16 +79,15 @@
     <%= hidden_field_tag "treat", "baseball" %>
     <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill, height: 40, width: 40) %>
   <% end %>
-  
-</div>
-<div class="container py-3 buddy-show buddy-points">
-  <%= form_tag feed_buddy_path, method: :post do %>
-    <%= label_tag :points, "Points to feed buddy:" %>
-    <%= number_field_tag :points %>
-    <%= submit_tag "Feed Me" %>
-  <% end %>
 </div>
 <%= render "shared/footer" %>
+<%# <div class="container py-3 buddy-show buddy-points"> %>
+  <%# <%= form_tag feed_buddy_path, method: :post do %>
+    <%# <%= label_tag :points, "Points to feed buddy:" %>
+    <%# <%= number_field_tag :points %>
+    <%# <%= submit_tag "Feed Me" %>
+  <%# <% end %>
+<%# </div> %>
 <%# <ul class="budy-info">
 
     <li>

@@ -131,14 +131,14 @@
 
 // ----------------------awake buddy img----------------------
 .awake-buddy img{
-  // animation: korokoro 2s linear 0s 0.8;
+  animation: korokoro 2s linear 0s 0.8;
   position: absolute;
-  width: 140px;
+  width: 130px;
   height: 140px;
   top: 48%;
-  left: 31%;
-  animation-name:
-    korokoro, yochiyochi;
+  left: 35%;
+  // animation-name:
+  //   korokoro, yochiyochi;
   animation-duration:
     2000ms, 1000ms;
   animation-timing-function:
@@ -161,13 +161,6 @@
   100% { transform: translate(0%, 0%) rotate(0deg); }
 }
 
-@keyframes yochiyochi {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(0, 1) rotate(2deg); }
-  50%  { transform: translate(0, 2) rotate(4deg); }
-  75%  { transform: translate(0, 1) rotate(2deg); }
-  100% { transform: translate(0, 0); }
-}
 
 // ----------------------buddy eating animation----------------------
 .buddy-eating img{
@@ -190,10 +183,34 @@
   100% { opacity: 0; }
 }
 
+// ----------------------study buddy img----------------------
+
+.study-buddy img{
+  animation: yochiyochi 2s linear 0s 0.8;
+  position: absolute;
+  width: 130px;
+  height: 140px;
+  top: 48%;
+  left: 35%;
+  animation-duration:
+    2000ms, 1000ms;
+  animation-timing-function:
+    ease-in, ease-out;
+  animation-iteration-count:
+    1, 1;
+}
+
+@keyframes yochiyochi {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(0, 1) rotate(2deg); }
+  50%  { transform: translate(0, 2) rotate(4deg); }
+  75%  { transform: translate(0, 1) rotate(2deg); }
+  100% { transform: translate(0, 0); }
+}
 //----------------------buddy showpage snack----------------------
 .buddy-points {
   display: flex;
-  margin-bottom: 30px 20px 60px 20px;
+  margin: 10px 0px 70px 0px;
   justify-content: space-between;
 
   img {
