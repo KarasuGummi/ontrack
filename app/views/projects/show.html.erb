@@ -75,6 +75,10 @@
         <div class="content-bottom">
           <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
             <small class= 'project-deadlinedate'><%= @project.deadline %></small></p>
+          <br>
+            <%= link_to project_path(@project), class: "delete-link", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <small>Remove This Track </small><i class="fa-solid fa-trash"></i>
+            <% end %>
         </div>
       </div>
       <%# Status card for completed project %>
@@ -88,10 +92,6 @@
             </div>
             <p>Key Concepts Learned:</p>
             <p>Points earned: +<%= @project.points %></p>
-            <br>
-            <%= link_to project_path(@project), class: "delete-link", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-              <small>Remove This Track </small><i class="fa-solid fa-trash"></i>
-            <% end %>
           </div>
         </div>
       <% end %>
