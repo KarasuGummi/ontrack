@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     post 'feed', on: :member
   end
   resources :buddies, only: %i[new create show update]
-  resources :projects, only: %i[index new create show update] do
+  resources :projects, only: %i[index new create show update destroy] do
     patch 'complete', on: :member
     resources :questions, only: %i[index show]
   end
