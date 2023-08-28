@@ -33,7 +33,7 @@
       <% end %>
       <br>
       <% if @nearest_deadline_project %>
-        <p class="profile-upcoming-deadline">Your Upcoming Deadline</p>
+        <p class="profile-upcoming-deadline">⏳Your Upcoming Deadline</p>
         <p class="profile-latest-track">
           <%= link_to @nearest_deadline_project.deadline.strftime('%Y-%m-%d %H:%M'), project_path(@nearest_deadline_project) %>
         </p>
