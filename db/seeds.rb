@@ -26,7 +26,9 @@ puts User.count
 
 puts 'Creating interests...'
 
-interests = %w[animation dancing singing writing cooking traveling crafts animals anime manga star\ wars harry\ potter shark\ week samurai martial\ arts programming history music fashion science astronomy yoga video\ games final\ fantasy spider-man kirby]
+# interests = %w[animation dancing singing writing cooking traveling crafts animals anime manga star\ wars harry\ potter shark\ week samurai martial\ arts programming history music fashion science astronomy yoga video\ games final\ fantasy spider-man kirby]
+
+interests = ['Singing 🎤', 'Writing ✍️', 'Cooking 🧑‍🍳', 'Traveling ✈️', 'Nature 🌿', 'Animals 🐶', 'Drinking 🍷', 'Manga 📚', 'Star wars ⭐️', 'Harry potter 🧙🏻', 'Architecture 🏛️', 'Ninja 🥷', 'Disney 🧜🏻‍♀️', 'Programming 👩‍💻', 'History 🏯', 'Music 🎵', 'Fashion 👘', 'Science 🧪', 'Astronomy 🪐', 'Yoga 🧘‍♀️', 'Video games 🎮', 'Makeup 💄', 'Spider-man 🕸️', 'Movie 🍿', 'Photography 📸']
 
 interests.each do |interest_name|
   Interest.create!(name: interest_name)
@@ -78,7 +80,7 @@ kevin_profile_img = URI.open('https://res.cloudinary.com/du53mgiot/image/upload/
 kevin.photo.attach(io: kevin_profile_img, filename: 'kevin_profile.jpg', content_type: 'image/png')
 
 kevin_interest = Interest.create!(
-  name: 'drawing'
+  name: 'painting 🎨'
 )
 
 UserInterest.create!(
@@ -107,7 +109,7 @@ juri = User.create!(
 )
 
 juri_interest = Interest.create!(
-  name: 'dancing'
+  name: 'Dancing 💃🏻'
 )
 
 favi = User.create!(

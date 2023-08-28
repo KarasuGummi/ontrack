@@ -3,7 +3,7 @@
 <div class="row profile-edit col-12">
   <div class="container">
     <h3 class="text-center py-3">Select interests!</h3>
-    <div class="edit-form bg-white rounded-4 p-3 shadow">
+    <div class="edit-form bg-white rounded-4 p-1 shadow">
       <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
         <div class="profile_edit_card">
           <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
