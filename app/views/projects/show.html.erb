@@ -76,6 +76,10 @@
         <div class="content-bottom">
           <p><small><i class="fa-regular fa-clock d-frex"></i>Deadline</small><br>
             <small class= 'project-deadlinedate'><%= @project.deadline %></small></p>
+          <br>
+            <%= link_to project_path(@project), class: "delete-link", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <small>Remove This Track </small><i class="fa-solid fa-trash"></i>
+            <% end %>
         </div>
       </div>
       <%# Status card for completed project %>
@@ -87,11 +91,13 @@
             <div class="progBar">
               <p class="bar"></p>
             </div>
-            <p>Points earned: <br><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 20, crop: :fill) %>+<%= @project.points %></p>
+
+            <p>Points earned: <br><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 20, crop: :fill) %>×<%= @project.points %></p>
           </div>
         </div>
       <% end %>
     </div>
+
     <%# ---------------------buddy part--------------------- %>
     <% if @project.pending? %>
       <div class="buddy-part" style="margin-bottom: 50px;">

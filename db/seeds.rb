@@ -127,175 +127,370 @@ puts 'Users created!'
 puts 'Creating projects...'
 
 # *****************KEVIN PROJECTS*****************
-language_drawing = Project.create!(
-  name: 'Learn Spanish by Drawing Animals',
-  subject: 'Spanish',
-  description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
-  deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :completed,
-  points: 10,
-  user: kevin,
-  interest: 'drawing',
-  learning_goal: 'past tense action verbs'
-)
-language_drawing_question = Question.create!(
-  question_content: 'Can you mention three animals we drew today in Spanish?',
-  project: language_drawing
-)
-Answer.create!(
-  answer_content: 'Perro, Gato, Elefante',
-  points: 5,
-  question: language_drawing_question
-)
 
-language_drawing2 = Project.create!(
-  name: 'Learn Spanish by Creating a Comic Book',
-  subject: 'Spanish',
-  description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
-  deadline: DateTime.now,
+# Recommended project 1
+
+star_wars_js = Project.create!(
+  name: 'Galactic Code: Programming with Star Wars in JavaScript',
+  subject: 'JavaScript',
+  description: 'Harness the force of JavaScript to explore programming basics with Star Wars. Create functions and variables that represent characters, starships, and planets from a galaxy far, far away.',
+  deadline: DateTime.now + 2.weeks,
   status: :pending,
-  points: 10,
-  user: kevin,
-  interest: 'drawing',
-  learning_goal: 'past tense action verbs',
-  steps: ['Step 1: Choose your setting.', 'Step 2: Choose your characters.', 'Step 3: Think of 4 -5 main points for your story.', 'Step 4: Make a list of vocab words that you will use.', 'Step 5: Start drawing!'],
-  vocab_words: ['bailar', 'comer', 'saltar', 'correr', 'cantar']
-)
-language_drawing2_question = Question.create!(
-  question_content: 'How do you say dance in spanish?',
-  project: language_drawing2
-)
-Answer.create!(
-  answer_content: 'bailar',
-  points: 5,
-  question: language_drawing2_question
-)
-
-# architecture_harrypotter = Project.create!(
-#   name: 'Magical Architectural Wonders: Unveiling the Enchantment of Harry Potter-Inspired Architecture',
-#   subject: 'Architecture',
-#   description: 'Understand the influence of architecture in storytelling and fantasy literature. Recognize architectural elements inspired by the Harry Potter series. Explore the creative process of designing magical structures. Develop critical thinking skills by analyzing the connection between architecture and the world of Harry Potter.',
-#   deadline: DateTime.parse('2023-08-12 17:30:00'),
-#   status: :pending,
-#   points: 120,
-#   user: kevin,
-#   interest: 'harry potter'
-# )
-# architecture_harrypotter_question = Question.create!(
-#   question_content: 'What are some iconic locations from the Harry Potter series, and how does their architecture reflect the magical nature of the wizarding world?',
-#   project: architecture_harrypotter
-# )
-# Answer.create!(
-#   answer_content: 'Hogwarts Castle, Diagon Alley, and the Burrow',
-#   points: 20,
-#   question: architecture_harrypotter_question
-# )
-
-# architecture_animation = Project.create!(
-#   name: 'Animate Your Architectural Imagination: Exploring Architecture through Japanese Animation',
-#   subject: 'Architecture',
-#   description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
-#   deadline: DateTime.parse('2023-08-12 17:30:00'),
-#   status: :pending,
-#   points: 110,
-#   user: kevin,
-#   interest: 'drawing'
-# )
-# architecture_animation_question = Question.create!(
-#   question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
-#   project: architecture_animation
-# )
-# Answer.create!(
-#   answer_content: 'The integration of architecture and animation in anime creates a multi-layered visual experience.',
-#   points: 25,
-#   question: architecture_animation_question
-# )
-
-
-architecture_drawing = Project.create!(
-  name: 'Architectural Sketching: Bringing Buildings to Life',
-  subject: 'Architecture',
-  description: 'Understand the fundamental principles of architectural drawing. Develop skills in sketching various architectural elements. Apply artistic techniques to create expressive and detailed architectural drawings. Gain a deeper appreciation for the relationship between architecture and art.',
-  deadline: DateTime.parse('2023-08-12 17:30:00'),
-  status: :pending,
-  points: 10,
-  user: kevin,
-  interest: 'drawing',
-  steps: ['Step 1: Gather your favorite art materials.', 'Step 2: Choose the type of structure to draw.', 'Step 3: Research examples of your structure.', 'Step 4: Create a rough sketch.', 'Step 5: Start drawing!'],
-  vocab_words: ['bridge', 'structure', 'angles', 'scaffolding', 'building']
-)
-architecture_drawing_question = Question.create!(
-  question_content: 'How does architectural sketching bridge the gap between architecture and art?',
-  project: architecture_drawing
-)
-Answer.create!(
-  answer_content: 'merging the technical aspects of design with artistic expression',
-  points: 5,
-  question: architecture_drawing_question
-)
-
-# architecture_finalfantasy = Project.create!(
-#   name: 'Drawing Fantastical Architecture: Exploring Final Fantasy-Inspired Designs',
-#   subject: 'Architecture',
-#   description: 'Encourage creativity by having students design their own fantastical architectural structures inspired by the Final Fantasy universe.',
-#   deadline: DateTime.parse('2023-09-01 17:30:00'),
-#   status: :accepted,
-#   points: 10,
-#   user: kevin,
-#   interest: 'final fantasy'
-# )
-# architecture_finalfantasy_question = Question.create!(
-#   question_content: 'What are some iconic Final Fantasy architecture?',
-#   project: architecture_finalfantasy
-# )
-# Answer.create!(
-#   answer_content: 'Ul\'dah, Gridania, and Limsa Lominsa',
-#   points: 5,
-#   question: architecture_finalfantasy_question
-# )
-
-# Project.create!(
-#   name:
-#   subject:
-#   description:
-#   deadline:
-#   status:
-#   points:
-#   user:
-#   interest:
-# )
-# Question.create!(
-#   question_content:
-#   project:
-# )
-# Answer.create!(
-#   answer_content:
-#   points:
-#   question:
-# )
-
-language_starwars = Project.create!(
-  name: 'A New Hope: Exploring Spanish Vocabulary Through Star Wars',
-  subject: 'Spanish',
-  description: 'The objective of this lesson is to introduce students to Spanish vocabulary by using terms and concepts from the Star Wars universe. Students will engage with popular Star Wars characters, settings, and phrases while expanding their language skills.',
-  deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :accepted,
   points: 10,
   user: kevin,
   interest: 'star wars',
-  learning_goal: 'emotions and feelings',
-  steps: ['Step 1: Choose your favorite Star Wars character.', 'Step 2: Choose a scene that involved that character that you felt attached to.', 'Step 3: Write down 3 - 5 feelings that describe that character in that moment.', 'Step 4: Find the Spanish translation for those words.', 'Step 5: Write a short story describing how those characters felt in Spanish!'],
-  vocab_words: ['relajada', 'emocionado', 'aburrida', 'feliz', 'triste']
+  learning_goal: 'programming basics in JavaScript',
+  steps: ['Step 1: Setup your JavaScript environment.', 'Step 2: Create variables for your favorite characters.', 'Step 3: Write a function that displays the attributes of a Star Wars character.', 'Step 4: Create an array of Star Wars planets and loop through them.', 'Step 5: Integrate conditional statements to decide the fate of the galaxy based on character attributes.'],
+  vocab_words: ['variable', 'function', 'array', 'loop', 'conditional']
 )
-language_starwars_question = Question.create!(
-  question_content: 'What is the Spanish translation for "space" and "planet," two vocabulary words related to Star Wars?',
-  project: language_starwars
+
+sw_js_question1 = Question.create!(
+  question_content: 'In JavaScript, what keyword is used to declare a variable?',
+  project: star_wars_js
 )
 Answer.create!(
-  answer_content: 'espacio and planeta',
+  answer_content: 'var, let (for block-scoped variables), or const (for constants)',
   points: 5,
-  question: language_starwars_question
+  question: sw_js_question1
 )
+
+sw_js_question2 = Question.create!(
+  question_content: 'How do you define a function in JavaScript?',
+  project: star_wars_js
+)
+Answer.create!(
+  answer_content: 'You can use the function keyword, followed by the function name and parentheses.',
+  points: 5,
+  question: sw_js_question2
+)
+
+sw_js_question3 = Question.create!(
+  question_content: 'What Star Wars character is known to say "Do or do not, there is no try"?',
+  project: star_wars_js
+)
+Answer.create!(
+  answer_content: 'Yoda',
+  points: 5,
+  question: sw_js_question3
+)
+
+sw_js_question4 = Question.create!(
+  question_content: 'How do you loop through an array in JavaScript?',
+  project: star_wars_js
+)
+Answer.create!(
+  answer_content: 'You can use a for loop, for...of loop, forEach method, or other looping mechanisms.',
+  points: 5,
+  question: sw_js_question4
+)
+
+sw_js_question5 = Question.create!(
+  question_content: 'What is a boolean data type in JavaScript?',
+  project: star_wars_js
+)
+Answer.create!(
+  answer_content: 'A boolean data type can have one of two values: true or false.',
+  points: 5,
+  question: sw_js_question5
+)
+
+# Recommended Project 2
+javascript_stimulus = Project.create!(
+  name: 'Interactive Web with Stimulus: A Programming Adventure',
+  subject: 'JavaScript',
+  description: 'Enhance your JavaScript skills by diving into Stimulus, a modular framework that simplifies complex interactions. Use Stimulus to add interactivity and enhance user experience on your web applications.',
+  deadline: DateTime.now + 2.weeks,
+  status: :pending,
+  points: 10,
+  user: kevin,
+  interest: 'programming',
+  learning_goal: 'Stimulus',
+  steps: ['Step 1: Setup a basic JavaScript project.', 'Step 2: Integrate the Stimulus framework.', 'Step 3: Identify the interactive elements.', 'Step 4: Write Stimulus controllers.', 'Step 5: Test and refine your interactions.'],
+  vocab_words: ['controller', 'target', 'action', 'hook', 'data-map']
+)
+
+javascript_stimulus_question = Question.create!(
+  question_content: 'What is the equivalent of a stimulus data target in JavaScript?',
+  project: javascript_stimulus
+)
+Answer.create!(
+  answer_content: 'The data target serves a function similar to a querySelector.',
+  points: 5,
+  question: javascript_stimulus_question
+)
+
+# Recommended Project 3
+samurai_pm = Project.create!(
+  name: 'Bushido & Boards: Communicating in the Way of the Samurai',
+  subject: 'Project Management',
+  description: 'Channel the code of the samurai, Bushido, into your project management endeavors. Understand the importance of clear communication by viewing it through the lens of samurai traditions. Learn how clarity, honor, and respect, cornerstones of the samurai way, can improve team coordination and lead to project success.',
+  deadline: DateTime.now + 3.weeks,
+  status: :pending,
+  points: 10,
+  user: kevin,
+  interest: 'samurai',
+  learning_goal: 'communication in project management',
+  steps: ['Step 1: Study the principles of Bushido and their relevance to clear communication.', 'Step 2: Create a communication plan inspired by samurai hierarchy.', 'Step 3: Emulate the clarity and precision of a samurai duel in team meetings.', 'Step 4: Incorporate samurai honor and respect into stakeholder communications.', 'Step 5: Reflect on the impact of the samurai approach and make necessary adjustments to your communication strategies.'],
+  vocab_words: ['Bushido', 'Honor', 'Respect', 'Clarity', 'Stakeholder']
+)
+
+samurai_pm_question1 = Question.create!(
+  question_content: 'What is the code of conduct followed by samurai called?',
+  project: samurai_pm
+)
+Answer.create!(
+  answer_content: 'Bushido',
+  points: 5,
+  question: samurai_pm_question1
+)
+
+samurai_pm_question2 = Question.create!(
+  question_content: 'Why is clear communication vital in project management?',
+  project: samurai_pm
+)
+Answer.create!(
+  answer_content: 'Clear communication ensures everyone understands their roles, responsibilities, and tasks. It prevents misunderstandings, keeps the project on track, and aligns the team towards common goals.',
+  points: 5,
+  question: samurai_pm_question2
+)
+
+samurai_pm_question3 = Question.create!(
+  question_content: 'How does honor, as exemplified by the samurai, relate to stakeholder communication?',
+  project: samurai_pm
+)
+Answer.create!(
+  answer_content: 'Honor in stakeholder communication means being truthful, transparent, and accountable. Like the samurai who upheld their honor in every action, a project manager should maintain integrity and honesty in every communication.',
+  points: 5,
+  question: samurai_pm_question3
+)
+
+samurai_pm_question4 = Question.create!(
+  question_content: 'What samurai principle emphasizes the importance of self-discipline and commitment?',
+  project: samurai_pm
+)
+Answer.create!(
+  answer_content: 'Bushido, specifically the value of "Rectitude" or "Justice"',
+  points: 5,
+  question: samurai_pm_question4
+)
+
+samurai_pm_question5 = Question.create!(
+  question_content: 'How can the precision of a samurai duel be translated into team meetings?',
+  project: samurai_pm
+)
+Answer.create!(
+  answer_content: 'Much like the precision and focus required in a samurai duel, team meetings should be concise, well-structured, and purposeful. Every participant should be well-prepared, and discussions should be direct and to the point.',
+  points: 5,
+  question: samurai_pm_question5
+)
+
+
+  # Accepted project 1
+sql_cooking = Project.create!(
+  name: 'Database Delicacies: Cooking up SQL Queries',
+  subject: 'SQL',
+  description: 'Dive into the world of relational databases while relating it to your passion for cooking. Create a database for recipes, ingredients, and cuisines using basic SQL queries.',
+  deadline: DateTime.now + 1.week,
+  status: :accepted,
+  points: 10,
+  user: kevin,
+  interest: 'cooking',
+  learning_goal: 'basic queries',
+  steps: ['Step 1: Design a database schema.', 'Step 2: Create tables for recipes and ingredients.', 'Step 3: Insert data into the tables.', 'Step 4: Write basic SQL queries to fetch data.', 'Step 5: Analyze and optimize your queries.'],
+  vocab_words: ['SELECT', 'FROM', 'WHERE', 'JOIN', 'GROUP BY']
+)
+
+
+sql_cooking_question = Question.create!(
+  question_content: 'What key word combines data from different tables?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'JOIN',
+  points: 5,
+  question: sql_cooking_question
+)
+
+sql_cooking_question2 = Question.create!(
+  question_content: 'What does SQL stand for? ',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'Structured Query Language',
+  points: 5,
+  question: sql_cooking_question2
+)
+
+sql_cooking_question3 = Question.create!(
+  question_content: 'What was your most popular ingredient in your cookbook?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: '',
+  points: 5,
+  question: sql_cooking_question3
+)
+
+sql_cooking_question4 = Question.create!(
+  question_content: 'What key word can you use to put your results into categories?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'GROUP BY',
+  points: 5,
+  question: sql_cooking_question4
+)
+
+sql_cooking_question5 = Question.create!(
+  question_content: 'What key word can you use to limit your results to ten recipes?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'LIMIT',
+  points: 5,
+  question: sql_cooking_question5
+)
+
+# Accepted Project 2
+frontend_design_animals = Project.create!(
+  name: 'Animal-Themed Web Design: Using HTML and CSS',
+  subject: 'Front-End Design',
+  description: 'Dive into the fascinating world of animals while designing a responsive webpage using HTML and CSS. Utilize various styling techniques to create visually appealing layouts featuring your favorite animals.',
+  deadline: DateTime.now + 2.weeks,
+  status: :accepted,
+  points: 10,
+  user: kevin,
+  interest: 'animals',
+  learning_goal: 'HTML and CSS',
+  steps: ['Step 1: Choose an animal theme.', 'Step 2: Draft a layout design.', 'Step 3: Code the basic structure using HTML.', 'Step 4: Style with CSS.', 'Step 5: Review and refine your webpage.'],
+  vocab_words: ['container', 'selector', 'property', 'value', 'responsive']
+)
+frontend_design_animals_question = Question.create!(
+  question_content: 'What is the div tag used for?',
+  project: frontend_design_animals
+)
+Answer.create!(
+  answer_content: 'The div tag defines a division or a section in an HTML document.',
+  points: 5,
+  question: frontend_design_animals_question
+)
+
+# Accepted Project 3
+kirby_pm = Project.create!(
+  name: 'Dream Land Synergy: Enhancing Teamwork with Kirby',
+  subject: 'Project Management',
+  description: 'Take a whimsical journey into Dream Land with Kirby to explore the essence of teamwork! Using Kirby adaptabilities and his penchant for combining powers, discover how to synergize the unique skills of your team to achieve project success.',
+  deadline: DateTime.now + 3.weeks,
+  status: :accepted,
+  points: 10,
+  user: kevin,
+  interest: 'Kirby',
+  learning_goal: 'improving teamwork in project management',
+  steps: ['Step 1: Dive into Kirbys world and identify moments where teamwork was essential.', 'Step 2: Reflect on Kirbys ability to adapt and combine abilities. How can this be mirrored in team collaborations?', 'Step 3: Organize a "Copy Ability" workshop where team members share their unique skills and learn from one another.', 'Step 4: Create a "Dream Land Charter" that establishes team norms, values, and a shared vision.', 'Step 5: Hold a "Star Allies" retrospective to discuss team wins, areas of improvement, and strategies to enhance collaboration.'],
+  vocab_words: ['Synergy', 'Adaptability', 'Copy Ability', 'Team Charter', 'Retrospective']
+)
+
+kirby_pm_question1 = Question.create!(
+  question_content: 'In what ways does Kirby demonstrate adaptability in his adventures?',
+  project: kirby_pm
+)
+Answer.create!(
+  answer_content: 'Kirby demonstrates adaptability by inhaling enemies and copying their abilities, allowing him to tackle different challenges effectively.',
+  points: 5,
+  question: kirby_pm_question1
+)
+
+kirby_pm_question2 = Question.create!(
+  question_content: 'How can "Copy Ability" be used as a metaphor for sharing and learning skills within a team?',
+  project: kirby_pm
+)
+Answer.create!(
+  answer_content: 'Just as Kirby gains abilities by copying others, team members can "copy" or learn from each other’s unique skills and strengths, enhancing the team’s overall capabilities.',
+  points: 5,
+  question: kirby_pm_question2
+)
+
+kirby_pm_question3 = Question.create!(
+  question_content: 'Why is having a shared "Dream Land Charter" important for a team?',
+  project: kirby_pm
+)
+Answer.create!(
+  answer_content: 'A "Dream Land Charter" establishes a common understanding of team norms, values, and vision. It provides a foundation for how the team will work together, fostering a unified direction and enhancing collaboration.',
+  points: 5,
+  question: kirby_pm_question3
+)
+
+kirby_pm_question4 = Question.create!(
+  question_content: 'What is the value of holding regular "Star Allies" retrospectives?',
+  project: kirby_pm
+)
+Answer.create!(
+  answer_content: 'Regular "Star Allies" retrospectives allow the team to reflect on their performance, celebrate successes, identify areas for improvement, and strategize on how to work better together. It’s a continuous feedback loop that promotes growth and collaboration.',
+  points: 5,
+  question: kirby_pm_question4
+)
+
+kirby_pm_question5 = Question.create!(
+  question_content: 'How does synergy relate to Kirby and his team in Dream Land?',
+  project: kirby_pm
+)
+Answer.create!(
+  answer_content: 'Synergy is the combined effort of a group, producing results greater than the sum of their individual efforts. In Dream Land, Kirby and his allies often combine powers and work together, showcasing that teamwork and synergy can overcome even the toughest challenges.',
+  points: 5,
+  question: kirby_pm_question5
+)
+
+
+
+# Completed Project 1
+cooking_ruby = Project.create!(
+  name: 'Learn Ruby by Crafting a Digital Cookbook',
+  subject: 'Ruby',
+  description: 'Explore the richness of Ruby programming by building a digital cookbook! You will select a variety of recipes, organize ingredients, and map out the cooking steps using arrays and loops.',
+  deadline: DateTime.now,
+  status: :completed,
+  points: 10,
+  user: kevin,
+  interest: 'cooking',
+  learning_goal: 'arrays and loops',
+  steps: ['Step 1: Choose your favorite recipes.', 'Step 2: List out ingredients for each recipe using an array.', 'Step 3: Plan the sequence of cooking steps using loops.', 'Step 4: Define additional features for your digital cookbook.', 'Step 5: Implement your digital cookbook using Ruby code.'],
+  vocab_words: ['array', 'loop', 'iteration', 'index', 'ingredient']
+)
+cooking_ruby_question = Question.create!(
+  question_content: 'In Ruby, how can you use a loop to iterate over an array of ingredients?',
+  project: cooking_ruby
+)
+Answer.create!(
+  answer_content: '.each method',
+  points: 5,
+  question: cooking_ruby_question
+)
+
+
+# Completed project 2
+anime_directory_ruby = Project.create!(
+  name: 'Anime Directory: Using Hashes and Symbols in Ruby',
+  subject: 'Ruby',
+  description: 'Develop an anime directory where you will store data about various anime series. Utilize hash and symbol capabilities to efficiently manage and retrieve information about your favorite shows, characters, and genres.',
+  deadline: DateTime.now + 3.weeks,
+  status: :completed,
+  points: 10,
+  user: kevin,
+  interest: 'anime',
+  learning_goal: 'hashes and symbols in Ruby',
+  steps: ['Step 1: Define the structure of your anime directory using hashes and symbols. Consider properties like :title, :genre, :characters, etc.', 'Step 2: Populate your directory with a few sample anime entries.', 'Step 3: Implement functions to add, update, and delete anime entries.', 'Step 4: Create a function to retrieve information about a specific anime using its title (or another unique identifier).', 'Step 5: Enhance the directory by adding features like searching by genre or listing all characters in the directory.'],
+  vocab_words: ['hash', 'symbol', ':title', ':genre', 'key-value pair']
+)
+anime_directory_ruby_question = Question.create!(
+  question_content: 'How do symbols in Ruby differ from strings, and why might they be used as hash keys?',
+  project: anime_directory_ruby
+)
+Answer.create!(
+  answer_content: 'Symbols are immutable and unique, ensuring that there is only one object for a given symbol, which makes them memory-efficient compared to strings. This uniqueness and immutability make symbols ideal for hash keys as they provide consistent behavior and performance advantages.',
+  points: 5,
+  question: anime_directory_ruby_question
+)
+
 
 # *****************CURTIS PROJECTS*****************
 coding = Project.create!(
