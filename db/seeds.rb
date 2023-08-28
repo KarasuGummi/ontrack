@@ -121,33 +121,179 @@ puts 'Users created!'
 puts 'Creating projects...'
 
 # *****************KEVIN PROJECTS*****************
-language_drawing = Project.create!(
-  name: 'Learn Spanish by Drawing Animals',
-  subject: 'Spanish',
-  description: 'Welcome to our fun and engaging Spanish language learning experience, where we will dive into the world of animals and use drawing as a powerful tool to enhance your language skills! In this interactive and creative lesson, you will discover how drawing can be an exciting way to learn Spanish vocabulary and improve your communication skills.',
-  deadline: DateTime.parse('2023-09-01 17:30:00'),
-  status: :completed,
+
+# Recommended Project 1
+frontend_design_animals = Project.create!(
+  name: 'Animal-Themed Web Design: Using HTML and CSS',
+  subject: 'Front-End Design',
+  description: 'Dive into the fascinating world of animals while designing a responsive webpage using HTML and CSS. Utilize various styling techniques to create visually appealing layouts featuring your favorite animals.',
+  deadline: DateTime.now + 2.weeks,
+  status: :pending,
+  points: 10,
+  user: kevin,
+  interest: 'animals',
+  learning_goal: 'HTML and CSS',
+  steps: ['Step 1: Choose an animal theme.', 'Step 2: Draft a layout design.', 'Step 3: Code the basic structure using HTML.', 'Step 4: Style with CSS.', 'Step 5: Review and refine your webpage.'],
+  vocab_words: ['container', 'selector', 'property', 'value', 'responsive']
+)
+frontend_design_animals_question = Question.create!(
+  question_content: 'What is the div tag used for?',
+  project: frontend_design_animals
+)
+Answer.create!(
+  answer_content: 'The div tag defines a division or a section in an HTML document.',
+  points: 5,
+  question: frontend_design_animals_question
+)
+
+# Recommended Project 2
+javascript_stimulus = Project.create!(
+  name: 'Interactive Web with Stimulus: A Programming Adventure',
+  subject: 'JavaScript',
+  description: 'Enhance your JavaScript skills by diving into Stimulus, a modular framework that simplifies complex interactions. Use Stimulus to add interactivity and enhance user experience on your web applications.',
+  deadline: DateTime.now + 2.weeks,
+  status: :pending,
+  points: 10,
+  user: kevin,
+  interest: 'programming',
+  learning_goal: 'Stimulus',
+  steps: ['Step 1: Setup a basic JavaScript project.', 'Step 2: Integrate the Stimulus framework.', 'Step 3: Identify the interactive elements.', 'Step 4: Write Stimulus controllers.', 'Step 5: Test and refine your interactions.'],
+  vocab_words: ['controller', 'target', 'action', 'hook', 'data-map']
+)
+
+javascript_stimulus_question = Question.create!(
+  question_content: 'What is the equivalent of a stimulus data target in JavaScript?',
+  project: javascript_stimulus
+)
+Answer.create!(
+  answer_content: 'The data target serves a function similar to a querySelector.',
+  points: 5,
+  question: javascript_stimulus_question
+)
+
+# Recommended Project 3
+german_dancing = Project.create!(
+  name: 'Dance to German Verbs: Moving with Language',
+  subject: 'German',
+  description: 'Combine your passion for dancing with learning German. Discover basic German action verbs, incorporate them into your dance routines, and have fun while mastering a new language.',
+  deadline: DateTime.now + 2.weeks,
+  status: :pending,
+  points: 10,
+  user: kevin,
+  interest: 'dancing',
+  learning_goal: 'basic action verbs',
+  steps: ['Step 1: List down German action verbs.', 'Step 2: Understand their meanings.', 'Step 3: Choreograph a dance using the verbs.', 'Step 4: Practice and refine.', 'Step 5: Perform and enjoy!'],
+  vocab_words: ['tanzen', 'springen', 'laufen', 'drehen', 'schwingen']
+)
+
+german_dancing_question = Question.create!(
+  question_content: 'What is the English translation for the German word tanzen?',
+  project: german_dancing
+)
+Answer.create!(
+  answer_content: 'Tanzen means dance in English.',
+  points: 5,
+  question: german_dancing_question
+)
+
+
+  # Accepted project 1
+sql_cooking = Project.create!(
+  name: 'Database Delicacies: Cooking up SQL Queries',
+  subject: 'SQL',
+  description: 'Dive into the world of relational databases while relating it to your passion for cooking. Create a database for recipes, ingredients, and cuisines using basic SQL queries.',
+  deadline: DateTime.now + 1.week,
+  status: :accepted,
+  points: 10,
+  user: kevin,
+  interest: 'cooking',
+  learning_goal: 'basic queries',
+  steps: ['Step 1: Design a database schema.', 'Step 2: Create tables for recipes and ingredients.', 'Step 3: Insert data into the tables.', 'Step 4: Write basic SQL queries to fetch data.', 'Step 5: Analyze and optimize your queries.'],
+  vocab_words: ['SELECT', 'FROM', 'WHERE', 'JOIN', 'GROUP BY']
+)
+
+sql_cooking_question = Question.create!(
+  question_content: 'What does SQL stand for? ',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'Structured Query Language',
+  points: 5,
+  question: sql_cooking_question
+)
+
+sql_cooking_question2 = Question.create!(
+  question_content: 'What key word combines data from different tables?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'JOIN',
+  points: 5,
+  question: sql_cooking_question2
+)
+
+sql_cooking_question3 = Question.create!(
+  question_content: 'What was your most popular ingredient in your cookbook?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: '',
+  points: 5,
+  question: sql_cooking_question3
+)
+
+sql_cooking_question4 = Question.create!(
+  question_content: 'What key word can you use to put your results into categories?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'GROUP BY',
+  points: 5,
+  question: sql_cooking_question4
+)
+
+sql_cooking_question5 = Question.create!(
+  question_content: 'What key word can you use to limit your results to ten recipes?',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'LIMIT',
+  points: 5,
+  question: sql_cooking_question5
+)
+
+
+# Accepted project 2
+
+architecture_drawing = Project.create!(
+  name: 'Architectural Sketching: Bringing Buildings to Life',
+  subject: 'Architecture',
+  description: 'Understand the fundamental principles of architectural drawing. Develop skills in sketching various architectural elements. Apply artistic techniques to create expressive and detailed architectural drawings. Gain a deeper appreciation for the relationship between architecture and art.',
+  deadline: DateTime.parse('2023-08-12 17:30:00'),
+  status: :accepted,
   points: 10,
   user: kevin,
   interest: 'drawing',
-  learning_goal: 'past tense action verbs'
+  steps: ['Step 1: Gather your favorite art materials.', 'Step 2: Choose the type of structure to draw.', 'Step 3: Research examples of your structure.', 'Step 4: Create a rough sketch.', 'Step 5: Start drawing!'],
+  vocab_words: ['bridge', 'structure', 'angles', 'scaffolding', 'building']
 )
-language_drawing_question = Question.create!(
-  question_content: 'Can you mention three animals we drew today in Spanish?',
-  project: language_drawing
+architecture_drawing_question = Question.create!(
+  question_content: 'How does architectural sketching bridge the gap between architecture and art?',
+  project: architecture_drawing
 )
 Answer.create!(
-  answer_content: 'Perro, Gato, Elefante',
+  answer_content: 'merging the technical aspects of design with artistic expression',
   points: 5,
-  question: language_drawing_question
+  question: architecture_drawing_question
 )
 
+# Completed Project 1
 language_drawing2 = Project.create!(
   name: 'Learn Spanish by Creating a Comic Book',
   subject: 'Spanish',
   description: 'Learn basic spanish verbs by creating a comic book! Choose a setting that appeals to you, choose your characters, and make a list of what their actions. Your goal is to use 5 - 10 action verbs in your comic strip.',
   deadline: DateTime.now,
-  status: :pending,
+  status: :completed,
   points: 10,
   user: kevin,
   interest: 'drawing',
@@ -165,109 +311,7 @@ Answer.create!(
   question: language_drawing2_question
 )
 
-# architecture_harrypotter = Project.create!(
-#   name: 'Magical Architectural Wonders: Unveiling the Enchantment of Harry Potter-Inspired Architecture',
-#   subject: 'Architecture',
-#   description: 'Understand the influence of architecture in storytelling and fantasy literature. Recognize architectural elements inspired by the Harry Potter series. Explore the creative process of designing magical structures. Develop critical thinking skills by analyzing the connection between architecture and the world of Harry Potter.',
-#   deadline: DateTime.parse('2023-08-12 17:30:00'),
-#   status: :pending,
-#   points: 120,
-#   user: kevin,
-#   interest: 'harry potter'
-# )
-# architecture_harrypotter_question = Question.create!(
-#   question_content: 'What are some iconic locations from the Harry Potter series, and how does their architecture reflect the magical nature of the wizarding world?',
-#   project: architecture_harrypotter
-# )
-# Answer.create!(
-#   answer_content: 'Hogwarts Castle, Diagon Alley, and the Burrow',
-#   points: 20,
-#   question: architecture_harrypotter_question
-# )
-
-# architecture_animation = Project.create!(
-#   name: 'Animate Your Architectural Imagination: Exploring Architecture through Japanese Animation',
-#   subject: 'Architecture',
-#   description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
-#   deadline: DateTime.parse('2023-08-12 17:30:00'),
-#   status: :pending,
-#   points: 110,
-#   user: kevin,
-#   interest: 'drawing'
-# )
-# architecture_animation_question = Question.create!(
-#   question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
-#   project: architecture_animation
-# )
-# Answer.create!(
-#   answer_content: 'The integration of architecture and animation in anime creates a multi-layered visual experience.',
-#   points: 25,
-#   question: architecture_animation_question
-# )
-
-
-architecture_drawing = Project.create!(
-  name: 'Architectural Sketching: Bringing Buildings to Life',
-  subject: 'Architecture',
-  description: 'Understand the fundamental principles of architectural drawing. Develop skills in sketching various architectural elements. Apply artistic techniques to create expressive and detailed architectural drawings. Gain a deeper appreciation for the relationship between architecture and art.',
-  deadline: DateTime.parse('2023-08-12 17:30:00'),
-  status: :pending,
-  points: 10,
-  user: kevin,
-  interest: 'drawing',
-  steps: ['Step 1: Gather your favorite art materials.', 'Step 2: Choose the type of structure to draw.', 'Step 3: Research examples of your structure.', 'Step 4: Create a rough sketch.', 'Step 5: Start drawing!'],
-  vocab_words: ['bridge', 'structure', 'angles', 'scaffolding', 'building']
-)
-architecture_drawing_question = Question.create!(
-  question_content: 'How does architectural sketching bridge the gap between architecture and art?',
-  project: architecture_drawing
-)
-Answer.create!(
-  answer_content: 'merging the technical aspects of design with artistic expression',
-  points: 5,
-  question: architecture_drawing_question
-)
-
-# architecture_finalfantasy = Project.create!(
-#   name: 'Drawing Fantastical Architecture: Exploring Final Fantasy-Inspired Designs',
-#   subject: 'Architecture',
-#   description: 'Encourage creativity by having students design their own fantastical architectural structures inspired by the Final Fantasy universe.',
-#   deadline: DateTime.parse('2023-09-01 17:30:00'),
-#   status: :accepted,
-#   points: 10,
-#   user: kevin,
-#   interest: 'final fantasy'
-# )
-# architecture_finalfantasy_question = Question.create!(
-#   question_content: 'What are some iconic Final Fantasy architecture?',
-#   project: architecture_finalfantasy
-# )
-# Answer.create!(
-#   answer_content: 'Ul\'dah, Gridania, and Limsa Lominsa',
-#   points: 5,
-#   question: architecture_finalfantasy_question
-# )
-
-# Project.create!(
-#   name:
-#   subject:
-#   description:
-#   deadline:
-#   status:
-#   points:
-#   user:
-#   interest:
-# )
-# Question.create!(
-#   question_content:
-#   project:
-# )
-# Answer.create!(
-#   answer_content:
-#   points:
-#   question:
-# )
-
+# Completed project 2
 language_starwars = Project.create!(
   name: 'A New Hope: Exploring Spanish Vocabulary Through Star Wars',
   subject: 'Spanish',
@@ -290,6 +334,53 @@ Answer.create!(
   points: 5,
   question: language_starwars_question
 )
+
+
+# Completed project 3
+german_feelings_dancing = Project.create!(
+  name: 'Expressive Dance: Feel the German Emotions',
+  subject: 'German',
+  description: 'Explore the world of emotions in the German language. As you learn about feelings and moods in German, incorporate them into dance movements, capturing the essence of each emotion.',
+  deadline: DateTime.now - 3.weeks,
+  status: :completed,
+  points: 10,
+  user: kevin,
+  interest: 'dancing',
+  learning_goal: 'basic feelings',
+  steps: ['Step 1: List German words for emotions.', 'Step 2: Understand each feeling.', 'Step 3: Dance like no one is watching.', 'Step 4: Write down how you felt.', 'Step 5: Share your feelings with someone from Germany!'],
+  vocab_words: ['Glucklich', 'Traurig', 'Wutend', 'Begeistert', 'Verwirrt']
+)
+german_feelings_dancing_question = Question.create!(
+  question_content: 'How do you say happy in German?',
+  project: german_feelings_dancing
+)
+Answer.create!(
+  answer_content: 'Glucklich',
+  points: 5,
+  question: german_feelings_dancing_question
+)
+
+# Completed Project 4
+architecture_animation = Project.create!(
+  name: 'Animate Your Architectural Imagination: Exploring Architecture through Japanese Animation',
+  subject: 'Architecture',
+  description: 'Analyze the influence of architecture in Japanese animation. Recognize architectural elements and styles commonly depicted in anime. Understand the cultural significance of architecture in different anime settings. Apply architectural concepts to create a unique anime-inspired building design.',
+  deadline: DateTime.parse('2023-08-12 17:30:00'),
+  status: :completed,
+  points: 110,
+  user: kevin,
+  interest: 'drawing'
+)
+architecture_animation_question = Question.create!(
+  question_content: 'How does the integration of architecture and animation impact the overall artistry of anime?',
+  project: architecture_animation
+)
+Answer.create!(
+  answer_content: 'The integration of architecture and animation in anime creates a multi-layered visual experience.',
+  points: 25,
+  question: architecture_animation_question
+)
+
 
 # *****************CURTIS PROJECTS*****************
 coding = Project.create!(
