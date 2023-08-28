@@ -294,22 +294,23 @@ sql_cooking = Project.create!(
   vocab_words: ['SELECT', 'FROM', 'WHERE', 'JOIN', 'GROUP BY']
 )
 
-sql_cooking_question = Question.create!(
-  question_content: 'What does SQL stand for? ',
-  project: sql_cooking
-)
-Answer.create!(
-  answer_content: 'Structured Query Language',
-  points: 5,
-  question: sql_cooking_question
-)
 
-sql_cooking_question2 = Question.create!(
+sql_cooking_question = Question.create!(
   question_content: 'What key word combines data from different tables?',
   project: sql_cooking
 )
 Answer.create!(
   answer_content: 'JOIN',
+  points: 5,
+  question: sql_cooking_question
+)
+
+sql_cooking_question2 = Question.create!(
+  question_content: 'What does SQL stand for? ',
+  project: sql_cooking
+)
+Answer.create!(
+  answer_content: 'Structured Query Language',
   points: 5,
   question: sql_cooking_question2
 )
