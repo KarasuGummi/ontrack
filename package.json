@@ -8,6 +8,8 @@
     "@popperjs/core": "^2.11.8",
     "@rails/actioncable": "^7.0.7",
     "bootstrap": "^5.3.1",
+    "party-js": "^2.2.0",
+    "stimulus-confetti": "^1.0.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   },

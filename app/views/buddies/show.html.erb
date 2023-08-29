@@ -3,8 +3,8 @@
 <div class="container py-3 buddy-show col-12">
   <%# -----------------------------------love and point part----------------------------------- %>
   <div class="love-point">
-    <div class="buddy-love">
-      <p><i class="fa-solid fa-heart"></i>&emsp;<%= @buddy.love %></p>
+    <div class="buddy-love", data-controller='party-confetti'>
+      <p data-party-confetti-target='love'><i class="fa-solid fa-heart"></i>&emsp;<%= @buddy.love %></p>
     </div>
     <div class="user-points">
       <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 23, crop: :fill) %>&emsp;<%= current_user.points %></p>
