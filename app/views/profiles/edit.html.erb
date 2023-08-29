@@ -2,7 +2,7 @@
 <%= render "shared/navbar"%>
 <div class="row profile-edit col-12">
   <div class="container">
-    <h3 class="text-center py-3">Select interests!</h3>
+    <h3 class="text-center py-3">Choose Your Interests!</h3>
     <div class="edit-form bg-white rounded-4 p-1 shadow">
       <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
         <div class="profile_edit_card">
