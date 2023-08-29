@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   def index
     @user = current_user
     @buddy = current_user.buddy
+    @latest_project = current_user.projects.accepted.order(created_at: :desc).first
+    @nearest_deadline_project = current_user.projects.accepted.where('deadline > ?', DateTime.now).order(:deadline).first
     @profile_greetings = [
       "Hi there!", "What's up?", "What are you interested in?", "Want to add new interest?",
       "Want to update your profile?", "I know you can do it!",

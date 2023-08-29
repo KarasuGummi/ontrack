@@ -1,10 +1,9 @@
 <% content_for :current_page, 'profile_index' %>
-
 <%= render "shared/navbar"%>
 <div class="profile-index">
   <div class="container">
     <div class="user_info">
-    <%# will change the user avatar placeholder  %>
+      <%# will change the user avatar placeholder  %>
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, zoom: "0.6", class: "user-avatar"%>
       <% else %>
@@ -14,9 +13,9 @@
       <div class="user_content">
         <div class="profile_edit">
           <p><strong><%= @user.username %></strong></p>
-              <%= link_to edit_profile_path(current_user) do %>
-                <i class="fa-solid fa-pen-to-square"></i>
-              <% end %>
+          <%= link_to edit_profile_path(current_user) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
         </div>
         <ul>
           <li><i class="fa-solid fa-cake-candles"></i> <%= @user.age %> <small>years old</small></li>
@@ -25,36 +24,39 @@
         </ul>
       </div>
     </div>
-
     <div class="blackboard-box">
-        <p>Learning Goals</p>
-        <p><%= @user.learning_goal.capitalize %></p>
+      <% if @latest_project %>
+        <p>⭐️Latest Track</p>
+        <p class="profile-latest-track"><%= link_to @latest_project.name, project_path(@latest_project) %></p>
+      <% else %>
+        <p>No tracks added yet.</p>
+      <% end %>
+      <br>
+      <% if @nearest_deadline_project %>
+        <p class="profile-upcoming-deadline">⏳Your Upcoming Deadline</p>
+        <p class="profile-latest-track">
+          <%= link_to @nearest_deadline_project.deadline.strftime('%Y-%m-%d %H:%M'), project_path(@nearest_deadline_project) %>
+        </p>
+      <% else %>
+        <strong>
+          <p>No upcoming deadlines.</p>
+        </strong>
+      <% end %>
       <div class="chalk1"></div>
       <div class="chalk2"></div>
     </div>
-
-    <div class="subject-card">
-      <p><strong>Subject</strong></p>
-      <div class="profile_card">
-        <div class="user-subject">
-          <%= @user.subject %>
-        </div>
-      </div>
-    </div>
-
-
     <div class="interests-card">
       <p><strong>Interests</strong></p>
       <div class="profile_card">
         <% @user.interests.each do |interest| %>
-        <div class="user_interest">
-          <p><%= interest.name.capitalize %></p>
-        </div>
-          <% end %>
+          <div class="user_interest">
+            <p><%= interest.name.capitalize %></p>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="buddy-part profile-buddy">
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+      <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
       <div class="chatting">
         <div class="says">
           <p><%= @profile_greetings.sample %></p>

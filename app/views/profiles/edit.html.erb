@@ -1,32 +1,32 @@
 <% content_for :current_page, 'profile_edit' %>
-
 <%= render "shared/navbar"%>
 <div class="row profile-edit col-12">
   <div class="container">
-    <h3 class="text-center py-3">Edit Profile</h3>
-
-    <div class="bg-white rounded-4 p-3 shadow edit-form">
+    <h3 class="text-center py-3">Select interests!</h3>
+    <div class="edit-form bg-white rounded-4 p-1 shadow">
       <%= simple_form_for @user, url: profile_path(@user), method: :patch do |f| %>
-      <div class="form-group">
-        <%= f.input :age %>
-        <%= f.input :grade, input_html: { value: f.object.grade.to_s.capitalize } %>
-        <%# <%= f.input :subject %>
-        <%#= f.input :learning_goal, input_html: { value: f.object.learning_goal.to_s.capitalize } %>
-      </div>
-
-      <p>Interests</p>
-      <div class="profile_edit_card">
-        <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
-        <div class="user_edit_interest">
-          <%= b.check_box( class: "tag-selector" )%>
-          <%= b.label( class: "tag-item") { b.text.capitalize } %>
+        <div class="profile_edit_card">
+          <%= f.collection_check_boxes :interest_ids, @interests, :id, :name do |b|%>
+            <div class="user_edit_interest">
+              <%= b.check_box( class: "tag-selector" )%>
+              <%= b.label( class: "tag-item") { b.text.capitalize } %>
+            </div>
+          <% end %>
         </div>
-        <% end %>
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="buddy-part profile-buddy">
+    <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 50, crop: :fill, class: "buddy-avatar")%>
+    <div class="chatting">
+      <div class="says">
+        <p>What are you interested in?</p>
       </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Update", class: "green-update-btn w-100" %>
-      </div>
-        <% end %>
     </div>
   </div>
 </div>

@@ -155,7 +155,7 @@
   box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
   opacity: 90%;
   // display: flex;
-  height: 150px;
+  height: 140px;
   justify-content: space-between;
   margin-bottom: 14px;
   // overflow: hidden;
@@ -168,6 +168,10 @@
 
   h6 {
     text-decoration: underline;
+  }
+
+  img {
+    margin-right: 6px;
   }
 }
 .show-content .content-bottom {

@@ -2,11 +2,7 @@
   background-color: white;
   margin: 0;
   padding: 0;
-  margin-bottom: 60px;
-}
-
-.edit-form {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .tag-item {
@@ -32,11 +28,12 @@
   // margin-bottom: 0.4rem;
 
     margin: 3px;
-    padding: 4px 10px;
-    background-color: #fdcf5a8f;
+    padding: 2px;
+    background-color: white;
     border-radius: 32px;
     font-size: 12px;
     text-align: center;
+    box-shadow: 0 2px 4px 0 $yellow;
 }
 
 .tag-selector:checked + label {
@@ -51,9 +48,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   margin: 3px;
   padding: 4px 5px;
-  gap: 0 5px;
-  height: 150px;
-  overflow-y: scroll;
+  gap: 0 10px;
+  height: 320px
+  // overflow-y: scroll;
 }
 
 .user_edit_interest {
