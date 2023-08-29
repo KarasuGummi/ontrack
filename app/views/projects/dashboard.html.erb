@@ -31,13 +31,15 @@
     </div>
   </div>
 </div>
+<%# <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %>
 <div class="buddy-container">
   <% if @buddy.love == 0 %>
     <section class="sleeping-buddy-dashboard">
       <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
       <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
       <div class="dashboard-buddy-text">
-        <p class="text-center"><%= @sleepy_greetings.sample %></p>
+        <%# <p class="text-center"><%= @sleepy_greetings.sample %>
+        <p class="text-center">Give me snacks or I'll keep sleeping 💤</p>
       </div>
     </section>
   <% elsif current_user.interest_updated_recently? %>
@@ -48,7 +50,7 @@
       <%# <p class="text-center"><%= @interest_greetings.sample %>
       <p class="text-center"><%= "I love #{@user.interests.sample.name}!" %></p>
     </div>
-  <% elsif @buddy.love == 20 %>
+  <% elsif @buddy.love >= 20 %>
     <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 150, crop: :fill)%>
     <div class="dashboard-buddy-text">
       <p class="text-center"><%= @congratulation_greetings.sample %></p>
@@ -59,6 +61,15 @@
       <p class="text-center"><%= @greetings.sample %> </p>
     </div>
   <% end %>
+  <%# display buddy %>
+  <div class="dashboard-love">
+    <div class="buddy-love-db">
+      <p><i class="fa-solid fa-heart"></i>&emsp;<%= @buddy.love %></p>
+    </div>
+    <div class="user-points-db">
+      <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 15) %>&emsp;<%= current_user.points %></p>
+    </div>
+  </div>
 </div>
 <div class="buddy-links text-center">
   <%= link_to buddy_path(@buddy) do %>
@@ -74,26 +85,3 @@
     <%= link_to "Chat with your buddy!", chatroom_path(Chatroom.last)%>
   </button>
 </div>
-<%# display recommended projects %>
-<%# <div class="container">
-  <% if @recommended_projects.any? %>
-<%# <div class="card text-center"> %>
-<%# <div class="card-header"> %>
-<%# Try one of these tracks! %>
-<%# </div> %>
-<%# <% @recommended_projects.each do |project| %>
-  <%# <div class="card-body"> %>
-  <%# <h6 class="card-title"><strong><%= project.name %>
-  <%# <p class="card-text">Subject: <%= project.subject %>
-  <%# <p class="card-text">Topic: <%= project.learning_goal %>
-  <%# <%= link_to '➡️ Try it now!', project_path(project), class: "btn btn-light" %>
-  <%# <% end %>
-  <%# </div> %>
-  <%# <% else %>
-  <%# <p>Ooops! Sorry! 😬</p> %>
-  <%# <p>We don't have any matches for you... yet!</p> %>
-  <%# <p>Want some recommendations? Try updating your interests 😉 <%= link_to "Here", profiles_path %>
-  <%# </div> %>
-  <%# <% end %>
-  <%# </div>
-<br> %>
