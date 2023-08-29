@@ -19,10 +19,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 230px;
+  height: 220px;
   background-color: $faded-yellow;
   padding: 0;
+  position: relative;
 }
+
+
 
 .buddy-image {
   max-width: 100%;
@@ -167,7 +170,8 @@ h4 {
 
 .animated-buddy {
   position: absolute;
-  left: 50%;
+  left: 42%;
+  top: 35%;
   width: 170px; // Adjust width to your preference
   height: auto; // Adjust height to your preference
 }
@@ -203,16 +207,11 @@ h4 {
 
 .rolling-baseball {
   position: absolute;
-  top: 75%;
+  top: 82%;
   left: 90%;
   width: 30px; // Adjust width to your preference
   height: 30px; // Adjust height to your preference
   animation: rollAway 3.5s linear infinite;
-}
-
-.buddy-container {
-  position: relative;
-  height: 200px;
 }
 
 // ----------------------sleeping buddy animation----------------------
@@ -221,7 +220,7 @@ h4 {
   width: 65%;
   height: 125px;
   animation: fade 2.5s infinite alternate;
-  top: 30%;
+  top: 35%;
   left: 17%;
 }
 
@@ -286,4 +285,50 @@ h4 {
     width: 10px;
   }
 
+}
+
+// ------------- dashboard love and points ---------------
+.dashboard-love {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  // display: flex;
+  color: black;
+  gap: 12px;
+  z-index: 10;
+}
+
+.buddy-love-db {
+  margin: 0px;
+  padding: 1px 8px;
+  background-color: white;
+  border-radius: 30px;
+  // border: 0.5px solid #fd1015;
+  font-size: 14px;
+  width: 65px;
+  height: 25px;
+  box-shadow: 0 2px 4px 0 #ff7072;
+  margin: 7px;
+
+  i {
+    color: red;
+    font-size: 18px;
+  }
+}
+
+.user-points-db {
+  margin: 0px;
+  padding: 1px 8px;
+  background-color: white;
+  border-radius: 30px;
+  // border: 0.5px solid #fd1015;
+  font-size: 14px;
+  width: 65px;
+  height: 25px;
+  box-shadow: 0 2px 4px 0 $yellow;
+  margin: 7px;
+
+  img {
+    margin-bottom: 3px;
+  }
 }
