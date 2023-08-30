@@ -28,7 +28,7 @@ puts 'Creating interests...'
 
 # interests = %w[animation dancing singing writing cooking traveling crafts animals anime manga star\ wars harry\ potter shark\ week samurai martial\ arts programming history music fashion science astronomy yoga video\ games final\ fantasy spider-man kirby]
 
-interests = ['Singing 🎤', 'Writing ✍️', 'Cooking 🧑‍🍳', 'Traveling ✈️', 'Nature 🌿', 'Animals 🐶', 'Drinking 🍷', 'Manga 📚', 'Star wars ⭐️', 'Harry potter 🧙🏻', 'Architecture 🏛️', 'Ninja 🥷', 'Disney 🧜🏻‍♀️', 'Programming 👩‍💻', 'History 🏯', 'Music 🎵', 'Fashion 👘', 'Science 🧪', 'Astronomy 🪐', 'Yoga 🧘‍♀️', 'Video games 🎮', 'Makeup 💄', 'Spider-man 🕸️', 'Movie 🍿', 'Photography 📸']
+interests = ['Singing 🎤', 'Writing ✍️', 'Cooking 🧑‍🍳', 'Traveling ✈️', 'Nature 🌿', 'Animals 🐶', 'Drinking 🍷', 'Manga 📚', 'Star wars ⭐️', 'Harry potter 🧙🏻', 'Architecture 🏛️', 'Ninja 🥷', 'Disney 🧜🏻‍♀️', 'Programming 👩‍💻', 'History 🏯', 'Music 🎵', 'Fashion 👘', 'Science 🧪', 'Astronomy 🪐', 'Yoga 🧘‍♀️', 'Video games 🎮', 'Makeup 💄', 'Spider-man 🕸️', 'Movie 🍿']
 
 interests.each do |interest_name|
   Interest.create!(name: interest_name)
@@ -109,7 +109,12 @@ juri = User.create!(
 )
 
 juri_interest = Interest.create!(
-  name: 'Dancing 💃🏻'
+  name: 'dancing 💃🏻'
+)
+
+UserInterest.create!(
+  user: juri,
+  interest: juri_interest
 )
 
 favi = User.create!(
@@ -120,6 +125,15 @@ favi = User.create!(
   buddy: favi_buddy,
   grade: 'college',
   learning_goal: 'rhythm'
+)
+
+favi_interest = Interest.create!(
+  name: 'Photography 📸'
+)
+
+UserInterest.create!(
+  user: favi,
+  interest: favi_interest
 )
 
 puts 'Users created!'
