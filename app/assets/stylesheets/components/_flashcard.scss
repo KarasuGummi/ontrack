@@ -1,32 +1,3 @@
-// .card-body {
-//   transform-style: preserve-3d;
-//   transition: transform 0.5s;
-
-//   height: 300px;
-// }
-// .flip-card:hover .card-inner.question {
-//   transform: rotateX(180deg);
-// }
-// .flip-card:hover .card-inner.answer {
-//   transform: rotateX(0deg);
-// }
-// .card-inner {
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   backface-visibility: hidden;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-// .card-inner.answer {
-//   transform: rotateX(180deg);
-//   height: 300px;
-// }
-// .content {
-//   text-align: center;
-// }
-
 .card {
   position: relative;
   width: 100%;
@@ -50,11 +21,6 @@
   position: absolute;
   backface-visibility: hidden;
   transition: transform 0.5s;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // padding: 10px;
-
   .content {
     text-align: center;
   }

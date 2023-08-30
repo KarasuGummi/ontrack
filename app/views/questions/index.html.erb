@@ -17,8 +17,7 @@
                 <%= question.question_content %>
               </p>
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label fw-light">Your answer here..</label>
-                <textarea class="form-control font-monospace" id="exampleFormControlTextarea1 answer" rows="3" data-flashcard-target="userAnswer"></textarea>
+                <textarea class="form-control font-monospace" id="exampleFormControlTextarea1 answer" rows="5" data-flashcard-target="userAnswer" placeholder="Your answer here..."></textarea>
               </div>
               <div class="d-grid gap-2">
                 <button class="flip-button btn btn-outline-info" type="button" data-action="click->flashcard#flip">Flip</button>
@@ -26,33 +25,24 @@
             </div>
             <!-- Back side -->
             <div class="card-body flip-card back" data-flashcard-target="answer" data-action="click->flashcard#flipBack">
-                  <div class="list-group">
-                    <%# <h4 class="alert-heading text-center">Well done!</h4> %>
-                    <a href="#" class="list-group-item list-group-item-action border-info" aria-current="true">
-                      <div class="w-100 justify-content-between">
-                        <h5 class="mb-1 text-center fst-italic" style="color: #1684A7;">Answer</h5>
-                      </div>
-                      <p class="mb-1 fw-light" style="color: #1684A7;"><%= question.answers.first.answer_content %></p>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action border-warning">
-                      <div class="w-100 justify-content-between">
-                        <h5 class="mb-1 text-center fst-italic" style="color: #E67E22;">Your Answer</h5>
-                      </div>
-                      <p class="mb-1 answer" id="answer"></p>
-                    </a>
-                    <%# <div class="btn-group" role="group" aria-label="Basic outlined example">
-                      <button type="button" class="btn btn-outline-info">1</button>
-                      <button type="button" class="btn btn-outline-info">2</button>
-                      <button type="button" class="btn btn-outline-info">3</button>
-                      <button type="button" class="btn btn-outline-info">4</button>
-                      <button type="button" class="btn btn-outline-info">5</button>
-                    </div>    %>
-    
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                      <button type="button" class="btn btn-outline-info">Try Again 💪</button>
-                      <button type="button" class="btn btn-outline-info">Correct 🙂</button>
-                    </div>
+              <div class="list-group">
+                <div class="list-group-item list-group-item-action border-info" aria-current="true">
+                  <div class="w-100 justify-content-between">
+                    <h5 class="mb-1 text-center fst-italic" style="color: #1684A7;">Answer</h5>
                   </div>
+                  <p class="mb-1 fw-light" style="color: #1684A7;"><%= question.answers.first.answer_content %></p>
+                </div>
+                <div class="list-group-item list-group-item-action border-warning">
+                  <div class="w-100 justify-content-between">
+                    <h5 class="mb-1 text-center fst-italic" style="color: #E67E22;">Your Answer</h5>
+                  </div>
+                  <p class="mb-1 answer" id="answer"></p>
+                </div>    
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <button type="button" class="btn btn-outline-info">Try Again 💪</button>
+                  <button type="button" class="btn btn-outline-info">Correct 🙂</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
