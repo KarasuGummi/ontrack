@@ -38,14 +38,41 @@
     margin-bottom: 5px;
   }
 }
-
-
-.buddy-name {
-  margin-top: 8px;
-  padding: 0;
-  font-family: $title-font;
+// ------------------------buddy name------------------------
+.wood-name {
+  border-radius: 5px;
+  background: url(https://stat.ameba.jp/user_images/20230106/16/migomigo7/ba/25/j/o0640038015226286951.jpg) repeat-y center top;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+  width: 148px;
+  margin: 10px 126px 10px;
+}
+.wood-name2 {
+  padding: 5px;
+  width: 148px;
 }
 
+.wood-name3 {
+  padding: 2px;
+  background-color: rgba(132, 80, 50, 0.6);
+  border: 1.5px solid #fff;
+  border-radius: 5px;
+}
+
+.buddy-name {
+  margin: 0px;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+// .buddy-name {
+//   margin-top: 8px;
+//   padding: 0;
+//   font-family: $title-font;
+// }
+
+
+// ------------------------
 .buddy-room-img {
   background-image: url("https://res.cloudinary.com/dbmqippyl/image/upload/o_75/v1692107006/1347245_v5vsht.jpg");
   height: 300px;

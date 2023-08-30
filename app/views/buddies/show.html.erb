@@ -11,10 +11,18 @@
   </div>
 </div>
 </div>
-<h3 class="text-center buddy-name"><%= @buddy.name.capitalize %></h3>
+<div class="buddy-room-img">
+<div class="wood-name">
+  <div class="wood-name2">
+    <div class="wood-name3">
+      <p class="buddy-name"><%= @buddy.name.capitalize %></p>
+    </div>
+  </div>
+</div>
+<%# <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %>
 <%# display buddy %>
 <%# -----------------------------------buddy comment----------------------------------- %>
-<div class="buddy-room-img">
+
   <div class="buddy-comment">
     <%# awake buddy %>
     <% if @buddy.love > 0 && !@treat %>
