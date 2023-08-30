@@ -6,12 +6,18 @@
 
 .dashboard-top {
   width: 100%;
+
+  hr {
+    border: none;
+    border-top: 2px solid #333;
+    width: 100%;
+    margin: 5px auto 15px auto;
+  }
 }
 
 .my-info {
   width: 100%;
 }
-
 
 .buddy-container {
   flex: 1;
@@ -166,14 +172,32 @@ h4 {
   }
 }
 
+// Regular buddy
+
+.regular-buddy {
+  position: absolute;
+  top: 30%;
+  width: 100px;
+  height: auto;
+}
+
+// Buddy face
+
+.buddy-face {
+  position: absolute;
+  top: 30%;
+  width: 150px;
+  height: auto;
+}
+
 // Buddy playing baseball
 
 .animated-buddy {
   position: absolute;
   left: 42%;
   top: 35%;
-  width: 170px; // Adjust width to your preference
-  height: auto; // Adjust height to your preference
+  width: 170px;
+  height: auto;
 }
 
 
@@ -248,18 +272,18 @@ h4 {
     // color: white;
     // font-size: 15px;
     // margin: 10px 6px;
-    left: 22%;
+    left: 37%;
     top: 8%;
     transform: translateX(-50%);
     position: absolute;
-    padding: 4px 4px;
+    padding: 2px 2px;
     border-radius: 30px;
     background-color: #fff;
     color: black;
     font-size: 14px;
     // margin: 0 8px;
     border: 3px solid orange;
-    width: 40%;
+    width: 60%;
   }
 
   p:before,
@@ -272,15 +296,15 @@ h4 {
   }
 
   p:before {
-    top: 115%;
-    right: 25px;
+    top: 112%;
+    left: 25px;
     height: 15px;
     width: 15px;
   }
 
   p:after {
     top: 162%;
-    right: 15px;
+    left: 43px;
     height: 10px;
     width: 10px;
   }

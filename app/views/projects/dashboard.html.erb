@@ -3,6 +3,7 @@
 <div class="dashboard-container p-2">
   <h3 class="text-center dashboard-title"><strong>OnTrack</strong></h3>
   <div class="dashboard-top">
+    <hr>
     <div class="my-info">
       <%# display latest project %>
       <div class="latest-project">
@@ -39,7 +40,7 @@
       <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
       <div class="dashboard-buddy-text">
         <%# <p class="text-center"><%= @sleepy_greetings.sample %>
-        <p class="text-center">Give me snacks or I'll keep sleeping 💤</p>
+        <p class="text-center">Snacks... Snacks... Snacks</p>
       </div>
     </section>
   <% elsif current_user.interest_updated_recently? %>
@@ -48,15 +49,15 @@
     <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "rolling-baseball", alt: "Rolling Baseball") %>
     <div class="dashboard-buddy-text">
       <%# <p class="text-center"><%= @interest_greetings.sample %>
-      <p class="text-center"><%= "I love #{@user.interests.sample.name}!" %></p>
+      <p class="text-center"><%= "I love #{@user.interests.sample.name} too!" %></p>
     </div>
   <% elsif @buddy.love >= 20 %>
-    <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", height: 150, crop: :fill)%>
+    <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1691307874/buddy-face_inetw9.png", class: "buddy-face")%>
     <div class="dashboard-buddy-text">
       <p class="text-center"><%= @congratulation_greetings.sample %></p>
     </div>
   <% else %>
-    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 150, crop: :fill) %>
+    <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", class: "regular-buddy") %>
     <div class="dashboard-buddy-text">
       <p class="text-center"><%= @greetings.sample %> </p>
     </div>
