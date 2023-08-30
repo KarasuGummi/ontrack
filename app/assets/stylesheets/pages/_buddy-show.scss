@@ -43,10 +43,15 @@
   border-radius: 5px;
   background: url(https://stat.ameba.jp/user_images/20230106/16/migomigo7/ba/25/j/o0640038015226286951.jpg) repeat-y center top;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
+  // box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.35);
   width: 148px;
   margin: 10px 126px 10px;
+  position: absolute;
+  top: -30px;
+  // box-shadow: 0 2px 4px 0 brown;
+  box-shadow: 0 5px 0 rgb(97, 58, 36);
 }
+
 .wood-name2 {
   padding: 5px;
   width: 148px;
@@ -60,10 +65,20 @@
 }
 
 .buddy-name {
-  margin: 0px;
+  margin: 0;
   padding: 0;
   color: white;
   text-align: center;
+  font-family: $title-font;
+  font-size: 20px;
+}
+.wood-name span:before,
+.wood-name span:after{
+    content:"";
+    border-radius:50%;
+    position:absolute;
+    top:10px;
+    box-shadow:inset 0px -1px 2px rgba(0, 0, 0, 0.5),inset 0px 1px 1px rgba(0, 0, 0, 0.2);
 }
 // .buddy-name {
 //   margin-top: 8px;
@@ -78,7 +93,7 @@
   height: 300px;
   background-size: cover;
   position: relative;
-
+  margin-top: 28px;
 
 //   background-repeat: no-repeat;
 //   background-position: center;
