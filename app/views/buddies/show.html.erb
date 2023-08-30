@@ -12,135 +12,116 @@
 </div>
 </div>
 <div class="buddy-room-img">
-<div class="wood-name">
-  <div class="wood-name2">
-    <div class="wood-name3">
-      <p class="buddy-name"><span><%= @buddy.name.capitalize %><span></p>
-    </div>
-  </div>
-</div>
-<%# <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %>
-<%# display buddy %>
-<%# -----------------------------------buddy comment----------------------------------- %>
-
-  <div class="buddy-comment">
-    <%# awake buddy %>
-    <% if @buddy.love > 0 && !@treat %>
-      <p class="text-center">I'm hungry, give me snacks!</p>
-      <%# eating pizza buddy %>
-    <% elsif @buddy.love > 0 && @treat == "pizza" %>
-      <p class="text-center">Does Le Wagon have pizza too?🍕</p>
-      <%# eating dounuts buddy %>
-    <% elsif @buddy.love > 0 && @treat == "donut" %>
-      <p class="text-center">So yummy! I love donuts🍩</p>
-      <%# study buddy %>
-    <% elsif @buddy.love > 0 && @treat == "book" %>
-      <p class="text-center">Let's study together📚</p>
-      <%# baseball buddy %>
-    <% elsif @buddy.love > 0 && @treat == "baseball" %>
-      <p class="text-center">Play with me⚾️</p>
-      <%# sleeping buddy %>
-    <% else %>
-      <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
-    <% end %>
-  </div>
-  <%# -----------------------------------buddy img----------------------------------- %>
-  <div class="buddy-show-img">
-    <%# awake buddy %>
-    <% if @buddy.love > 0 && !@treat %>
-      <div class="awake-buddy">
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 140, crop: :fill) %>
+  <div class="wood-name">
+    <div class="wood-name2">
+      <div class="wood-name3">
+        <p class="buddy-name"><span><%= @buddy.name.capitalize %><span></p>
+          </div>
+        </div>
       </div>
-      <%# eating donuts buddy %>
-    <% elsif @buddy.love > 0 && @treat == "donut" %>
-      <section class="buddy-eating">
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-2_or42m8.png", class: "bottom" , height: 140, crop: :fill) %>
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-1_1_e5bmzt.png", class: "top", height: 140, crop: :fill) %>
-      </section>
-      <%# eating pizza buddy %>
-    <% elsif @buddy.love > 0 && @treat == "pizza" %>
-      <section class="buddy-eating">
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-pizza-2_wjhrja.png", class: "bottom" , height: 140, crop: :fill) %>
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-pizza-1_v3burp.png", class: "top", height: 140, crop: :fill) %>
-      </section>
-      <%# study buddy %>
-    <% elsif @buddy.love > 0 && @treat == "book" %>
-      <section class="buddy-studing">
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840872/twrzudjszwplnkzcumb3.png", height: 140, crop: :fill) %>
-      </section>
-      <%# baseball buddy %>
-    <% elsif @buddy.love > 0 && @treat == "baseball" %>
-      <section>
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666748/buddy-play-1.png", class: "animated-buddy-show", alt: "Animated Buddy") %>
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666758/buddy-play-2.png", class: "animated-buddy-show buddy-play-2-show", alt: "Animated Buddy 2") %>
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "rolling-baseball-show", alt: "Rolling Baseball") %>
-      </section>
-      <%# sleeping buddy %>
-    <% else %>
-      <section class="sleeping-buddy">
-        <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
-        <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
-      </section>
-    <% end %>
-  </div>
-</div>
-<%# -----------------------------------buddy snacks----------------------------------- %>
-<div class="container buddy-show buddy-snacks">
-  <div class="buddy-snack text-center">
-    <%= form_tag feed_buddy_path, method: :post do %>
-      <%= hidden_field_tag "treat", "donut" %>
-      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill, height: 40, width: 40) %>
-    <% end %>
-  </div>
-  <div class="buddy-snack text-center">
-    <%= form_tag feed_buddy_path, method: :post do %>
-      <%= hidden_field_tag "treat", "pizza"%>
-      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill, height: 40, width: 40) %>
-    <% end %>
-  </div>
-  <div class="buddy-snack text-center">
-    <%= form_tag feed_buddy_path, method: :post do %>
-      <%= hidden_field_tag "treat", "book" %>
-      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill, height: 40, width: 40) %>
-    <% end %>
-  </div>
-  <div class="buddy-snack text-center">
-    <%= form_tag feed_buddy_path, method: :post do %>
-      <%= hidden_field_tag "treat", "baseball" %>
-      <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill, height: 40, width: 40) %>
-    <% end %>
-  </div>
-</div>
-<%# -----------------------------------snack points----------------------------------- %>
-<div class="coin-points">
-  <div class="coin-point">
-    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×1</small></p>
-  </div>
-  <div class="coin-point">
-    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×2</small></p>
-  </div>
-  <div class="coin-point">
-    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×3</small></p>
-  </div>
-  <div class="coin-point">
-    <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×4</small></p>
-  </div>
-</div>
-<%# <%= render "shared/footer" %> 
-<%# <div class="container py-3 buddy-show buddy-points"> %>
-<%# <%= form_tag feed_buddy_path, method: :post do %>
-  <%# <%= label_tag :points, "Points to feed buddy:" %>
-  <%# <%= number_field_tag :points %>
-  <%# <%= submit_tag "Feed Me" %>
-  <%# <% end %>
-  <%# </div> %>
-  <%# <ul class="budy-info">
-
-    <li>
-      <>Name: <%= @buddy.name %>
-  <%# </li>
-    <li>
-      <>Personality: <%= @buddy.personality %>
-  <%# </li>
-
-  </ul> %>
+      <%# <h3 class="text-center buddy-name"><%= @buddy.name.capitalize %>
+      <%# display buddy %>
+      <%# -----------------------------------buddy comment----------------------------------- %>
+      <div class="buddy-comment">
+        <%# awake buddy %>
+        <% if @buddy.love > 0 && !@treat %>
+          <p class="text-center">I'm hungry, give me snacks!</p>
+          <%# eating pizza buddy %>
+        <% elsif @buddy.love > 0 && @treat == "pizza" %>
+          <p class="text-center">Does Le Wagon have pizza too?🍕</p>
+          <%# eating dounuts buddy %>
+        <% elsif @buddy.love > 0 && @treat == "donut" %>
+          <p class="text-center">So yummy! I love donuts🍩</p>
+          <%# study buddy %>
+        <% elsif @buddy.love > 0 && @treat == "book" %>
+          <p class="text-center">Let's study together📚</p>
+          <%# baseball buddy %>
+        <% elsif @buddy.love > 0 && @treat == "baseball" %>
+          <p class="text-center">Play with me⚾️</p>
+          <%# sleeping buddy %>
+        <% else %>
+          <p class="text-center">Give me snacks or I'm going to keep sleeping</p>
+        <% end %>
+      </div>
+      <%# -----------------------------------buddy img----------------------------------- %>
+      <div class="buddy-show-img">
+        <%# awake buddy %>
+        <% if @buddy.love > 0 && !@treat %>
+          <div class="awake-buddy">
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691219849/dog_main.png", height: 140, crop: :fill) %>
+          </div>
+          <%# eating donuts buddy %>
+        <% elsif @buddy.love > 0 && @treat == "donut" %>
+          <section class="buddy-eating">
+            <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-2_or42m8.png", class: "bottom" , height: 140, crop: :fill) %>
+            <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-donut-1_1_e5bmzt.png", class: "top", height: 140, crop: :fill) %>
+          </section>
+          <%# eating pizza buddy %>
+        <% elsif @buddy.love > 0 && @treat == "pizza" %>
+          <section class="buddy-eating">
+            <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-pizza-2_wjhrja.png", class: "bottom" , height: 140, crop: :fill) %>
+            <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692370091/dog-pizza-1_v3burp.png", class: "top", height: 140, crop: :fill) %>
+          </section>
+          <%# study buddy %>
+        <% elsif @buddy.love > 0 && @treat == "book" %>
+          <section class="buddy-studing">
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840872/twrzudjszwplnkzcumb3.png", height: 140, crop: :fill) %>
+          </section>
+          <%# baseball buddy %>
+        <% elsif @buddy.love > 0 && @treat == "baseball" %>
+          <section>
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666748/buddy-play-1.png", class: "animated-buddy-show", alt: "Animated Buddy") %>
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666758/buddy-play-2.png", class: "animated-buddy-show buddy-play-2-show", alt: "Animated Buddy 2") %>
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "rolling-baseball-show", alt: "Rolling Baseball") %>
+          </section>
+          <%# sleeping buddy %>
+        <% else %>
+          <section class="sleeping-buddy">
+            <%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1691390436/qifldk91fout1jdwru7r.png", class: "bottom", crop: :fill) %>
+            <%= image_tag("https://res.cloudinary.com/dbmqippyl/image/upload/v1692203189/Sleeping-dog-mouth-closed_in6j1c.png", class: "top", height: 140, crop: :fill) %>
+          </section>
+        <% end %>
+      </div>
+    </div>
+    <%# -----------------------------------buddy snacks----------------------------------- %>
+    <div class="container buddy-show buddy-snacks">
+      <div class="buddy-snack text-center">
+        <%= form_tag feed_buddy_path, method: :post do %>
+          <%= hidden_field_tag "treat", "donut" %>
+          <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692877986/donut-2.png", class: "icon-donut", crop: :fill, height: 40, width: 40) %>
+        <% end %>
+      </div>
+      <div class="buddy-snack text-center">
+        <%= form_tag feed_buddy_path, method: :post do %>
+          <%= hidden_field_tag "treat", "pizza"%>
+          <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692878037/pizza-2.png", class: "icon-pizza", crop: :fill, height: 40, width: 40) %>
+        <% end %>
+      </div>
+      <div class="buddy-snack text-center">
+        <%= form_tag feed_buddy_path, method: :post do %>
+          <%= hidden_field_tag "treat", "book" %>
+          <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692840836/xoysuzlsbyl2ffcp0ek4.png", class: "icon-book", crop: :fill, height: 40, width: 40) %>
+        <% end %>
+      </div>
+      <div class="buddy-snack text-center">
+        <%= form_tag feed_buddy_path, method: :post do %>
+          <%= hidden_field_tag "treat", "baseball" %>
+          <%= image_submit_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1692666773/baseball.png", class: "icon-baseball", crop: :fill, height: 40, width: 40) %>
+        <% end %>
+      </div>
+    </div>
+    <%# -----------------------------------snack points----------------------------------- %>
+    <div class="coin-points">
+      <div class="coin-point">
+        <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×1</small></p>
+      </div>
+      <div class="coin-point">
+        <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×2</small></p>
+      </div>
+      <div class="coin-point">
+        <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×3</small></p>
+      </div>
+      <div class="coin-point">
+        <p class="text-center"><%= image_tag("https://res.cloudinary.com/du53mgiot/image/upload/v1693018258/oqdpn4gg1nipqaayehqq.png", height: 14, crop: :fill) %><small>×4</small></p>
+      </div>
+    </div>
