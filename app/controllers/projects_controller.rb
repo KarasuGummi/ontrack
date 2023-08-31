@@ -149,14 +149,19 @@ class ProjectsController < ApplicationController
 
   def generate_recommendations(subject, learning_goal, user_interest)
     prompt = <<~PROMPT
-      I'm seeking a project recommendation for my class. The project should uniquely intertwine the student's interest (user_interest), the subject they're studying (subject), and the specific learning goal (learning_goal) they are targeting.
+      I'm seeking a project recommendation for my class.
+
+      Provide a project recommendation where:
+      - The subject (#{subject}) is CENTRAL to the project.
+      - The learning goal (#{learning_goal}) is EXPLICITLY targeted and achieved.
+      - The student's personal interest (#{user_interest}) is CLEARLY woven into the core of the project.
 
       Specific guidelines:
-      1. The description should be concise, not exceeding 30 words.
-      2. The instructions for the project should be broken down into 4 distinct steps, each within 16 words.
-      3. Both the user_interest and learning_goal MUST be explicitly mentioned in the project's name or description.
-      4. Vocabulary is essential; hence, suggest 5 vocabulary words relevant to the project.
-      5. Develop five questions about the project. These questions should either reference a vocabulary word or a specific step in the project. Each question should have a corresponding answer.
+      1. Description: Concise (max 30 words) and must mention the learning goal and user interest.
+      2. Steps: 4 distinct steps. Each within 16 words.
+      3. Name/Description: MUST explicitly mention both user_interest and learning_goal.
+      4. Vocabulary: Provide 5 vocabulary words integral to the project.
+      5. Questions: Create five that reference a vocab word or project step. Include answers.
 
       Format the output as a JSON object with these attributes and this format. Subject, learning_goal, and user_interest are already provided:
       "name": "name",
