@@ -2,18 +2,15 @@
 
 A flexible educational application that assists with learning and is paired with a Tamagotchi-like companion. OnTrack can create users fun and interactive projects that are curated to their learning goals, interests, and hobbies. In addition, users are paired with their very own 'buddy' that will grow alongside them. Completed projects earn points, which can be used to feed and customize the 'buddy', making the user's educational journey personal to them.
 
-<img width="250" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/cc01ec37-63ef-46cd-9eca-303aaac74dbe">
-<img width="250" alt="profile" src="https://github.com/KarasuGummi/ontrack/assets/1535336/2c6ecf05-313c-4623-a5c6-26567e156921">
-<img width="250" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/3eabf01a-801a-4128-9a69-dc1d5c9dbb74">
-<img width="250" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/964332ea-b827-4c14-a9a7-4c5c7008818c">
-
-<br>![IMG_20230906_114508]()
+<img width="200" height="416" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/cc01ec37-63ef-46cd-9eca-303aaac74dbe">
+<img width="200" alt="profile" src="https://github.com/KarasuGummi/ontrack/assets/1535336/2c6ecf05-313c-4623-a5c6-26567e156921">
+<img width="200" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/3eabf01a-801a-4128-9a69-dc1d5c9dbb74">
+<img width="200" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/964332ea-b827-4c14-a9a7-4c5c7008818c">
 
 
 ## 📕 Usage
 App home: https://www.ontrack.tokyo/
 
-User </br>
 User: kevin@ontrack.com</br>
 PW: buddy000
 
