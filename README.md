@@ -1,6 +1,11 @@
 # 🛣️ OnTrack
 
-A flexible educational application that assists with learning and is paired with a Tamagotchi-like companion. OnTrack can create users fun and interactive projects that are curated to their learning goals, interests, and hobbies. In addition, users are paired with their very own 'buddy' that will grow alongside them. Completed projects earn points, which can be used to feed and customize the 'buddy', making the user's educational journey personal to them.
+A flexible educational application that assists with learning and is paired with a Tamagotchi-like companion. OnTrack creates fun and interactive projects that are curated to the learning goals, interests, and hobbies of each user. In addition, users are paired with their very own 'buddy' that will grow alongside them. Completed projects earn points, which can be used to feed and customize the 'buddy', making the user's educational journey personal to them.
+
+## Future Developments
+
+This repository showcases the original project as developed collaboratively by our team. I'm excited about the potential of this project and I am actively continuing its development in a separate private repository. If you're interested in collaboration, partnerships, or have any inquiries about the current state of the project, feel encouraged to contact me. - [Kevin Collier](mailto:collier.kevin.m@gmail.com)
+
 
 <img width="200" height="416" alt="dashboard" src="https://github.com/KarasuGummi/ontrack/assets/1535336/cc01ec37-63ef-46cd-9eca-303aaac74dbe">
 <img width="200" alt="profile" src="https://github.com/KarasuGummi/ontrack/assets/1535336/2c6ecf05-313c-4623-a5c6-26567e156921">
